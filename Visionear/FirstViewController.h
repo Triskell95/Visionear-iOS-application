@@ -10,6 +10,8 @@
 
 @interface FirstViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *visionearLabel;
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
 
 @end
 

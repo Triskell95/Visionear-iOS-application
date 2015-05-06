@@ -14,9 +14,20 @@
 
 @implementation FirstViewController
 
+@synthesize startButton;
+@synthesize visionearLabel;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    //Start buttom customization
+    [[startButton layer] setBorderWidth:1.0f];
+    [[startButton layer] setBorderColor:[UIColor blackColor].CGColor];
+    startButton.layer.cornerRadius = 20; // this value vary as per your desire
+    startButton.clipsToBounds = YES;
+    
+    //Visionear label customization THSarabunNew
+    //[[self visionearLabel] setFont:[UIFont fontWithName:@"THSarabunNew" size:70]];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -5,11 +5,16 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="THSarabunNew Italic.ttf">
+            <string>THSarabunNew-Italic</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Visionear-->
         <scene sceneID="BIu-WC-zaN">
             <objects>
-                <viewController id="UYA-B1-uoB" sceneMemberID="viewController">
+                <viewController id="UYA-B1-uoB" customClass="FirstViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Li-aq-Gkh"/>
                         <viewControllerLayoutGuide type="bottom" id="8aY-LY-8nt"/>
@@ -19,27 +24,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Visionear" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="n6O-0V-uJ6">
-                                <rect key="frame" x="221" y="200" width="159" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <rect key="frame" x="203" y="251" width="195" height="47"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="159" id="dRe-T5-BMz"/>
+                                    <constraint firstAttribute="height" constant="47" id="EOm-VX-RQV"/>
+                                    <constraint firstAttribute="width" constant="195" id="ZaY-Hl-wfp"/>
+                                    <constraint firstAttribute="width" secondItem="n6O-0V-uJ6" secondAttribute="height" multiplier="195:47" id="dqD-x5-WBk"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="THSarabunNew-Italic" family="TH Sarabun New" pointSize="68"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uQ-Or-gPR">
-                                <rect key="frame" x="203" y="250" width="195" height="17"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make life easier !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uQ-Or-gPR">
+                                <rect key="frame" x="203" y="306" width="195" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="LHE-d2-6HH"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXW-jN-uFL">
-                                <rect key="frame" x="192" y="266" width="217" height="84"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="visionear_body" translatesAutoresizingMaskIntoConstraints="NO" id="8ll-ad-h3A">
+                                <rect key="frame" x="220" y="68" width="160" height="160"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="217" id="TGw-zc-NL5"/>
+                                    <constraint firstAttribute="width" constant="160" id="gIZ-RQ-4tX"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXW-jN-uFL">
+                                <rect key="frame" x="171" y="372" width="258" height="120"/>
+                                <color key="backgroundColor" red="0.050980392159999999" green="0.2901960784" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="Dd9-e7-ZFA"/>
+                                    <constraint firstAttribute="width" constant="258" id="QxR-4f-hXC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="57"/>
+                                <state key="normal" title="Start !">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -49,17 +67,24 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4uQ-Or-gPR" firstAttribute="centerX" secondItem="aXW-jN-uFL" secondAttribute="centerX" id="3dc-J2-BQe"/>
-                            <constraint firstItem="n6O-0V-uJ6" firstAttribute="centerY" secondItem="qZX-UV-0AF" secondAttribute="centerY" constant="-79" id="3qi-Hf-56o"/>
-                            <constraint firstItem="8aY-LY-8nt" firstAttribute="top" secondItem="aXW-jN-uFL" secondAttribute="bottom" constant="201" id="6lv-91-u8s"/>
-                            <constraint firstItem="aXW-jN-uFL" firstAttribute="top" secondItem="n6O-0V-uJ6" secondAttribute="bottom" constant="24" id="Oxj-H5-6e4"/>
-                            <constraint firstItem="4uQ-Or-gPR" firstAttribute="centerX" secondItem="qZX-UV-0AF" secondAttribute="centerX" id="hVP-Ww-F0I"/>
-                            <constraint firstItem="4uQ-Or-gPR" firstAttribute="top" secondItem="n6O-0V-uJ6" secondAttribute="bottom" constant="8" symbolic="YES" id="hh3-3X-8xx"/>
-                            <constraint firstItem="4uQ-Or-gPR" firstAttribute="centerX" secondItem="n6O-0V-uJ6" secondAttribute="centerX" id="yc6-Pw-54W"/>
+                            <constraint firstItem="8ll-ad-h3A" firstAttribute="top" secondItem="8Li-aq-Gkh" secondAttribute="bottom" constant="48" id="01d-Qf-YiJ"/>
+                            <constraint firstItem="4uQ-Or-gPR" firstAttribute="top" secondItem="n6O-0V-uJ6" secondAttribute="bottom" constant="8" symbolic="YES" id="3Gj-i7-2ny"/>
+                            <constraint firstItem="aXW-jN-uFL" firstAttribute="centerX" secondItem="qZX-UV-0AF" secondAttribute="centerX" id="Eod-m1-MNB"/>
+                            <constraint firstItem="4uQ-Or-gPR" firstAttribute="trailing" secondItem="n6O-0V-uJ6" secondAttribute="trailing" id="FD0-o5-mAl"/>
+                            <constraint firstItem="8ll-ad-h3A" firstAttribute="centerX" secondItem="n6O-0V-uJ6" secondAttribute="centerX" id="Iu4-sy-cUb"/>
+                            <constraint firstItem="n6O-0V-uJ6" firstAttribute="top" secondItem="8ll-ad-h3A" secondAttribute="bottom" constant="23" id="LHR-gu-zNq"/>
+                            <constraint firstItem="aXW-jN-uFL" firstAttribute="top" secondItem="4uQ-Or-gPR" secondAttribute="bottom" constant="49" id="TyQ-ho-ZN3"/>
+                            <constraint firstItem="aXW-jN-uFL" firstAttribute="centerX" secondItem="4uQ-Or-gPR" secondAttribute="centerX" id="Yaa-Tu-Xw2"/>
+                            <constraint firstItem="n6O-0V-uJ6" firstAttribute="leading" secondItem="4uQ-Or-gPR" secondAttribute="leading" id="Zql-c9-Mkw"/>
+                            <constraint firstItem="8aY-LY-8nt" firstAttribute="top" secondItem="aXW-jN-uFL" secondAttribute="bottom" constant="59" id="fTK-Ch-dyj"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Visionear" image="Icon-Small" id="Kbc-9H-Jkd"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="startButton" destination="aXW-jN-uFL" id="FOK-Gd-f0e"/>
+                        <outlet property="visionearLabel" destination="n6O-0V-uJ6" id="wEa-zH-GSs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNx-jz-LfP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -128,7 +153,6 @@
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Help" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
                                 <rect key="frame" x="195" y="193" width="210" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="210" id="Mku-ST-s5A"/>
                                 </constraints>
@@ -143,7 +167,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zEq-FU-wV5" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="8hD-5D-LYA"/>
                             <constraint firstItem="zEq-FU-wV5" firstAttribute="centerX" secondItem="NDk-cv-Gan" secondAttribute="centerX" id="Ojs-oV-wpQ"/>
@@ -171,7 +195,6 @@
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Update" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="9QN-rb-HXw">
                                 <rect key="frame" x="195" y="179" width="210" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="210" id="Wub-vL-e6F"/>
                                 </constraints>
@@ -267,5 +290,6 @@
         <image name="fb-icon-alpha" width="29" height="29"/>
         <image name="help-icon" width="29" height="29"/>
         <image name="update-icon" width="29" height="29"/>
+        <image name="visionear_body" width="721" height="1024"/>
     </resources>
 </document>

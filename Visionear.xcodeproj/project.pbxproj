@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F33557CA1AF9FDD70057CCD3 /* THSarabunNew Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F33557C61AF9FDD70057CCD3 /* THSarabunNew Bold.ttf */; };
+		F33557CB1AF9FDD70057CCD3 /* THSarabunNew BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F33557C71AF9FDD70057CCD3 /* THSarabunNew BoldItalic.ttf */; };
+		F33557CC1AF9FDD70057CCD3 /* THSarabunNew Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F33557C81AF9FDD70057CCD3 /* THSarabunNew Italic.ttf */; };
+		F33557CD1AF9FDD70057CCD3 /* THSarabunNew.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F33557C91AF9FDD70057CCD3 /* THSarabunNew.ttf */; };
 		F38C18371AF2077500112274 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F38C18361AF2077500112274 /* main.m */; };
 		F38C183A1AF2077500112274 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F38C18391AF2077500112274 /* AppDelegate.m */; };
 		F38C183D1AF2077500112274 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F38C183C1AF2077500112274 /* FirstViewController.m */; };
@@ -28,6 +32,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F33557C61AF9FDD70057CCD3 /* THSarabunNew Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "THSarabunNew Bold.ttf"; sourceTree = "<group>"; };
+		F33557C71AF9FDD70057CCD3 /* THSarabunNew BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "THSarabunNew BoldItalic.ttf"; sourceTree = "<group>"; };
+		F33557C81AF9FDD70057CCD3 /* THSarabunNew Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "THSarabunNew Italic.ttf"; sourceTree = "<group>"; };
+		F33557C91AF9FDD70057CCD3 /* THSarabunNew.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = THSarabunNew.ttf; sourceTree = "<group>"; };
 		F38C18311AF2077500112274 /* Visionear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Visionear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F38C18351AF2077500112274 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F38C18361AF2077500112274 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -63,6 +71,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F33557C51AF9FDAC0057CCD3 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				F33557C61AF9FDD70057CCD3 /* THSarabunNew Bold.ttf */,
+				F33557C71AF9FDD70057CCD3 /* THSarabunNew BoldItalic.ttf */,
+				F33557C81AF9FDD70057CCD3 /* THSarabunNew Italic.ttf */,
+				F33557C91AF9FDD70057CCD3 /* THSarabunNew.ttf */,
+			);
+			name = Font;
+			path = Visionear.xcodeproj;
+			sourceTree = "<group>";
+		};
 		F38C18281AF2077500112274 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +90,7 @@
 				F38C18331AF2077500112274 /* Visionear */,
 				F38C18501AF2077600112274 /* VisionearTests */,
 				F38C18321AF2077500112274 /* Products */,
+				F33557C51AF9FDAC0057CCD3 /* Font */,
 			);
 			sourceTree = "<group>";
 		};
@@ -213,7 +234,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F33557CA1AF9FDD70057CCD3 /* THSarabunNew Bold.ttf in Resources */,
+				F33557CC1AF9FDD70057CCD3 /* THSarabunNew Italic.ttf in Resources */,
+				F33557CB1AF9FDD70057CCD3 /* THSarabunNew BoldItalic.ttf in Resources */,
 				F38C18431AF2077500112274 /* Main.storyboard in Resources */,
+				F33557CD1AF9FDD70057CCD3 /* THSarabunNew.ttf in Resources */,
 				F38C18481AF2077500112274 /* LaunchScreen.xib in Resources */,
 				F38C18451AF2077500112274 /* Images.xcassets in Resources */,
 			);
