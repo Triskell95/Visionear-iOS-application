@@ -1,0 +1,450 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F38C18371AF2077500112274 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F38C18361AF2077500112274 /* main.m */; };
+		F38C183A1AF2077500112274 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F38C18391AF2077500112274 /* AppDelegate.m */; };
+		F38C183D1AF2077500112274 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F38C183C1AF2077500112274 /* FirstViewController.m */; };
+		F38C18401AF2077500112274 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F38C183F1AF2077500112274 /* SecondViewController.m */; };
+		F38C18431AF2077500112274 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38C18411AF2077500112274 /* Main.storyboard */; };
+		F38C18451AF2077500112274 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F38C18441AF2077500112274 /* Images.xcassets */; };
+		F38C18481AF2077500112274 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F38C18461AF2077500112274 /* LaunchScreen.xib */; };
+		F38C18541AF2077600112274 /* VisionearTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F38C18531AF2077600112274 /* VisionearTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F38C184E1AF2077600112274 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F38C18291AF2077500112274 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F38C18301AF2077500112274;
+			remoteInfo = Visionear;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F38C18311AF2077500112274 /* Visionear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Visionear.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F38C18351AF2077500112274 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F38C18361AF2077500112274 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F38C18381AF2077500112274 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F38C18391AF2077500112274 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F38C183B1AF2077500112274 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		F38C183C1AF2077500112274 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		F38C183E1AF2077500112274 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		F38C183F1AF2077500112274 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		F38C18421AF2077500112274 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F38C18441AF2077500112274 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F38C18471AF2077500112274 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		F38C184D1AF2077600112274 /* VisionearTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisionearTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F38C18521AF2077600112274 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F38C18531AF2077600112274 /* VisionearTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisionearTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F38C182E1AF2077500112274 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F38C184A1AF2077600112274 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F38C18281AF2077500112274 = {
+			isa = PBXGroup;
+			children = (
+				F38C185D1AF21B0500112274 /* Images */,
+				F38C18331AF2077500112274 /* Visionear */,
+				F38C18501AF2077600112274 /* VisionearTests */,
+				F38C18321AF2077500112274 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F38C18321AF2077500112274 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F38C18311AF2077500112274 /* Visionear.app */,
+				F38C184D1AF2077600112274 /* VisionearTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F38C18331AF2077500112274 /* Visionear */ = {
+			isa = PBXGroup;
+			children = (
+				F38C18381AF2077500112274 /* AppDelegate.h */,
+				F38C18391AF2077500112274 /* AppDelegate.m */,
+				F38C183B1AF2077500112274 /* FirstViewController.h */,
+				F38C183C1AF2077500112274 /* FirstViewController.m */,
+				F38C183E1AF2077500112274 /* SecondViewController.h */,
+				F38C183F1AF2077500112274 /* SecondViewController.m */,
+				F38C18411AF2077500112274 /* Main.storyboard */,
+				F38C18441AF2077500112274 /* Images.xcassets */,
+				F38C18461AF2077500112274 /* LaunchScreen.xib */,
+				F38C18341AF2077500112274 /* Supporting Files */,
+			);
+			path = Visionear;
+			sourceTree = "<group>";
+		};
+		F38C18341AF2077500112274 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F38C18351AF2077500112274 /* Info.plist */,
+				F38C18361AF2077500112274 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F38C18501AF2077600112274 /* VisionearTests */ = {
+			isa = PBXGroup;
+			children = (
+				F38C18531AF2077600112274 /* VisionearTests.m */,
+				F38C18511AF2077600112274 /* Supporting Files */,
+			);
+			path = VisionearTests;
+			sourceTree = "<group>";
+		};
+		F38C18511AF2077600112274 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F38C18521AF2077600112274 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F38C185D1AF21B0500112274 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Images;
+			path = Visionear.xcodeproj;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F38C18301AF2077500112274 /* Visionear */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F38C18571AF2077600112274 /* Build configuration list for PBXNativeTarget "Visionear" */;
+			buildPhases = (
+				F38C182D1AF2077500112274 /* Sources */,
+				F38C182E1AF2077500112274 /* Frameworks */,
+				F38C182F1AF2077500112274 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Visionear;
+			productName = Visionear;
+			productReference = F38C18311AF2077500112274 /* Visionear.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F38C184C1AF2077600112274 /* VisionearTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F38C185A1AF2077600112274 /* Build configuration list for PBXNativeTarget "VisionearTests" */;
+			buildPhases = (
+				F38C18491AF2077600112274 /* Sources */,
+				F38C184A1AF2077600112274 /* Frameworks */,
+				F38C184B1AF2077600112274 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F38C184F1AF2077600112274 /* PBXTargetDependency */,
+			);
+			name = VisionearTests;
+			productName = VisionearTests;
+			productReference = F38C184D1AF2077600112274 /* VisionearTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F38C18291AF2077500112274 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "CPE KMUTT";
+				TargetAttributes = {
+					F38C18301AF2077500112274 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					F38C184C1AF2077600112274 = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = F38C18301AF2077500112274;
+					};
+				};
+			};
+			buildConfigurationList = F38C182C1AF2077500112274 /* Build configuration list for PBXProject "Visionear" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F38C18281AF2077500112274;
+			productRefGroup = F38C18321AF2077500112274 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F38C18301AF2077500112274 /* Visionear */,
+				F38C184C1AF2077600112274 /* VisionearTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F38C182F1AF2077500112274 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F38C18431AF2077500112274 /* Main.storyboard in Resources */,
+				F38C18481AF2077500112274 /* LaunchScreen.xib in Resources */,
+				F38C18451AF2077500112274 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F38C184B1AF2077600112274 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F38C182D1AF2077500112274 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F38C18401AF2077500112274 /* SecondViewController.m in Sources */,
+				F38C183A1AF2077500112274 /* AppDelegate.m in Sources */,
+				F38C183D1AF2077500112274 /* FirstViewController.m in Sources */,
+				F38C18371AF2077500112274 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F38C18491AF2077600112274 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F38C18541AF2077600112274 /* VisionearTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F38C184F1AF2077600112274 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F38C18301AF2077500112274 /* Visionear */;
+			targetProxy = F38C184E1AF2077600112274 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F38C18411AF2077500112274 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F38C18421AF2077500112274 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F38C18461AF2077500112274 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F38C18471AF2077500112274 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F38C18551AF2077600112274 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F38C18561AF2077600112274 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F38C18581AF2077600112274 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Visionear/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F38C18591AF2077600112274 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Visionear/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F38C185B1AF2077600112274 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = VisionearTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Visionear.app/Visionear";
+			};
+			name = Debug;
+		};
+		F38C185C1AF2077600112274 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = VisionearTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Visionear.app/Visionear";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F38C182C1AF2077500112274 /* Build configuration list for PBXProject "Visionear" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F38C18551AF2077600112274 /* Debug */,
+				F38C18561AF2077600112274 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F38C18571AF2077600112274 /* Build configuration list for PBXNativeTarget "Visionear" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F38C18581AF2077600112274 /* Debug */,
+				F38C18591AF2077600112274 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F38C185A1AF2077600112274 /* Build configuration list for PBXNativeTarget "VisionearTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F38C185B1AF2077600112274 /* Debug */,
+				F38C185C1AF2077600112274 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F38C18291AF2077500112274 /* Project object */;
+}
