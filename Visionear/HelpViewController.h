@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HelpCustomCell.h"
+#import "HelpTableViewController.h"
 
-@interface SecondViewController : UIViewController
+@interface HelpViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UILabel *helpLabel;
 
 
 @end

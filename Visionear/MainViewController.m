@@ -6,13 +6,13 @@
 //  Copyright (c) 2558 CPE KMUTT. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "MainViewController.h"
 
-@interface FirstViewController ()
+@interface MainViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation MainViewController
 
 @synthesize startButton;
 @synthesize visionearLabel;

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface MainViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *visionearLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
