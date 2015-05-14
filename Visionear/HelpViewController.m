@@ -49,9 +49,15 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:SimpleIdentifier];
     }
     
+    cell.imageView.image = [UIImage imageNamed:@"testImg.png"];
     cell.textLabel.text = self.cellImages[indexPath.row];
     
     return cell;
 }
-
+/*
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [indexPath row] * 50;
+}
+*/
 @end
