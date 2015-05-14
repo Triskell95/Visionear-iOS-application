@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <deployment identifier="iOS"/>
+        <deployment version="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
@@ -26,35 +26,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Visionear" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="n6O-0V-uJ6">
-                                <rect key="frame" x="203" y="242" width="195" height="47"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="Ojf-p5-afk"/>
-                                    <constraint firstAttribute="width" constant="195" id="yQH-E9-w2j"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="THSarabunNew-Italic" family="TH Sarabun New" pointSize="68"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make life easier !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uQ-Or-gPR">
-                                <rect key="frame" x="203" y="297" width="195" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="visionear_body" translatesAutoresizingMaskIntoConstraints="NO" id="8ll-ad-h3A">
-                                <rect key="frame" x="220" y="50" width="160" height="160"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="SrQ-0e-fO2"/>
-                                    <constraint firstAttribute="width" constant="160" id="y4P-Zw-h4i"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXW-jN-uFL">
                                 <rect key="frame" x="196" y="454" width="209" height="89"/>
                                 <color key="backgroundColor" red="0.050980392159999999" green="0.2901960784" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="89" id="EDq-2a-SuD"/>
-                                    <constraint firstAttribute="width" constant="209" id="TGx-8Z-mHe"/>
+                                    <constraint firstAttribute="height" constant="89" id="Cgl-9Y-JiR"/>
+                                    <constraint firstAttribute="width" constant="209" id="qme-Kc-XUb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="57"/>
                                 <state key="normal" title="Start !">
@@ -64,18 +41,43 @@
                                     <segue destination="Hi7-lg-vCc" kind="show" id="e51-YY-TN4"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Visionear" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="n6O-0V-uJ6">
+                                <rect key="frame" x="203" y="285" width="195" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="k8m-xv-aUR"/>
+                                    <constraint firstAttribute="width" constant="195" id="sHw-gU-pY8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="THSarabunNew-Italic" family="TH Sarabun New" pointSize="68"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make life easier !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uQ-Or-gPR">
+                                <rect key="frame" x="203" y="340" width="195" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="visionear_body" translatesAutoresizingMaskIntoConstraints="NO" id="8ll-ad-h3A">
+                                <rect key="frame" x="220" y="49" width="160" height="228"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="Hqt-w0-SWN"/>
+                                    <constraint firstAttribute="height" constant="228" id="lTp-Uz-Zep"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8ll-ad-h3A" firstAttribute="centerX" secondItem="n6O-0V-uJ6" secondAttribute="centerX" id="0zS-yv-LlE"/>
-                            <constraint firstItem="4uQ-Or-gPR" firstAttribute="leading" secondItem="n6O-0V-uJ6" secondAttribute="leading" id="Hme-Jd-Tdl"/>
-                            <constraint firstItem="4uQ-Or-gPR" firstAttribute="top" secondItem="n6O-0V-uJ6" secondAttribute="bottom" constant="8" id="OPr-FO-0pb"/>
-                            <constraint firstItem="n6O-0V-uJ6" firstAttribute="trailing" secondItem="4uQ-Or-gPR" secondAttribute="trailing" id="OmS-D6-FBd"/>
-                            <constraint firstItem="n6O-0V-uJ6" firstAttribute="centerX" secondItem="qZX-UV-0AF" secondAttribute="centerX" id="XfL-dM-bQ3"/>
-                            <constraint firstItem="8ll-ad-h3A" firstAttribute="top" secondItem="8Li-aq-Gkh" secondAttribute="bottom" constant="30" id="YpJ-a4-99C"/>
-                            <constraint firstItem="aXW-jN-uFL" firstAttribute="centerX" secondItem="4uQ-Or-gPR" secondAttribute="centerX" id="Zwd-u7-Us2"/>
-                            <constraint firstItem="n6O-0V-uJ6" firstAttribute="top" secondItem="8ll-ad-h3A" secondAttribute="bottom" constant="32" id="gXp-hH-W8u"/>
-                            <constraint firstItem="8aY-LY-8nt" firstAttribute="top" secondItem="aXW-jN-uFL" secondAttribute="bottom" constant="8" id="oEp-4i-Tv4"/>
+                            <constraint firstItem="8ll-ad-h3A" firstAttribute="top" secondItem="8Li-aq-Gkh" secondAttribute="bottom" constant="29" id="7Ku-kt-LHK"/>
+                            <constraint firstItem="n6O-0V-uJ6" firstAttribute="top" secondItem="8ll-ad-h3A" secondAttribute="bottom" constant="8" symbolic="YES" id="DHM-KY-zHL"/>
+                            <constraint firstItem="8ll-ad-h3A" firstAttribute="centerX" secondItem="n6O-0V-uJ6" secondAttribute="centerX" id="GvK-z3-Okf"/>
+                            <constraint firstItem="8ll-ad-h3A" firstAttribute="width" secondItem="n6O-0V-uJ6" secondAttribute="height" multiplier="160:47" id="HJ2-nb-xFr"/>
+                            <constraint firstItem="4uQ-Or-gPR" firstAttribute="top" secondItem="n6O-0V-uJ6" secondAttribute="bottom" constant="8" symbolic="YES" id="YO0-Er-L7N"/>
+                            <constraint firstItem="aXW-jN-uFL" firstAttribute="centerX" secondItem="4uQ-Or-gPR" secondAttribute="centerX" id="Z9f-LD-wYB"/>
+                            <constraint firstItem="8ll-ad-h3A" firstAttribute="centerX" secondItem="qZX-UV-0AF" secondAttribute="centerX" id="Zbf-8Z-WYY"/>
+                            <constraint firstItem="n6O-0V-uJ6" firstAttribute="trailing" secondItem="4uQ-Or-gPR" secondAttribute="trailing" id="hvN-ug-6Qs"/>
+                            <constraint firstItem="8aY-LY-8nt" firstAttribute="top" secondItem="aXW-jN-uFL" secondAttribute="bottom" constant="8" symbolic="YES" id="k4R-jl-xhM"/>
+                            <constraint firstItem="4uQ-Or-gPR" firstAttribute="leading" secondItem="n6O-0V-uJ6" secondAttribute="leading" id="lSu-tU-EVo"/>
+                            <constraint firstItem="8ll-ad-h3A" firstAttribute="width" secondItem="4uQ-Or-gPR" secondAttribute="height" multiplier="160:17" id="nuq-kZ-B7x"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Visionear" image="Icon-Small" id="Kbc-9H-Jkd"/>

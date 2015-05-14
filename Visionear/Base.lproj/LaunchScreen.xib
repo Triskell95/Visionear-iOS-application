@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,10 +11,27 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="visionear-bis" translatesAutoresizingMaskIntoConstraints="NO" id="qJi-sg-7UH">
+                    <rect key="frame" x="118" y="35" width="245" height="410"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="245" id="L12-uK-ROz"/>
+                        <constraint firstAttribute="width" secondItem="qJi-sg-7UH" secondAttribute="height" multiplier="49:82" id="SeJ-iu-Hdb"/>
+                    </constraints>
+                </imageView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="qJi-sg-7UH" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="27V-u8-cb1"/>
+                <constraint firstItem="qJi-sg-7UH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="PwM-rp-fIM"/>
+                <constraint firstItem="qJi-sg-7UH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="35" id="dub-7A-lb5"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
+    <resources>
+        <image name="visionear-bis" width="736" height="1228"/>
+    </resources>
 </document>

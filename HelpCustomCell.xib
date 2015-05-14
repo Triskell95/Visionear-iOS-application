@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,12 +14,18 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="faC-Ns-4hz" id="7pR-SW-bV8">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="testImg" translatesAutoresizingMaskIntoConstraints="NO" id="Dht-RB-Egj">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="354"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testImg" translatesAutoresizingMaskIntoConstraints="NO" id="Dht-RB-Egj">
+                        <rect key="frame" x="42" y="0.0" width="514" height="354"/>
                     </imageView>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="Dht-RB-Egj" firstAttribute="leading" secondItem="7pR-SW-bV8" secondAttribute="leadingMargin" constant="34" id="Bg2-3k-iHE"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Dht-RB-Egj" secondAttribute="bottom" constant="-10" id="CIE-G9-b2u"/>
+                    <constraint firstItem="Dht-RB-Egj" firstAttribute="top" secondItem="7pR-SW-bV8" secondAttribute="top" id="E4j-Cq-5Ab"/>
+                    <constraint firstItem="Dht-RB-Egj" firstAttribute="centerX" secondItem="7pR-SW-bV8" secondAttribute="centerX" id="Hjx-Ms-uRF"/>
+                </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="451" y="353"/>
+            <point key="canvasLocation" x="481" y="335.5"/>
         </tableViewCell>
     </objects>
     <resources>
