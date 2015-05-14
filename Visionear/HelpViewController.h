@@ -1,19 +1,15 @@
 //
-//  SecondViewController.h
+//  HelpViewController.h
 //  Visionear
 //
-//  Created by CPE KMUTT on 4/30/2558 BE.
+//  Created by CPE KMUTT on 5/14/2558 BE.
 //  Copyright (c) 2558 CPE KMUTT. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "HelpCustomCell.h"
-#import "HelpTableViewController.h"
 
-@interface HelpViewController : UIViewController
+@interface HelpViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *helpLabel;
-
+@property (copy, nonatomic) NSArray *cellImages;
 
 @end
-
