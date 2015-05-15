@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F3332C6F1B05D8ED00A7AACF /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3332C6E1B05D8ED00A7AACF /* CustomCell.m */; };
 		F33557CA1AF9FDD70057CCD3 /* THSarabunNew Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F33557C61AF9FDD70057CCD3 /* THSarabunNew Bold.ttf */; };
 		F33557CB1AF9FDD70057CCD3 /* THSarabunNew BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F33557C71AF9FDD70057CCD3 /* THSarabunNew BoldItalic.ttf */; };
 		F33557CC1AF9FDD70057CCD3 /* THSarabunNew Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F33557C81AF9FDD70057CCD3 /* THSarabunNew Italic.ttf */; };
@@ -20,7 +21,6 @@
 		F38C18481AF2077500112274 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F38C18461AF2077500112274 /* LaunchScreen.xib */; };
 		F38C18541AF2077600112274 /* VisionearTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F38C18531AF2077600112274 /* VisionearTests.m */; };
 		F3CF55431AFB2811003FDA62 /* HelpCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CF55421AFB2811003FDA62 /* HelpCustomCell.m */; };
-		F3CF55491AFB525B003FDA62 /* HelpCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3CF55481AFB525B003FDA62 /* HelpCustomCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F3332C6D1B05D8ED00A7AACF /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCell.h; path = Visionear/CustomCell.h; sourceTree = "<group>"; };
+		F3332C6E1B05D8ED00A7AACF /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCell.m; path = Visionear/CustomCell.m; sourceTree = "<group>"; };
 		F33557C61AF9FDD70057CCD3 /* THSarabunNew Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "THSarabunNew Bold.ttf"; sourceTree = "<group>"; };
 		F33557C71AF9FDD70057CCD3 /* THSarabunNew BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "THSarabunNew BoldItalic.ttf"; sourceTree = "<group>"; };
 		F33557C81AF9FDD70057CCD3 /* THSarabunNew Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "THSarabunNew Italic.ttf"; sourceTree = "<group>"; };
@@ -55,7 +57,6 @@
 		F38C18531AF2077600112274 /* VisionearTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisionearTests.m; sourceTree = "<group>"; };
 		F3CF55411AFB2811003FDA62 /* HelpCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelpCustomCell.h; path = Visionear/HelpCustomCell.h; sourceTree = "<group>"; };
 		F3CF55421AFB2811003FDA62 /* HelpCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelpCustomCell.m; path = Visionear/HelpCustomCell.m; sourceTree = "<group>"; };
-		F3CF55481AFB525B003FDA62 /* HelpCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HelpCustomCell.xib; path = Visionear/HelpCustomCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,7 +166,8 @@
 			children = (
 				F3CF55411AFB2811003FDA62 /* HelpCustomCell.h */,
 				F3CF55421AFB2811003FDA62 /* HelpCustomCell.m */,
-				F3CF55481AFB525B003FDA62 /* HelpCustomCell.xib */,
+				F3332C6D1B05D8ED00A7AACF /* CustomCell.h */,
+				F3332C6E1B05D8ED00A7AACF /* CustomCell.m */,
 			);
 			name = CustomCells;
 			sourceTree = "<group>";
@@ -258,7 +260,6 @@
 				F33557CD1AF9FDD70057CCD3 /* THSarabunNew.ttf in Resources */,
 				F38C18481AF2077500112274 /* LaunchScreen.xib in Resources */,
 				F38C18451AF2077500112274 /* Images.xcassets in Resources */,
-				F3CF55491AFB525B003FDA62 /* HelpCustomCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +279,7 @@
 			files = (
 				F35B30161B047E6700292950 /* HelpViewController.m in Sources */,
 				F3CF55431AFB2811003FDA62 /* HelpCustomCell.m in Sources */,
+				F3332C6F1B05D8ED00A7AACF /* CustomCell.m in Sources */,
 				F38C183A1AF2077500112274 /* AppDelegate.m in Sources */,
 				F38C183D1AF2077500112274 /* MainViewController.m in Sources */,
 				F38C18371AF2077500112274 /* main.m in Sources */,

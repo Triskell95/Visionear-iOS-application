@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HelpCustomCell.h"
 
 @interface HelpViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (copy, nonatomic) NSArray *cellImages;
+@property (weak, nonatomic) IBOutlet UITableView *helpTableView;
 
 @end

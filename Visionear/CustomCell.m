@@ -1,14 +1,14 @@
 //
-//  HelpCustomCell.m
+//  CustomCell.m
 //  Visionear
 //
-//  Created by CPE KMUTT on 5/7/2558 BE.
+//  Created by CPE KMUTT on 5/15/2558 BE.
 //  Copyright (c) 2558 CPE KMUTT. All rights reserved.
 //
 
-#import "HelpCustomCell.h"
+#import "CustomCell.h"
 
-@implementation HelpCustomCell
+@implementation CustomCell
 
 - (void)awakeFromNib {
     // Initialization code

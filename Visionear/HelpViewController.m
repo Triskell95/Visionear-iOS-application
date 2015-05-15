@@ -14,10 +14,18 @@
 
 @implementation HelpViewController
 
+CGFloat screenWidth;
+CGFloat screenHeight;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.cellImages = @[@"img1", @"img2", @"img3"];
+    self.cellImages = @[@"testImg1.png", @"testImg2.png", @"testImg3.png"];
     // Do any additional setup after loading the view.
+    
+    CGRect screenBound = [[UIScreen mainScreen] bounds];
+    CGSize screenSize = screenBound.size;
+    screenWidth = screenSize.width;
+    screenHeight = screenSize.height;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,24 +48,34 @@
     return [self.cellImages count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *SimpleIdentifier = @"SimpleIdentifer";
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    UIImage *img = [UIImage imageNamed:self.cellImages[indexPath.row]];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SimpleIdentifier];
+    return (img.size.height*(screenWidth/img.size.width) + 100.0);
+    
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+   
+    NSString *SimpleIdentifier = @"SimpleIdentifier";
+    
+    HelpCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:SimpleIdentifier];
     
     if(cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:SimpleIdentifier];
+        cell = [[HelpCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:SimpleIdentifier];
     }
     
-    cell.imageView.image = [UIImage imageNamed:@"testImg.png"];
-    cell.textLabel.text = self.cellImages[indexPath.row];
+    
+    cell.imgView.image = [UIImage imageNamed:self.cellImages[indexPath.row]];
+
+    //[[cell layer] setBorderWidth:1.0f];
+    //[[cell layer] setBorderColor:[UIColor blackColor].CGColor];
+    
+    cell.cellLabel.text = self.cellImages[indexPath.row];
     
     return cell;
 }
-/*
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return [indexPath row] * 50;
-}
-*/
+
+
 @end

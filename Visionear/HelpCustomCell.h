@@ -10,7 +10,7 @@
 
 @interface HelpCustomCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *labelHelpCell;
-@property (weak, nonatomic) IBOutlet UIImageView *imageHelpCell;
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (weak, nonatomic) IBOutlet UILabel *cellLabel;
 
 @end
