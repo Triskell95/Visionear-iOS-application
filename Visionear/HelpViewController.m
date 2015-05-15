@@ -21,9 +21,9 @@ CGFloat screenHeight;
     [super viewDidLoad];
     
     //Initialization of the data in the arrays for the help section
-    self.cellImages = @[@"testImg1.png",
-                        @"testImg2.png",
-                        @"testImg3.png"];
+    self.cellImages = @[@"scene1-white.gif",
+                        @"scene2-white.gif",
+                        @"scene3-white.gif"];
     
     self.cellLabels = @[@"Description for the 1st test image",
                         @"Description for the 2nd test image",
