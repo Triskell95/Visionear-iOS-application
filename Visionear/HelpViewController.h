@@ -12,6 +12,7 @@
 @interface HelpViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (copy, nonatomic) NSArray *cellImages;
+@property (copy, nonatomic) NSArray *cellLabels;
 @property (weak, nonatomic) IBOutlet UITableView *helpTableView;
 
 @end
