@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *visionearLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet UIImageView *visionearImg;
 
 @end
 

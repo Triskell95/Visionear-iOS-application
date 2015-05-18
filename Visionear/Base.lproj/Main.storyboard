@@ -59,7 +59,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make life easier !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uQ-Or-gPR">
                                 <rect key="frame" x="246" y="331" width="109" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -81,6 +81,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="startButton" destination="aXW-jN-uFL" id="FOK-Gd-f0e"/>
+                        <outlet property="visionearImg" destination="8ll-ad-h3A" id="fZr-VQ-dHQ"/>
                         <outlet property="visionearLabel" destination="n6O-0V-uJ6" id="wEa-zH-GSs"/>
                     </connections>
                 </viewController>
@@ -107,7 +108,7 @@
                                     <constraint firstAttribute="height" constant="90" id="heZ-Yc-dcM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Stu-of-FlT">
@@ -155,7 +156,7 @@
                                     <constraint firstAttribute="width" constant="210" id="Wub-vL-e6F"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -220,8 +221,8 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="100" id="0jk-G5-g5C"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="THSarabunNew" family="TH Sarabun New" pointSize="32"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" name="THSarabunNew" family="TH Sarabun New" pointSize="30"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testImg" translatesAutoresizingMaskIntoConstraints="NO" id="yMY-77-i95">
@@ -283,26 +284,27 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share on Social Network" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOj-HW-vjb">
                                 <rect key="frame" x="162" y="184" width="277" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="277" id="GVa-Ew-Wfg"/>
-                                    <constraint firstAttribute="height" constant="60" id="gD6-AY-bVb"/>
+                                    <constraint firstAttribute="width" constant="277" id="1jk-aY-1ms"/>
+                                    <constraint firstAttribute="height" constant="60" id="FvZ-xl-gNw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="fb" translatesAutoresizingMaskIntoConstraints="NO" id="ALo-hS-fxS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fb" translatesAutoresizingMaskIntoConstraints="NO" id="ALo-hS-fxS">
                                 <rect key="frame" x="250" y="283" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="ALo-hS-fxS" secondAttribute="height" multiplier="1:1" id="zFO-5f-A7m"/>
+                                    <constraint firstAttribute="width" constant="100" id="4Iy-tf-nuw"/>
+                                    <constraint firstAttribute="width" secondItem="ALo-hS-fxS" secondAttribute="height" multiplier="1:1" id="DUU-Xx-qUs"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="SOj-HW-vjb" firstAttribute="centerX" secondItem="2bi-4k-zyL" secondAttribute="centerX" id="9FE-bA-jkf"/>
-                            <constraint firstItem="SOj-HW-vjb" firstAttribute="centerX" secondItem="ALo-hS-fxS" secondAttribute="centerX" id="jVE-Sq-NDf"/>
-                            <constraint firstItem="SOj-HW-vjb" firstAttribute="top" secondItem="SLq-xg-0cL" secondAttribute="bottom" constant="164" id="qck-fw-TtC"/>
-                            <constraint firstItem="ALo-hS-fxS" firstAttribute="top" secondItem="SOj-HW-vjb" secondAttribute="bottom" constant="39" id="sxs-7l-OaE"/>
+                            <constraint firstItem="SOj-HW-vjb" firstAttribute="top" secondItem="SLq-xg-0cL" secondAttribute="bottom" constant="164" id="Jc4-G2-vht"/>
+                            <constraint firstItem="ALo-hS-fxS" firstAttribute="centerX" secondItem="2bi-4k-zyL" secondAttribute="centerX" id="Wav-v4-Oes"/>
+                            <constraint firstItem="ALo-hS-fxS" firstAttribute="top" secondItem="SOj-HW-vjb" secondAttribute="bottom" constant="39" id="b5g-gg-wcG"/>
+                            <constraint firstItem="SOj-HW-vjb" firstAttribute="centerX" secondItem="ALo-hS-fxS" secondAttribute="centerX" id="fVn-ct-9Cm"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Facebook" image="fb-icon-alpha" id="aLO-Nz-HQ6"/>
