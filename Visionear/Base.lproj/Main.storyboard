@@ -77,7 +77,7 @@
                     <connections>
                         <outlet property="visionearImg" destination="8ll-ad-h3A" id="fZr-VQ-dHQ"/>
                         <outlet property="visionearLabel" destination="n6O-0V-uJ6" id="wEa-zH-GSs"/>
-                        <segue destination="Hi7-lg-vCc" kind="presentation" identifier="NextView" modalTransitionStyle="crossDissolve" id="W4E-h2-yCd"/>
+                        <segue destination="Hi7-lg-vCc" kind="presentation" identifier="NextView" modalPresentationStyle="currentContext" id="W4E-h2-yCd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNx-jz-LfP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -216,7 +216,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="100" id="0jk-G5-g5C"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="THSarabunNew" family="TH Sarabun New" pointSize="30"/>
+                                                    <fontDescription key="fontDescription" name="THSarabunNew" family="TH Sarabun New" pointSize="24"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>

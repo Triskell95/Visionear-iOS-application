@@ -28,11 +28,11 @@ int fontSize;
                         @"scene4.gif",
                         @"scene5.gif"];
     
-    self.cellLabels = @[@"Put the headphone on your ear",
-                        @"Turn on the Visionear Controller",
-                        @"Put an object in front of your eyes",
-                        @"You can now scan several types of objects and ask what colour they are",
-                        @"Rotate the object for \r a more efficient detection"];
+    self.cellLabels = @[@"Step #1: Put the headphone \r on your ear",
+                        @"Step #2: Turn on \r the Visionear Controller",
+                        @"Step #3: Put an object \r in front of your eyes",
+                        @"Step #4: You can now scan several \r types of objects and ask \r what colour they are",
+                        @"Step #5: Rotate the object for \r a more efficient detection"];
     
     
     //Getting the size of the screen and saving the height and the width values
@@ -40,7 +40,6 @@ int fontSize;
     CGSize screenSize = screenBound.size;
     screenWidth = screenSize.width;
     screenHeight = screenSize.height;
-    fontSize = screenWidth/12.5;
     
     /*UIImageView* animatedImageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     animatedImageView.animationImages = [NSArray arrayWithObjects:
@@ -82,12 +81,17 @@ int fontSize;
     if(cell == nil) {
         cell = [[HelpCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:SimpleIdentifier];
     }
-
+    
     //Setting of the label
     cell.cellLabel.text = self.cellLabels[indexPath.row];
-    //cell.cellLabel.frame = CGRectMake(0, -1, screenWidth, 20*fontSize);
+    
+    if(cell.cellLabel.text.length > 60) { //Adaptive Font Size
+        fontSize = screenWidth/((cell.cellLabel.text.length/30)*8);
+    } else {
+        fontSize = screenWidth/12.5;
+    }
     [cell.cellLabel setFont:[UIFont fontWithName:@"THSarabunNew" size:fontSize]];
-    NSLog(@"The size of the font of cell %ld is %d", (long)indexPath.row, fontSize);
+    NSLog(@"The size of the font of cell %ld is %d\rLength of the label: %ld", (long)indexPath.row, fontSize, (long)cell.cellLabel.text.length);
     
     //Setting of the image
     cell.imgView.image = [UIImage imageNamed:self.cellImages[indexPath.row]];
