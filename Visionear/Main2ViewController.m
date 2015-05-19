@@ -24,6 +24,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (UIRectEdge)edgesForExtendedLayout
+{
+    return [super edgesForExtendedLayout] ^ UIRectEdgeBottom;
+}
+
 /*
 #pragma mark - Navigation
 

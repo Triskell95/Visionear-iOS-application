@@ -183,11 +183,76 @@
                         <segue destination="gxU-hW-cGA" kind="relationship" relationship="viewControllers" id="WQG-hQ-T6h"/>
                         <segue destination="UOP-dS-bvw" kind="relationship" relationship="viewControllers" id="0A8-Ef-NXw"/>
                         <segue destination="PC2-KP-2JN" kind="relationship" relationship="viewControllers" id="DdL-cJ-9fy"/>
+                        <segue destination="biu-lN-36Z" kind="relationship" relationship="viewControllers" id="RYl-97-dna"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--Help 2-->
+        <scene sceneID="AHP-dP-8v3">
+            <objects>
+                <viewController id="biu-lN-36Z" customClass="Help2ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nu7-Ze-llV"/>
+                        <viewControllerLayoutGuide type="bottom" id="rFP-fv-1S0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LJ1-T1-qsw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4CZ-Ly-Kcx">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="506"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KnC-ww-PbW">
+                                        <rect key="frame" x="144" y="192" width="313" height="306"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="306" id="V0a-nD-xoP"/>
+                                            <constraint firstAttribute="width" constant="313" id="WuS-ly-F1o"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="KnC-ww-PbW" firstAttribute="top" secondItem="4CZ-Ly-Kcx" secondAttribute="top" constant="192" id="N6q-sx-mSP"/>
+                                    <constraint firstAttribute="trailing" secondItem="KnC-ww-PbW" secondAttribute="trailing" constant="143" id="S2e-nF-2f7"/>
+                                    <constraint firstItem="KnC-ww-PbW" firstAttribute="centerX" secondItem="4CZ-Ly-Kcx" secondAttribute="centerX" id="avS-cU-Uae"/>
+                                    <constraint firstItem="KnC-ww-PbW" firstAttribute="bottom" secondItem="4CZ-Ly-Kcx" secondAttribute="bottomMargin" id="jV7-6z-fJa"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="biu-lN-36Z" id="eRh-RN-wF8"/>
+                                </connections>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="AHr-iT-4Fy">
+                                <rect key="frame" x="265" y="514" width="71" height="37"/>
+                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="currentPageIndicatorTintColor" red="0.050980392159999999" green="0.2901960784" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="changeScreen:" destination="biu-lN-36Z" eventType="valueChanged" id="j7I-Wm-niw"/>
+                                </connections>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AHr-iT-4Fy" firstAttribute="bottom" secondItem="rFP-fv-1S0" secondAttribute="top" id="66a-In-XqO"/>
+                            <constraint firstItem="AHr-iT-4Fy" firstAttribute="top" secondItem="4CZ-Ly-Kcx" secondAttribute="bottom" constant="8" symbolic="YES" id="WdQ-FP-OR8"/>
+                            <constraint firstItem="4CZ-Ly-Kcx" firstAttribute="centerX" secondItem="AHr-iT-4Fy" secondAttribute="centerX" id="e5J-ZY-FRm"/>
+                            <constraint firstAttribute="trailing" secondItem="4CZ-Ly-Kcx" secondAttribute="trailing" id="mcu-X9-oct"/>
+                            <constraint firstItem="4CZ-Ly-Kcx" firstAttribute="top" secondItem="LJ1-T1-qsw" secondAttribute="top" id="ukn-AF-nAN"/>
+                            <constraint firstItem="4CZ-Ly-Kcx" firstAttribute="leading" secondItem="LJ1-T1-qsw" secondAttribute="leading" id="xyg-5f-Hgo"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Help 2" image="help-icon" id="QSa-wB-A9i"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="imgView" destination="KnC-ww-PbW" id="F4d-wz-NOh"/>
+                        <outlet property="pageControl" destination="AHr-iT-4Fy" id="QAg-gd-xyJ"/>
+                        <outlet property="scrollView" destination="4CZ-Ly-Kcx" id="vbE-Es-X5u"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8th-Ue-l2N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-652" y="749"/>
         </scene>
         <!--Help-->
         <scene sceneID="2Je-tg-qfV">
