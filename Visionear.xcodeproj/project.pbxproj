@@ -25,6 +25,7 @@
 		F38C18451AF2077500112274 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F38C18441AF2077500112274 /* Images.xcassets */; };
 		F38C18481AF2077500112274 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F38C18461AF2077500112274 /* LaunchScreen.xib */; };
 		F38C18541AF2077600112274 /* VisionearTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F38C18531AF2077600112274 /* VisionearTests.m */; };
+		F3A19A1D1B0AFA0300BF44D2 /* Main2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A19A1C1B0AFA0300BF44D2 /* Main2ViewController.m */; };
 		F3CF55431AFB2811003FDA62 /* HelpCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CF55421AFB2811003FDA62 /* HelpCustomCell.m */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,8 @@
 		F38C184D1AF2077600112274 /* VisionearTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisionearTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F38C18521AF2077600112274 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F38C18531AF2077600112274 /* VisionearTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisionearTests.m; sourceTree = "<group>"; };
+		F3A19A1B1B0AFA0300BF44D2 /* Main2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Main2ViewController.h; sourceTree = "<group>"; };
+		F3A19A1C1B0AFA0300BF44D2 /* Main2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Main2ViewController.m; sourceTree = "<group>"; };
 		F3CF55411AFB2811003FDA62 /* HelpCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelpCustomCell.h; path = Visionear/HelpCustomCell.h; sourceTree = "<group>"; };
 		F3CF55421AFB2811003FDA62 /* HelpCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelpCustomCell.m; path = Visionear/HelpCustomCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +130,8 @@
 				F38C18391AF2077500112274 /* AppDelegate.m */,
 				F38C183B1AF2077500112274 /* MainViewController.h */,
 				F38C183C1AF2077500112274 /* MainViewController.m */,
+				F3A19A1B1B0AFA0300BF44D2 /* Main2ViewController.h */,
+				F3A19A1C1B0AFA0300BF44D2 /* Main2ViewController.m */,
 				F35B30141B047E6700292950 /* HelpViewController.h */,
 				F35B30151B047E6700292950 /* HelpViewController.m */,
 				F38C18411AF2077500112274 /* Main.storyboard */,
@@ -301,6 +306,7 @@
 				F3CF55431AFB2811003FDA62 /* HelpCustomCell.m in Sources */,
 				F3332C6F1B05D8ED00A7AACF /* CustomCell.m in Sources */,
 				F38C183A1AF2077500112274 /* AppDelegate.m in Sources */,
+				F3A19A1D1B0AFA0300BF44D2 /* Main2ViewController.m in Sources */,
 				F38C183D1AF2077500112274 /* MainViewController.m in Sources */,
 				F38C18371AF2077500112274 /* main.m in Sources */,
 			);
