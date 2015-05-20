@@ -73,7 +73,8 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
     SwipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:SwipeLeft];
     
-    //NSLog(@"%@", imgArray);
+    NSLog(@"%@", imgArray);
+    NSLog(@"Current Page :%d", pageControl.currentPage);
     pageControl.numberOfPages = 5;
     pageControl.currentPage = 0;
     
@@ -109,6 +110,9 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
 {
     cmpt -= 1;
     
+    pageControl.currentPage = cmpt-1;
+    NSLog(@"Current Page :%d", pageControl.currentPage);
+    
     [imgView stopAnimating];
     
     if(cmpt > pageControl.numberOfPages){
@@ -118,7 +122,6 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
         cmpt = 1;
     }
     
-    pageControl.currentPage = cmpt-1;
     imgView.animationImages = [imgArray objectAtIndex:cmpt-1];
     //imgView.image = [UIImage imageNamed:[imgArray objectAtIndex:cmpt-1]];
     [[imgView layer] setBorderWidth:1.0f];
@@ -133,6 +136,9 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
 {
     cmpt+= 1;
     
+    pageControl.currentPage = cmpt-1;
+    NSLog(@"Current Page :%d", pageControl.currentPage);
+    
     [imgView stopAnimating];
     
     if(cmpt > pageControl.numberOfPages){
@@ -142,7 +148,6 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
         cmpt = 1;
     }
     
-    pageControl.currentPage = cmpt-1;
     imgView.animationImages = [imgArray objectAtIndex:cmpt-1];
     //imgView.image = [UIImage imageNamed:[imgArray objectAtIndex:cmpt-1]];
     [[imgView layer] setBorderWidth:1.0f];
