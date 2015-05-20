@@ -48,7 +48,7 @@ CGFloat screenHeight2;
                   @"Step #1:\rPut the headphone \r on your ear",
                   @"Step #2:\rTurn on \r the Visionear Controller",
                   @"Step #3:\rPut an object \r in front of your eyes",
-                  @"Step #4:\rYou can now scan several \r types of objects and ask \r what colour they are",
+                  @"Step #4:\rScan objects and ask\rsome information about it",
                   @"Step #5:\rRotate the object for \r a more efficient detection", nil];
     
     
@@ -65,6 +65,8 @@ CGFloat screenHeight2;
     pageControl.currentPage = 0;
     
     imgView.image = [UIImage imageNamed:[imgArray objectAtIndex:0]];
+    [[imgView layer] setBorderWidth:1.0f];
+    [[imgView layer] setBorderColor:[UIColor blackColor].CGColor];
     label.text = [labelArray objectAtIndex:0];
     
 }
@@ -93,6 +95,8 @@ CGFloat screenHeight2;
     
     pageControl.currentPage = cmpt-1;
     imgView.image = [UIImage imageNamed:[imgArray objectAtIndex:cmpt-1]];
+    [[imgView layer] setBorderWidth:1.0f];
+    [[imgView layer] setBorderColor:[UIColor blackColor].CGColor];
     label.text = [labelArray objectAtIndex:cmpt-1];
     
 }
@@ -110,6 +114,8 @@ CGFloat screenHeight2;
     
     pageControl.currentPage = cmpt-1;
     imgView.image = [UIImage imageNamed:[imgArray objectAtIndex:cmpt-1]];
+    [[imgView layer] setBorderWidth:1.0f];
+    [[imgView layer] setBorderColor:[UIColor blackColor].CGColor];
     label.text = [labelArray objectAtIndex:cmpt-1];
     
 }

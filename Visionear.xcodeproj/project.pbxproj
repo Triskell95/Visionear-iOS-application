@@ -93,6 +93,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F333E7CA1B0C6BEE00A1CD49 /* HelpSection */ = {
+			isa = PBXGroup;
+			children = (
+				F35B30141B047E6700292950 /* HelpViewController.h */,
+				F35B30151B047E6700292950 /* HelpViewController.m */,
+				F3A19A1E1B0B45C500BF44D2 /* Help2ViewController.h */,
+				F3A19A1F1B0B45C500BF44D2 /* Help2ViewController.m */,
+			);
+			name = HelpSection;
+			sourceTree = "<group>";
+		};
+		F333E7CB1B0C6C0B00A1CD49 /* MainSection */ = {
+			isa = PBXGroup;
+			children = (
+				F38C183B1AF2077500112274 /* MainViewController.h */,
+				F38C183C1AF2077500112274 /* MainViewController.m */,
+				F3A19A1B1B0AFA0300BF44D2 /* Main2ViewController.h */,
+				F3A19A1C1B0AFA0300BF44D2 /* Main2ViewController.m */,
+			);
+			name = MainSection;
+			sourceTree = "<group>";
+		};
 		F33557C51AF9FDAC0057CCD3 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,17 +153,11 @@
 			children = (
 				F38C18381AF2077500112274 /* AppDelegate.h */,
 				F38C18391AF2077500112274 /* AppDelegate.m */,
-				F38C183B1AF2077500112274 /* MainViewController.h */,
-				F38C183C1AF2077500112274 /* MainViewController.m */,
-				F3A19A1B1B0AFA0300BF44D2 /* Main2ViewController.h */,
-				F3A19A1C1B0AFA0300BF44D2 /* Main2ViewController.m */,
-				F35B30141B047E6700292950 /* HelpViewController.h */,
-				F35B30151B047E6700292950 /* HelpViewController.m */,
-				F3A19A1E1B0B45C500BF44D2 /* Help2ViewController.h */,
-				F3A19A1F1B0B45C500BF44D2 /* Help2ViewController.m */,
 				F38C18411AF2077500112274 /* Main.storyboard */,
 				F38C18441AF2077500112274 /* Images.xcassets */,
 				F38C18461AF2077500112274 /* LaunchScreen.xib */,
+				F333E7CB1B0C6C0B00A1CD49 /* MainSection */,
+				F333E7CA1B0C6BEE00A1CD49 /* HelpSection */,
 				F38C18341AF2077500112274 /* Supporting Files */,
 			);
 			path = Visionear;

@@ -21,12 +21,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    /*
     //Start buttom customization
     [[startButton layer] setBorderWidth:1.0f];
     [[startButton layer] setBorderColor:[UIColor blackColor].CGColor];
     startButton.layer.cornerRadius = 20; // this value vary as per your desire
     startButton.clipsToBounds = YES;
-    
+    */
     visionearImg.frame = CGRectMake(0, 0, 100, 100);
     visionearImg.center = visionearImg.superview.center;
     

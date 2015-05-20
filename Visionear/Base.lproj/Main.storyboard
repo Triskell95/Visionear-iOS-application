@@ -107,7 +107,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Stu-of-FlT">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Stu-of-FlT">
                                 <rect key="frame" x="220" y="308" width="160" height="92"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="uQt-we-vCo"/>
@@ -122,7 +122,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dRt-1h-We3" firstAttribute="top" secondItem="Stu-of-FlT" secondAttribute="bottom" constant="151" id="LJh-wR-BcJ"/>
+                            <constraint firstItem="dRt-1h-We3" firstAttribute="top" secondItem="Stu-of-FlT" secondAttribute="bottom" constant="200" id="LJh-wR-BcJ"/>
                             <constraint firstItem="CKI-KR-Vph" firstAttribute="centerX" secondItem="Web-Cc-zFY" secondAttribute="centerX" id="LSS-wJ-kxf"/>
                             <constraint firstItem="Stu-of-FlT" firstAttribute="top" secondItem="CKI-KR-Vph" secondAttribute="bottom" constant="60" id="VcF-49-Poj"/>
                             <constraint firstItem="CKI-KR-Vph" firstAttribute="top" secondItem="f0y-xF-acd" secondAttribute="bottom" constant="138" id="ZGg-tU-BtH"/>
@@ -167,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Nb-7S-7fa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="730" y="-73"/>
+            <point key="canvasLocation" x="730" y="0.0"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -183,7 +183,6 @@
                         <segue destination="UYA-B1-uoB" kind="relationship" relationship="viewControllers" id="jwF-7P-5Un"/>
                         <segue destination="gxU-hW-cGA" kind="relationship" relationship="viewControllers" id="WQG-hQ-T6h"/>
                         <segue destination="UOP-dS-bvw" kind="relationship" relationship="viewControllers" id="0A8-Ef-NXw"/>
-                        <segue destination="PC2-KP-2JN" kind="relationship" relationship="viewControllers" id="DdL-cJ-9fy"/>
                         <segue destination="biu-lN-36Z" kind="relationship" relationship="viewControllers" id="RYl-97-dna"/>
                     </connections>
                 </tabBarController>
@@ -191,7 +190,7 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Help 2-->
+        <!--Help-->
         <scene sceneID="AHP-dP-8v3">
             <objects>
                 <viewController id="biu-lN-36Z" customClass="Help2ViewController" sceneMemberID="viewController">
@@ -203,40 +202,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JK5-Sc-oaH">
-                                <rect key="frame" x="16" y="20" width="568" height="77"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="77" id="yXN-A4-j2f"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="THSarabunNew" family="TH Sarabun New" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OvJ-R6-Joi">
-                                <rect key="frame" x="100" y="105" width="400" height="400"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="OvJ-R6-Joi" secondAttribute="height" multiplier="1:1" id="Eja-AC-vu3"/>
-                                </constraints>
-                            </imageView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="AHr-iT-4Fy">
                                 <rect key="frame" x="265" y="506" width="71" height="37"/>
                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" red="0.050980392159999999" green="0.2901960784" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JK5-Sc-oaH">
+                                <rect key="frame" x="16" y="20" width="568" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="yXN-A4-j2f"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="THSarabunNew" family="TH Sarabun New" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swip-icon" translatesAutoresizingMaskIntoConstraints="NO" id="efJ-l2-G8J">
+                                <rect key="frame" x="16" y="20" width="77" height="77"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="efJ-l2-G8J" secondAttribute="height" multiplier="1:1" id="1do-sG-Blv"/>
+                                    <constraint firstAttribute="width" constant="77" id="fI7-Ka-ugJ"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OvJ-R6-Joi">
+                                <rect key="frame" x="120" y="138" width="360" height="360"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OvJ-R6-Joi" secondAttribute="height" multiplier="1:1" id="Eja-AC-vu3"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="OvJ-R6-Joi" firstAttribute="centerX" secondItem="AHr-iT-4Fy" secondAttribute="centerX" id="6fE-dJ-twD"/>
+                            <constraint firstItem="efJ-l2-G8J" firstAttribute="leading" secondItem="JK5-Sc-oaH" secondAttribute="leading" id="7ed-u8-O5f"/>
                             <constraint firstItem="JK5-Sc-oaH" firstAttribute="centerX" secondItem="OvJ-R6-Joi" secondAttribute="centerX" id="9Ku-3G-VwL"/>
                             <constraint firstItem="JK5-Sc-oaH" firstAttribute="trailing" secondItem="LJ1-T1-qsw" secondAttribute="trailingMargin" id="BRa-xL-rPJ"/>
+                            <constraint firstItem="efJ-l2-G8J" firstAttribute="top" secondItem="JK5-Sc-oaH" secondAttribute="top" id="Jzt-Mh-3bX"/>
                             <constraint firstItem="JK5-Sc-oaH" firstAttribute="leading" secondItem="LJ1-T1-qsw" secondAttribute="leadingMargin" id="N4B-NO-n6a"/>
                             <constraint firstItem="AHr-iT-4Fy" firstAttribute="bottom" secondItem="rFP-fv-1S0" secondAttribute="top" constant="-8" id="O5i-86-VtT"/>
                             <constraint firstItem="OvJ-R6-Joi" firstAttribute="top" secondItem="JK5-Sc-oaH" secondAttribute="bottom" constant="8" symbolic="YES" id="Q9Y-Ae-LSC"/>
-                            <constraint firstItem="AHr-iT-4Fy" firstAttribute="top" secondItem="OvJ-R6-Joi" secondAttribute="bottom" constant="1" id="SNT-dB-mN8"/>
+                            <constraint firstItem="AHr-iT-4Fy" firstAttribute="top" secondItem="OvJ-R6-Joi" secondAttribute="bottom" constant="8" id="SNT-dB-mN8"/>
                             <constraint firstItem="JK5-Sc-oaH" firstAttribute="top" secondItem="nu7-Ze-llV" secondAttribute="bottom" id="a0I-Nq-Kdx"/>
+                            <constraint firstItem="efJ-l2-G8J" firstAttribute="bottom" secondItem="JK5-Sc-oaH" secondAttribute="bottom" constant="-33" id="y5D-gw-4nJ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Help 2" image="help-icon" id="QSa-wB-A9i"/>
+                    <tabBarItem key="tabBarItem" title="Help" image="help-icon" id="QSa-wB-A9i"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imgView" destination="OvJ-R6-Joi" id="UDg-Zb-wgy"/>
@@ -246,7 +255,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8th-Ue-l2N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-652" y="749"/>
+            <point key="canvasLocation" x="0.0" y="755"/>
         </scene>
         <!--Help-->
         <scene sceneID="2Je-tg-qfV">
@@ -321,7 +330,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="16q-Rw-cBR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3" y="749"/>
+            <point key="canvasLocation" x="-733" y="547"/>
         </scene>
         <!--Facebook-->
         <scene sceneID="7zB-Ea-O16">
@@ -366,7 +375,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abq-aN-dtI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="730" y="622"/>
+            <point key="canvasLocation" x="730" y="755"/>
         </scene>
     </scenes>
     <resources>
@@ -374,6 +383,7 @@
         <image name="fb" width="64" height="64"/>
         <image name="fb-icon-alpha" width="29" height="29"/>
         <image name="help-icon" width="29" height="29"/>
+        <image name="swip-icon" width="225" height="225"/>
         <image name="testImg" width="297" height="170"/>
         <image name="update-icon" width="29" height="29"/>
         <image name="visionear_body" width="721" height="1024"/>
