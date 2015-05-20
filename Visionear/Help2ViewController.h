@@ -11,10 +11,9 @@
 @interface Help2ViewController : UIViewController <UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) NSArray *imgArray;
+@property (nonatomic, strong) NSArray *labelArray;
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
-
-- (IBAction)changeScreen:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end
