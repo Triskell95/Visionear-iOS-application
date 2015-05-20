@@ -41,15 +41,22 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
     
     NSLog(@"\rCmpt = %d\rCmpt2 = %d", cmpt, cmpt2);
     
-    //nbFrames = [[NSArray alloc] initWithObjects: (int) 18 , 38, 20, 15, 16, nil];
+    //Initialization of the different arrays
+    imgArray = [[NSMutableArray alloc] initWithCapacity:5];
+    NSMutableArray *tempArray = [[NSMutableArray alloc] initWithCapacity:nbFrames[0]];
     
-    //Put the names of our image files in our array.
-    imgArray = [[NSMutableArray alloc] initWithCapacity:nbFrames[0]];
-    for(cmpt2=0; cmpt2 < nbFrames[cmpt-1]; cmpt2++){
-        NSLog(@"scene%d-frames/frame_%03d.gif added", cmpt, cmpt2);
-        [imgArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"scene%d-frames/frame_%03d.gif", cmpt, cmpt2]]];
+    //Loading all the pictures in for animated gif
+    for(int i = 0; i < 5; i++){
+        for(cmpt2=0; cmpt2 < nbFrames[i]; cmpt2++){
+            //NSLog(@"scene%d-frames/frame_%03d.gif added", i+1, cmpt2);
+            [tempArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"scene%d-frames/frame_%03d.gif", i+1, cmpt2]]];
+        }
+        
+        [imgArray addObject:[[NSMutableArray alloc] initWithArray:tempArray]];
+        [tempArray removeAllObjects];
     }
     
+    //Initialization of the label array
     labelArray = [[NSArray alloc] initWithObjects:
                   @"Step #1:\rPut the headphone \r on your ear",
                   @"Step #2:\rTurn on \r the Visionear Controller",
@@ -62,46 +69,29 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
     SwipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(Right:)];
     SwipeRight.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:SwipeRight];
-    
     SwipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(Left:)];
     SwipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:SwipeLeft];
     
+    //NSLog(@"%@", imgArray);
     pageControl.numberOfPages = 5;
     pageControl.currentPage = 0;
     
-    //imgView.image = [UIImage imageNamed:[imgArray objectAtIndex:0]];
-    //imgView.image = [UIImage imageWithContentsOfFile: @"../scene3-frames/frame_008.gif"];
-    imgView.animationImages = imgArray;
+    //Initialization of the elements of the current page
+    imgView.animationImages = [imgArray objectAtIndex:0];
     [[imgView layer] setBorderWidth:1.0f];
     [[imgView layer] setBorderColor:[UIColor blackColor].CGColor];
-    imgView.animationDuration = 3;
+    imgView.animationDuration = [[imgArray objectAtIndex:0] count]*0.1;
     [imgView startAnimating];
-    
     label.text = [labelArray objectAtIndex:0];
     
-    /*
-    // Load images
-    NSArray *imageNames = @[@"win_1.png", @"win_2.png", @"win_3.png", @"win_4.png",
-    @"win_5.png", @"win_6.png", @"win_7.png", @"win_8.png",
-    @"win_9.png", @"win_10.png", @"win_11.png", @"win_12.png",
-    @"win_13.png", @"win_14.png", @"win_15.png", @"win_16.png"];
-     
-    NSMutableArray *images = [[NSMutableArray alloc] init];
-    for (int i = 0; i < imageNames.count; i++)
-    {
-    [images addObject:[UIImage imageNamed:[imageNames objectAtIndex:i]]];
-    }
-     
-    // Normal Animation
-    UIImageView *animationImageView = [[UIImageView alloc] initWithFrame:CGRectMake(60, 95, 86, 193)];
-    animationImageView.animationImages = images;
-    animationImageView.animationDuration = 0.5;
-     
-    [self.view addSubview:animationImageView];
-    [animationImageView startAnimating];
-    */
-    
+    //Initialization of the elements of the current page
+    imgView.animationImages = [imgArray objectAtIndex:0];
+    [[imgView layer] setBorderWidth:1.0f];
+    [[imgView layer] setBorderColor:[UIColor blackColor].CGColor];
+    imgView.animationDuration = [[imgArray objectAtIndex:0] count]*0.1;
+    [imgView startAnimating];
+    label.text = [labelArray objectAtIndex:0];
 }
 /*
 #pragma mark - UIScrollView Delegate
@@ -121,12 +111,6 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
     
     [imgView stopAnimating];
     
-    [imgArray removeAllObjects];
-    imgArray = [[NSMutableArray alloc] initWithCapacity:nbFrames[cmpt-1]];
-    for(cmpt2=0; cmpt2 < nbFrames[cmpt-1]; cmpt2++){
-        [imgArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"scene%d-frames/frame_%03d.gif", cmpt, cmpt2]]];
-    }
-    
     if(cmpt > pageControl.numberOfPages){
         cmpt = pageControl.numberOfPages;
     }
@@ -135,10 +119,11 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
     }
     
     pageControl.currentPage = cmpt-1;
-    imgView.animationImages = imgArray;
+    imgView.animationImages = [imgArray objectAtIndex:cmpt-1];
     //imgView.image = [UIImage imageNamed:[imgArray objectAtIndex:cmpt-1]];
     [[imgView layer] setBorderWidth:1.0f];
     [[imgView layer] setBorderColor:[UIColor blackColor].CGColor];
+    imgView.animationDuration = [[imgArray objectAtIndex:cmpt-1] count]*0.1;
     [imgView startAnimating];
     label.text = [labelArray objectAtIndex:cmpt-1];
     
@@ -150,14 +135,6 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
     
     [imgView stopAnimating];
     
-    [imgArray removeAllObjects];
-    imgArray = [[NSMutableArray alloc] initWithCapacity:nbFrames[cmpt-1]];
-    for(cmpt2=0; cmpt2 < nbFrames[cmpt-1]; cmpt2++){
-        [imgArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"scene%d-frames/frame_%03d.gif", cmpt, cmpt2]]];
-    }
-    
-    
-    
     if(cmpt > pageControl.numberOfPages){
         cmpt = pageControl.numberOfPages;
     }
@@ -166,10 +143,11 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
     }
     
     pageControl.currentPage = cmpt-1;
-    imgView.animationImages = imgArray;
+    imgView.animationImages = [imgArray objectAtIndex:cmpt-1];
     //imgView.image = [UIImage imageNamed:[imgArray objectAtIndex:cmpt-1]];
     [[imgView layer] setBorderWidth:1.0f];
     [[imgView layer] setBorderColor:[UIColor blackColor].CGColor];
+    imgView.animationDuration = [[imgArray objectAtIndex:cmpt-1] count]*0.1;
     [imgView startAnimating];
     label.text = [labelArray objectAtIndex:cmpt-1];
     
