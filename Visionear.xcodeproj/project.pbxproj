@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		F3332C6F1B05D8ED00A7AACF /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3332C6E1B05D8ED00A7AACF /* CustomCell.m */; };
+		F333E7D11B0C745800A1CD49 /* scene5-frames in Resources */ = {isa = PBXBuildFile; fileRef = F333E7CC1B0C745800A1CD49 /* scene5-frames */; };
+		F333E7D21B0C745800A1CD49 /* scene4-frames in Resources */ = {isa = PBXBuildFile; fileRef = F333E7CD1B0C745800A1CD49 /* scene4-frames */; };
+		F333E7D31B0C745800A1CD49 /* scene3-frames in Resources */ = {isa = PBXBuildFile; fileRef = F333E7CE1B0C745800A1CD49 /* scene3-frames */; };
+		F333E7D41B0C745800A1CD49 /* scene2-frames in Resources */ = {isa = PBXBuildFile; fileRef = F333E7CF1B0C745800A1CD49 /* scene2-frames */; };
+		F333E7D51B0C745800A1CD49 /* scene1-frames in Resources */ = {isa = PBXBuildFile; fileRef = F333E7D01B0C745800A1CD49 /* scene1-frames */; };
 		F33557CA1AF9FDD70057CCD3 /* THSarabunNew Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F33557C61AF9FDD70057CCD3 /* THSarabunNew Bold.ttf */; };
 		F33557CB1AF9FDD70057CCD3 /* THSarabunNew BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F33557C71AF9FDD70057CCD3 /* THSarabunNew BoldItalic.ttf */; };
 		F33557CC1AF9FDD70057CCD3 /* THSarabunNew Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F33557C81AF9FDD70057CCD3 /* THSarabunNew Italic.ttf */; };
@@ -43,6 +48,11 @@
 /* Begin PBXFileReference section */
 		F3332C6D1B05D8ED00A7AACF /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCell.h; path = Visionear/CustomCell.h; sourceTree = "<group>"; };
 		F3332C6E1B05D8ED00A7AACF /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCell.m; path = Visionear/CustomCell.m; sourceTree = "<group>"; };
+		F333E7CC1B0C745800A1CD49 /* scene5-frames */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "scene5-frames"; sourceTree = "<group>"; };
+		F333E7CD1B0C745800A1CD49 /* scene4-frames */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "scene4-frames"; sourceTree = "<group>"; };
+		F333E7CE1B0C745800A1CD49 /* scene3-frames */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "scene3-frames"; sourceTree = "<group>"; };
+		F333E7CF1B0C745800A1CD49 /* scene2-frames */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "scene2-frames"; sourceTree = "<group>"; };
+		F333E7D01B0C745800A1CD49 /* scene1-frames */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "scene1-frames"; sourceTree = "<group>"; };
 		F33557C61AF9FDD70057CCD3 /* THSarabunNew Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "THSarabunNew Bold.ttf"; sourceTree = "<group>"; };
 		F33557C71AF9FDD70057CCD3 /* THSarabunNew BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "THSarabunNew BoldItalic.ttf"; sourceTree = "<group>"; };
 		F33557C81AF9FDD70057CCD3 /* THSarabunNew Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "THSarabunNew Italic.ttf"; sourceTree = "<group>"; };
@@ -51,7 +61,7 @@
 		F35B30151B047E6700292950 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		F3752F8B1B09CF0B00DCF8A6 /* scene5.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = scene5.gif; sourceTree = "<group>"; };
 		F3752F8C1B09CF0B00DCF8A6 /* scene4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = scene4.gif; sourceTree = "<group>"; };
-		F3752F8D1B09CF0B00DCF8A6 /* scene3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = scene3.gif; sourceTree = "<group>"; };
+		F3752F8D1B09CF0B00DCF8A6 /* scene3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = scene3.gif; path = Visionear.xcodeproj/scene3.gif; sourceTree = SOURCE_ROOT; };
 		F3752F8E1B09CF0B00DCF8A6 /* scene2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = scene2.gif; sourceTree = "<group>"; };
 		F3752F931B09CF2300DCF8A6 /* scene1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = scene1.gif; sourceTree = "<group>"; };
 		F38C18311AF2077500112274 /* Visionear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Visionear.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,6 +202,11 @@
 		F38C185D1AF21B0500112274 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F333E7CC1B0C745800A1CD49 /* scene5-frames */,
+				F333E7CD1B0C745800A1CD49 /* scene4-frames */,
+				F333E7CE1B0C745800A1CD49 /* scene3-frames */,
+				F333E7CF1B0C745800A1CD49 /* scene2-frames */,
+				F333E7D01B0C745800A1CD49 /* scene1-frames */,
 				F3752F931B09CF2300DCF8A6 /* scene1.gif */,
 				F3752F8E1B09CF0B00DCF8A6 /* scene2.gif */,
 				F3752F8D1B09CF0B00DCF8A6 /* scene3.gif */,
@@ -298,13 +313,18 @@
 				F3752F8F1B09CF0B00DCF8A6 /* scene5.gif in Resources */,
 				F33557CC1AF9FDD70057CCD3 /* THSarabunNew Italic.ttf in Resources */,
 				F3752F921B09CF0B00DCF8A6 /* scene2.gif in Resources */,
+				F333E7D11B0C745800A1CD49 /* scene5-frames in Resources */,
 				F33557CB1AF9FDD70057CCD3 /* THSarabunNew BoldItalic.ttf in Resources */,
 				F3752F941B09CF2300DCF8A6 /* scene1.gif in Resources */,
 				F38C18431AF2077500112274 /* Main.storyboard in Resources */,
+				F333E7D41B0C745800A1CD49 /* scene2-frames in Resources */,
 				F3752F901B09CF0B00DCF8A6 /* scene4.gif in Resources */,
 				F33557CD1AF9FDD70057CCD3 /* THSarabunNew.ttf in Resources */,
 				F3752F911B09CF0B00DCF8A6 /* scene3.gif in Resources */,
 				F38C18481AF2077500112274 /* LaunchScreen.xib in Resources */,
+				F333E7D51B0C745800A1CD49 /* scene1-frames in Resources */,
+				F333E7D31B0C745800A1CD49 /* scene3-frames in Resources */,
+				F333E7D21B0C745800A1CD49 /* scene4-frames in Resources */,
 				F38C18451AF2077500112274 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,8 @@
 
 #import "Help2ViewController.h"
 
-NSInteger cmpt;
+NSInteger cmpt = 1;
+NSInteger cmpt2;
 
 @interface Help2ViewController ()
 {
@@ -27,6 +28,7 @@ NSInteger cmpt;
 
 CGFloat screenWidth2;
 CGFloat screenHeight2;
+NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,12 +39,16 @@ CGFloat screenHeight2;
     screenWidth2 = screenSize.width;
     screenHeight2 = screenSize.height;
     
+    NSLog(@"\rCmpt = %d\rCmpt2 = %d", cmpt, cmpt2);
+    
+    //nbFrames = [[NSArray alloc] initWithObjects: (int) 18 , 38, 20, 15, 16, nil];
+    
     //Put the names of our image files in our array.
-    imgArray = [[NSArray alloc] initWithObjects:@"scene1.gif",
-                                                @"scene2.gif",
-                                                @"scene3.gif",
-                                                @"scene4.gif",
-                                                @"scene5.gif", nil];
+    imgArray = [[NSMutableArray alloc] initWithCapacity:nbFrames[0]];
+    for(cmpt2=0; cmpt2 < nbFrames[cmpt-1]; cmpt2++){
+        NSLog(@"scene%d-frames/frame_%03d.gif added", cmpt, cmpt2);
+        [imgArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"scene%d-frames/frame_%03d.gif", cmpt, cmpt2]]];
+    }
     
     labelArray = [[NSArray alloc] initWithObjects:
                   @"Step #1:\rPut the headphone \r on your ear",
@@ -64,10 +70,37 @@ CGFloat screenHeight2;
     pageControl.numberOfPages = 5;
     pageControl.currentPage = 0;
     
-    imgView.image = [UIImage imageNamed:[imgArray objectAtIndex:0]];
+    //imgView.image = [UIImage imageNamed:[imgArray objectAtIndex:0]];
+    //imgView.image = [UIImage imageWithContentsOfFile: @"../scene3-frames/frame_008.gif"];
+    imgView.animationImages = imgArray;
     [[imgView layer] setBorderWidth:1.0f];
     [[imgView layer] setBorderColor:[UIColor blackColor].CGColor];
+    imgView.animationDuration = 3;
+    [imgView startAnimating];
+    
     label.text = [labelArray objectAtIndex:0];
+    
+    /*
+    // Load images
+    NSArray *imageNames = @[@"win_1.png", @"win_2.png", @"win_3.png", @"win_4.png",
+    @"win_5.png", @"win_6.png", @"win_7.png", @"win_8.png",
+    @"win_9.png", @"win_10.png", @"win_11.png", @"win_12.png",
+    @"win_13.png", @"win_14.png", @"win_15.png", @"win_16.png"];
+     
+    NSMutableArray *images = [[NSMutableArray alloc] init];
+    for (int i = 0; i < imageNames.count; i++)
+    {
+    [images addObject:[UIImage imageNamed:[imageNames objectAtIndex:i]]];
+    }
+     
+    // Normal Animation
+    UIImageView *animationImageView = [[UIImageView alloc] initWithFrame:CGRectMake(60, 95, 86, 193)];
+    animationImageView.animationImages = images;
+    animationImageView.animationDuration = 0.5;
+     
+    [self.view addSubview:animationImageView];
+    [animationImageView startAnimating];
+    */
     
 }
 /*
@@ -86,6 +119,14 @@ CGFloat screenHeight2;
 {
     cmpt -= 1;
     
+    [imgView stopAnimating];
+    
+    [imgArray removeAllObjects];
+    imgArray = [[NSMutableArray alloc] initWithCapacity:nbFrames[cmpt-1]];
+    for(cmpt2=0; cmpt2 < nbFrames[cmpt-1]; cmpt2++){
+        [imgArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"scene%d-frames/frame_%03d.gif", cmpt, cmpt2]]];
+    }
+    
     if(cmpt > pageControl.numberOfPages){
         cmpt = pageControl.numberOfPages;
     }
@@ -94,9 +135,11 @@ CGFloat screenHeight2;
     }
     
     pageControl.currentPage = cmpt-1;
-    imgView.image = [UIImage imageNamed:[imgArray objectAtIndex:cmpt-1]];
+    imgView.animationImages = imgArray;
+    //imgView.image = [UIImage imageNamed:[imgArray objectAtIndex:cmpt-1]];
     [[imgView layer] setBorderWidth:1.0f];
     [[imgView layer] setBorderColor:[UIColor blackColor].CGColor];
+    [imgView startAnimating];
     label.text = [labelArray objectAtIndex:cmpt-1];
     
 }
@@ -105,6 +148,16 @@ CGFloat screenHeight2;
 {
     cmpt+= 1;
     
+    [imgView stopAnimating];
+    
+    [imgArray removeAllObjects];
+    imgArray = [[NSMutableArray alloc] initWithCapacity:nbFrames[cmpt-1]];
+    for(cmpt2=0; cmpt2 < nbFrames[cmpt-1]; cmpt2++){
+        [imgArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"scene%d-frames/frame_%03d.gif", cmpt, cmpt2]]];
+    }
+    
+    
+    
     if(cmpt > pageControl.numberOfPages){
         cmpt = pageControl.numberOfPages;
     }
@@ -113,9 +166,11 @@ CGFloat screenHeight2;
     }
     
     pageControl.currentPage = cmpt-1;
-    imgView.image = [UIImage imageNamed:[imgArray objectAtIndex:cmpt-1]];
+    imgView.animationImages = imgArray;
+    //imgView.image = [UIImage imageNamed:[imgArray objectAtIndex:cmpt-1]];
     [[imgView layer] setBorderWidth:1.0f];
     [[imgView layer] setBorderColor:[UIColor blackColor].CGColor];
+    [imgView startAnimating];
     label.text = [labelArray objectAtIndex:cmpt-1];
     
 }

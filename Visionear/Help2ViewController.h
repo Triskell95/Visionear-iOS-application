@@ -11,7 +11,7 @@
 @interface Help2ViewController : UIViewController <UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
-@property (nonatomic, strong) NSArray *imgArray;
+@property (nonatomic, strong) NSMutableArray *imgArray;
 @property (nonatomic, strong) NSArray *labelArray;
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet UILabel *label;
