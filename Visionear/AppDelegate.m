@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "Global.h"//;
 @interface AppDelegate ()
 
 @end
@@ -17,6 +17,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    Global *g = [[Global alloc] init];
+    imgLoadArray = [g loadHelpImageArray];
     sleep(1);
     // Override point for customization after application launch.
     return YES;

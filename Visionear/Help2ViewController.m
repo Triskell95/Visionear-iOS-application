@@ -7,6 +7,7 @@
 //
 
 #import "Help2ViewController.h"
+#import "Global.h"//;
 
 NSInteger cmpt = 1;
 NSInteger cmpt2;
@@ -39,22 +40,9 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
     screenWidth2 = screenSize.width;
     screenHeight2 = screenSize.height;
     
-    NSLog(@"\rCmpt = %d\rCmpt2 = %d", cmpt, cmpt2);
+    NSLog(@"\rCmpt = %ld\rCmpt2 = %ld", cmpt, (long)cmpt2);
     
-    //Initialization of the different arrays
-    imgArray = [[NSMutableArray alloc] initWithCapacity:5];
-    NSMutableArray *tempArray = [[NSMutableArray alloc] initWithCapacity:nbFrames[0]];
-    
-    //Loading all the pictures in for animated gif
-    for(int i = 0; i < 5; i++){
-        for(cmpt2=0; cmpt2 < nbFrames[i]; cmpt2++){
-            //NSLog(@"scene%d-frames/frame_%03d.gif added", i+1, cmpt2);
-            [tempArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"scene%d-frames/frame_%03d.gif", i+1, cmpt2]]];
-        }
-        
-        [imgArray addObject:[[NSMutableArray alloc] initWithArray:tempArray]];
-        [tempArray removeAllObjects];
-    }
+    imgArray = imgLoadArray;
     
     //Initialization of the label array
     labelArray = [[NSArray alloc] initWithObjects:
@@ -74,7 +62,7 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
     [self.view addGestureRecognizer:SwipeLeft];
     
     NSLog(@"%@", imgArray);
-    NSLog(@"Current Page :%d", pageControl.currentPage);
+    NSLog(@"Current Page :%ld", pageControl.currentPage);
     pageControl.numberOfPages = 5;
     pageControl.currentPage = 0;
     
@@ -94,24 +82,13 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
     [imgView startAnimating];
     label.text = [labelArray objectAtIndex:0];
 }
-/*
-#pragma mark - UIScrollView Delegate
-- (void)scrollViewDidScroll:(UIScrollView *)sender
-{
-    // Update the page when more than 50% of the previous/next page is visible
-    CGFloat pageWidth = scrollView.frame.size.width;
-    int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    pageControl.currentPage = page;
-    
-}
-*/
 
 -(void)Right: (UIGestureRecognizer *)sender
 {
     cmpt -= 1;
     
     pageControl.currentPage = cmpt-1;
-    NSLog(@"Current Page :%d", pageControl.currentPage);
+    NSLog(@"Current Page :%ld", pageControl.currentPage);
     
     [imgView stopAnimating];
     
@@ -137,7 +114,7 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
     cmpt+= 1;
     
     pageControl.currentPage = cmpt-1;
-    NSLog(@"Current Page :%d", pageControl.currentPage);
+    NSLog(@"Current Page :%ld", pageControl.currentPage);
     
     [imgView stopAnimating];
     
