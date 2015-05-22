@@ -19,7 +19,7 @@
     
     Global *g = [[Global alloc] init];
     imgLoadArray = [g loadHelpImageArray];
-    sleep(1);
+    //sleep(1);
     // Override point for customization after application launch.
     return YES;
 }

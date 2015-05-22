@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F3290A5E1B0EE216009D8BDB /* UpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3290A5D1B0EE216009D8BDB /* UpdateViewController.m */; };
 		F3332C6F1B05D8ED00A7AACF /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3332C6E1B05D8ED00A7AACF /* CustomCell.m */; };
 		F333E7D11B0C745800A1CD49 /* scene5-frames in Resources */ = {isa = PBXBuildFile; fileRef = F333E7CC1B0C745800A1CD49 /* scene5-frames */; };
 		F333E7D21B0C745800A1CD49 /* scene4-frames in Resources */ = {isa = PBXBuildFile; fileRef = F333E7CD1B0C745800A1CD49 /* scene4-frames */; };
@@ -47,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F3290A5C1B0EE216009D8BDB /* UpdateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateViewController.h; sourceTree = "<group>"; };
+		F3290A5D1B0EE216009D8BDB /* UpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateViewController.m; sourceTree = "<group>"; };
 		F3332C6D1B05D8ED00A7AACF /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCell.h; path = Visionear/CustomCell.h; sourceTree = "<group>"; };
 		F3332C6E1B05D8ED00A7AACF /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCell.m; path = Visionear/CustomCell.m; sourceTree = "<group>"; };
 		F333E7CC1B0C745800A1CD49 /* scene5-frames */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "scene5-frames"; sourceTree = "<group>"; };
@@ -106,6 +109,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F3290A5B1B0EE1EF009D8BDB /* UpdateSection */ = {
+			isa = PBXGroup;
+			children = (
+				F3290A5C1B0EE216009D8BDB /* UpdateViewController.h */,
+				F3290A5D1B0EE216009D8BDB /* UpdateViewController.m */,
+			);
+			name = UpdateSection;
+			sourceTree = "<group>";
+		};
 		F333E7CA1B0C6BEE00A1CD49 /* HelpSection */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +184,7 @@
 				F38C18441AF2077500112274 /* Images.xcassets */,
 				F38C18461AF2077500112274 /* LaunchScreen.xib */,
 				F333E7CB1B0C6C0B00A1CD49 /* MainSection */,
+				F3290A5B1B0EE1EF009D8BDB /* UpdateSection */,
 				F333E7CA1B0C6BEE00A1CD49 /* HelpSection */,
 				F38C18341AF2077500112274 /* Supporting Files */,
 			);
@@ -355,6 +368,7 @@
 				F38C183A1AF2077500112274 /* AppDelegate.m in Sources */,
 				F3A19A1D1B0AFA0300BF44D2 /* Main2ViewController.m in Sources */,
 				F33C34E41B0DD4CD00237108 /* Global.m in Sources */,
+				F3290A5E1B0EE216009D8BDB /* UpdateViewController.m in Sources */,
 				F38C183D1AF2077500112274 /* MainViewController.m in Sources */,
 				F38C18371AF2077500112274 /* main.m in Sources */,
 			);

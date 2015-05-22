@@ -40,7 +40,7 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
     screenWidth2 = screenSize.width;
     screenHeight2 = screenSize.height;
     
-    NSLog(@"\rCmpt = %ld\rCmpt2 = %ld", cmpt, (long)cmpt2);
+    NSLog(@"\rCmpt = %i\rCmpt2 = %ld", (int)cmpt, (long)cmpt2);
     
     imgArray = imgLoadArray;
     
@@ -62,7 +62,7 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
     [self.view addGestureRecognizer:SwipeLeft];
     
     NSLog(@"%@", imgArray);
-    NSLog(@"Current Page :%ld", pageControl.currentPage);
+    //NSLog(@"Current Page :%i", (int) pageControl.currentPage);
     pageControl.numberOfPages = 5;
     pageControl.currentPage = 0;
     
@@ -88,7 +88,7 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
     cmpt -= 1;
     
     pageControl.currentPage = cmpt-1;
-    NSLog(@"Current Page :%ld", pageControl.currentPage);
+    NSLog(@"Current Page :%i", (int)pageControl.currentPage);
     
     [imgView stopAnimating];
     

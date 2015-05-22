@@ -14,6 +14,7 @@
             <string>THSarabunNew</string>
             <string>THSarabunNew</string>
             <string>THSarabunNew</string>
+            <string>THSarabunNew</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -137,7 +138,7 @@
         <!--Update-->
         <scene sceneID="Vic-bc-uUm">
             <objects>
-                <viewController id="gxU-hW-cGA" sceneMemberID="viewController">
+                <viewController id="gxU-hW-cGA" customClass="UpdateViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gOV-pa-dIF"/>
                         <viewControllerLayoutGuide type="bottom" id="tzH-ZK-5Jz"/>
@@ -155,9 +156,21 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Touch the screen to update" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xB3-tu-FD3">
+                                <rect key="frame" x="189" y="286" width="223" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="223" id="X7w-Qq-dKt"/>
+                                    <constraint firstAttribute="height" constant="27" id="YPf-wY-Sji"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="THSarabunNew" family="TH Sarabun New" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xB3-tu-FD3" firstAttribute="top" secondItem="9QN-rb-HXw" secondAttribute="bottom" constant="65" id="1tX-By-E13"/>
+                            <constraint firstItem="xB3-tu-FD3" firstAttribute="centerX" secondItem="9QN-rb-HXw" secondAttribute="centerX" id="24d-gc-CTM"/>
                             <constraint firstItem="9QN-rb-HXw" firstAttribute="top" secondItem="gOV-pa-dIF" secondAttribute="bottom" constant="159" id="AQD-OS-OGL"/>
                             <constraint firstItem="9QN-rb-HXw" firstAttribute="centerX" secondItem="P3g-Z3-Kgx" secondAttribute="centerX" id="nOA-y1-nZG"/>
                         </constraints>

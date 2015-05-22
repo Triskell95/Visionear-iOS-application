@@ -42,17 +42,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)viewTapped:(UITapGestureRecognizer *)recognizer {
-    //Add in your picker dismissal code here
-}
-
-//The event handling method
-- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
-    //CGPoint location = [recognizer locationInView:[recognizer.view superview]];
-    
-    //Do stuff here...
-}
-
 //To detect if the screen is tapped or not
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -62,8 +51,8 @@
     //If the screen is single tapped
     //if (numTaps < 2)
     //{
-        [self performSelector:@selector(handleSingleTap) withObject:nil afterDelay:delay ];
-        [self.nextResponder touchesEnded:touches withEvent:event];
+    [self performSelector:@selector(handleSingleTap) withObject:nil afterDelay:delay ];
+    [self.nextResponder touchesEnded:touches withEvent:event];
     //}
     /*else if(numTaps == 2)
     {
@@ -74,7 +63,7 @@
 
 -(IBAction)handleSingleTap
 {
-    NSLog(@"Screen Tapped !");
+    NSLog(@"Main Screen Tapped !");
     [self performSegueWithIdentifier:@"NextView" sender:self];
 }
 
