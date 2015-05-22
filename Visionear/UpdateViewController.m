@@ -14,6 +14,7 @@
 
 @implementation UpdateViewController
 
+int cmpt_test;
 UIAlertView *alert;
 UIActivityIndicatorView *indicator;
 
@@ -22,53 +23,54 @@ UIActivityIndicatorView *indicator;
     
     alert = [[UIAlertView alloc] initWithTitle:@"Update in progress\nPlease wait ..." message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
     indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    //[indicator initWithFrame:CGRectMake(0, 0, alert.bounds.size.width / 2, alert.bounds.size.height)];
-    //indicator.center = CGPointMake(alert.bounds.size.width / 2, alert.bounds.size.height - 50);
 
     [alert addSubview:indicator];
     [alert bringSubviewToFront:indicator];
     indicator.hidden = NO;
-    // Adjust the indicator so it is up a few pixels from the bottom of the alert
+    
+    cmpt_test = 0;
     
 }
 
 //To detect if the screen is tapped or not
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    //NSUInteger numTaps = [[touches anyObject] tapCount];
     float delay = 0.1;
-    
-    //If the screen is single tapped
-    //if (numTaps < 2)
-    //{
     [self performSelector:@selector(handleSingleTap) withObject:nil afterDelay:delay ];
     [self.nextResponder touchesEnded:touches withEvent:event];
-    //}
-    /*else if(numTaps == 2)
-     {
-     [NSObject cancelPreviousPerformRequestsWithTarget:self];
-     [self performSelector:@selector(handleDoubleTap) withObject:nil afterDelay:delay ];
-     }*/
 }
 
+//Action if the screen is tapped
 -(IBAction)handleSingleTap
 {
     NSLog(@"Update Screen Tapped !");
    
     [indicator startAnimating];
     [alert show];
-    
-    //To activate after a while loop when we will have something to update/load
-    //[alert dismissWithClickedButtonIndex:0 animated:YES];
-    
-    //For the moment, we don't have something to load, so the alert will stay for a few seconds
     [self performSelector:@selector(dismissAlertView:) withObject:alert afterDelay:3];
 
 }
 
+//Dismiss the 1st alert, test if the update has been correctly done and display the next alert
 -(void)dismissAlertView:(UIAlertView *)alertView{
+    
     [alertView dismissWithClickedButtonIndex:0 animated:YES];
     [indicator stopAnimating];
+    
+    UIAlertView *alert2;
+    
+    //Test of the 2 possible cases after trying to update (CONDITIONS TO CHANGE when the loading and the connection will be established)
+    if(cmpt_test %2 == 0){
+        //Popup: Everything is OK !
+        alert2 = [[UIAlertView alloc] initWithTitle:@"Updated succefully" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    }
+    else {
+        //Popup: Update failled !
+        alert2 = [[UIAlertView alloc] initWithTitle:@"Update failled" message:@"Check your internet connection please !" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    }
+    cmpt_test ++;
+    [alert2 show];
+    
 }
 
 - (void)didReceiveMemoryWarning {

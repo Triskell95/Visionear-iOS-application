@@ -61,7 +61,7 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
     SwipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:SwipeLeft];
     
-    NSLog(@"%@", imgArray);
+    //NSLog(@"%@", imgArray);
     //NSLog(@"Current Page :%i", (int) pageControl.currentPage);
     pageControl.numberOfPages = 5;
     pageControl.currentPage = 0;
@@ -103,7 +103,7 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
     //imgView.image = [UIImage imageNamed:[imgArray objectAtIndex:cmpt-1]];
     [[imgView layer] setBorderWidth:1.0f];
     [[imgView layer] setBorderColor:[UIColor blackColor].CGColor];
-    imgView.animationDuration = [[imgArray objectAtIndex:cmpt-1] count]*0.1;
+    imgView.animationDuration = [[imgArray objectAtIndex:cmpt-1] count]*0.2;
     [imgView startAnimating];
     label.text = [labelArray objectAtIndex:cmpt-1];
     
@@ -114,7 +114,7 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
     cmpt+= 1;
     
     pageControl.currentPage = cmpt-1;
-    NSLog(@"Current Page :%ld", pageControl.currentPage);
+    NSLog(@"Current Page :%ld", (long)pageControl.currentPage);
     
     [imgView stopAnimating];
     
@@ -149,15 +149,5 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
     // Pass the selected object to the new view controller.
 }
 */
-/*
-- (IBAction)changeScreen:(id)sender {
-    for (int i = 0; i < [imgArray count]; i++) {
-        
-        imgView.image = [UIImage imageNamed:[imgArray objectAtIndex:pageControl.currentPage]];
-        imgView.frame = CGRectMake(screenHeight2/4, screenWidth2/2, 50, 50);
-        [self.scrollView addSubview:imgView];
-    }
-    //Set the content size of our scrollview according to the total width of our imageView objects.
-    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * [imgArray count], scrollView.frame.size.height);
-}*/
+
 @end

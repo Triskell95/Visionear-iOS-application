@@ -11,6 +11,15 @@
 
 @interface HelpViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+/*
+    READ ME !!!
+ 
+    /!\This file and its associate .m are outdated !!!
+    
+    These files were associated to a 1st draft view for the Help Section but have been replaced by HelpSection2.h & .m
+    They haven't been deleted because they contain some models for TableView management that could useful for the project after
+*/
+
 @property (copy, nonatomic) NSArray *cellImages;
 @property (copy, nonatomic) NSArray *cellLabels;
 @property (weak, nonatomic) IBOutlet UITableView *helpTableView;
