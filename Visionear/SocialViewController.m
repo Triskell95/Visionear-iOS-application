@@ -31,7 +31,7 @@ UIActivityIndicatorView *socialIndicator;
     
     socialIndicator.hidden = NO;
     [socialIndicator startAnimating];
-   /* [socialIndicator stopAnimating];
+    [socialIndicator stopAnimating];
     socialIndicator.hidden = YES;
     
     socialLabel.hidden = NO;

@@ -7,6 +7,7 @@
 //
 
 #import "Main2ViewController.h"
+#import "NMSSH/NMSSH.h"
 
 @interface Main2ViewController ()
 
@@ -14,62 +15,70 @@
 
 @implementation Main2ViewController
 
+@synthesize backButton;
+
 UIAlertView *alert2;
+NMSSHSession *session;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     //UIAlertView
-    alert2 = [[UIAlertView alloc] initWithTitle:@"Envoi de la commande en cours.\nVeuillez patienter..."message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
+    alert2 = [[UIAlertView alloc] initWithTitle:@"Establishing Connection\rPlease wait..."message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
     [alert2 show];
     
-    NSError *error = nil;
-    NSData *json;
-    NSURL *url = [NSURL URLWithString:@"http://10.35.23.1"];
+    //[self connectToRasp];
     
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+
+    [self connectToRasp];
+
+}
+
+-(void)connectToRasp {
+    
+    session = [[NMSSHSession alloc] initWithHost:@"10.35.23.1:22" andUsername:@"pi"];
+    [session connect];
+    
+    if (session.isConnected) {
+        [session authenticateByPassword:@"raspberry"];
+        
+        if (session.isAuthorized) {
+           
+            
+            
+            NSLog(@"Connection authorized");
+            [alert2 dismissWithClickedButtonIndex:0 animated:YES];
+            
+        }
+        else {
+            [alert2 dismissWithClickedButtonIndex:0 animated:YES];
+            UIAlertView *alertFail = [[UIAlertView alloc] initWithTitle:@"Connection Rejected ! Something went wrong..."message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alertFail show];
+            
+        }
+        //[session disconnect];
+    }
+    else {
+        [alert2 dismissWithClickedButtonIndex:0 animated:YES];
+        UIAlertView *alertFail = [[UIAlertView alloc] initWithTitle:@"Connection Failed !\r\rCheck your device\ris well connected to\rRPi_CastLab wifi"message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alertFail show];
+        
+    }
+}
+
+- (IBAction)backPressed:(id)sender {
+    
+    NSLog(@"Back pressed, you'll be disconnected !");
+    [session disconnect];
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (UIRectEdge)edgesForExtendedLayout
-{
-    return [super edgesForExtendedLayout] ^ UIRectEdgeBottom;
-}
-
-// This method receives the error report in case of connection is not made to server.
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
-    NSLog(@"Erreur ===>  %@  <====== Fin Erreur", error);
-}
-
-- (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response{
-    NSLog(@"Reponse Serveur ===> %@", response);
-    [alert2 dismissWithClickedButtonIndex:0 animated:YES];
-    
-    UIAlertView * responseAlert;
-    
-    if ([response statusCode] == 201) {
-        responseAlert = [[UIAlertView alloc] initWithTitle:nil message:@"Commande envoyée avec succès." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    }
-    else{
-        responseAlert = [[UIAlertView alloc] initWithTitle:nil message:@"Envoi de la commande échouée." delegate:self cancelButtonTitle:@"Réessayer" otherButtonTitles: nil];
-    }
-    [responseAlert show];
-}
-
-- (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
-    NSLog(@"DATA RECEIVED : ");
-    NSString *myResponseReadable = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",myResponseReadable);
-    
-}
-// This method is used to process the data after connection has made successfully.
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection{
-    NSLog(@"Fini de transmettre les données");
-    [alert2 dismissWithClickedButtonIndex:0 animated:YES];
-    
 }
 
 /*

@@ -10,4 +10,9 @@
 
 @interface Main2ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *labelMain2;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
+
+- (IBAction)backPressed:(id)sender;
+
 @end

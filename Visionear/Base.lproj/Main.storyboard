@@ -117,7 +117,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="49e-Tb-3d3" kind="show" id="v1W-zL-zG0"/>
+                                    <action selector="backPressed:" destination="Hi7-lg-vCc" eventType="touchUpInside" id="5Q6-zU-KSW"/>
+                                    <segue destination="49e-Tb-3d3" kind="show" identifier="Back" id="v1W-zL-zG0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -130,6 +131,10 @@
                             <constraint firstItem="CKI-KR-Vph" firstAttribute="centerX" secondItem="Stu-of-FlT" secondAttribute="centerX" id="chm-VV-hHK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="Stu-of-FlT" id="2RD-f3-rfH"/>
+                        <outlet property="labelMain2" destination="CKI-KR-Vph" id="wU5-VQ-s4J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgi-aB-DlM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
