@@ -19,6 +19,8 @@
 
 UIAlertView *alert2;
 NMSSHSession *session;
+NSNumber *timeoutDelay;
+BOOL flagDelay;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,6 +28,8 @@ NMSSHSession *session;
     //UIAlertView
     alert2 = [[UIAlertView alloc] initWithTitle:@"Establishing Connection\rPlease wait..."message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
     [alert2 show];
+    
+    timeoutDelay = [[NSNumber alloc] initWithFloat:5.0];
     
     //[self connectToRasp];
     
@@ -40,7 +44,7 @@ NMSSHSession *session;
 -(void)connectToRasp {
     
     session = [[NMSSHSession alloc] initWithHost:@"10.35.23.1:22" andUsername:@"pi"];
-    [session connect];
+    flagDelay = [session connectWithTimeout:timeoutDelay];
     
     if (session.isConnected) {
         [session authenticateByPassword:@"raspberry"];
@@ -59,13 +63,12 @@ NMSSHSession *session;
             [alertFail show];
             
         }
-        //[session disconnect];
     }
     else {
         [alert2 dismissWithClickedButtonIndex:0 animated:YES];
-        UIAlertView *alertFail = [[UIAlertView alloc] initWithTitle:@"Connection Failed !\r\rCheck your device\ris well connected to\rRPi_CastLab wifi"message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alertFail show];
         
+        UIAlertView *alertFail = [[UIAlertView alloc] initWithTitle:@"Connection timed out!\rPlease check\ryou are connected to\rRPi_CastLab"message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alertFail show];
     }
 }
 
