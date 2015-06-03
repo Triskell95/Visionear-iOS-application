@@ -30,6 +30,7 @@ NSInteger cmpt2;
 CGFloat screenWidth2;
 CGFloat screenHeight2;
 NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
+CGFloat TimeConst = 0.1;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -78,9 +79,11 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
     imgView.animationImages = [imgArray objectAtIndex:0];
     [[imgView layer] setBorderWidth:1.0f];
     [[imgView layer] setBorderColor:[UIColor blackColor].CGColor];
-    imgView.animationDuration = [[imgArray objectAtIndex:0] count]*0.1;
+    imgView.animationDuration = [[imgArray objectAtIndex:0] count]*TimeConst;
     [imgView startAnimating];
     label.text = [labelArray objectAtIndex:0];
+    
+    NSLog(@"Current Page :%ld", (long)pageControl.currentPage);
 }
 
 -(void)Right: (UIGestureRecognizer *)sender
@@ -103,7 +106,7 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
     //imgView.image = [UIImage imageNamed:[imgArray objectAtIndex:cmpt-1]];
     [[imgView layer] setBorderWidth:1.0f];
     [[imgView layer] setBorderColor:[UIColor blackColor].CGColor];
-    imgView.animationDuration = [[imgArray objectAtIndex:cmpt-1] count]*0.2;
+    imgView.animationDuration = [[imgArray objectAtIndex:cmpt-1] count]*TimeConst;
     [imgView startAnimating];
     label.text = [labelArray objectAtIndex:cmpt-1];
     
@@ -129,7 +132,7 @@ NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
     //imgView.image = [UIImage imageNamed:[imgArray objectAtIndex:cmpt-1]];
     [[imgView layer] setBorderWidth:1.0f];
     [[imgView layer] setBorderColor:[UIColor blackColor].CGColor];
-    imgView.animationDuration = [[imgArray objectAtIndex:cmpt-1] count]*0.1;
+    imgView.animationDuration = [[imgArray objectAtIndex:cmpt-1] count]*TimeConst;
     [imgView startAnimating];
     label.text = [labelArray objectAtIndex:cmpt-1];
     

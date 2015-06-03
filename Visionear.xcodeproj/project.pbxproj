@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA3E5B77AF55E27B951C7EDC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3230A996FCA2450884503522 /* libPods.a */; };
 		F3290A5E1B0EE216009D8BDB /* UpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3290A5D1B0EE216009D8BDB /* UpdateViewController.m */; };
 		F3332C6F1B05D8ED00A7AACF /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3332C6E1B05D8ED00A7AACF /* CustomCell.m */; };
 		F333E7D11B0C745800A1CD49 /* scene5-frames in Resources */ = {isa = PBXBuildFile; fileRef = F333E7CC1B0C745800A1CD49 /* scene5-frames */; };
@@ -20,6 +21,7 @@
 		F33557CD1AF9FDD70057CCD3 /* THSarabunNew.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F33557C91AF9FDD70057CCD3 /* THSarabunNew.ttf */; };
 		F33C34E41B0DD4CD00237108 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = F33C34E31B0DD4CD00237108 /* Global.m */; };
 		F35B30161B047E6700292950 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35B30151B047E6700292950 /* HelpViewController.m */; };
+		F371B39C1B157EAA00225D04 /* SocialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F371B39B1B157EAA00225D04 /* SocialViewController.m */; };
 		F3752F8F1B09CF0B00DCF8A6 /* scene5.gif in Resources */ = {isa = PBXBuildFile; fileRef = F3752F8B1B09CF0B00DCF8A6 /* scene5.gif */; };
 		F3752F901B09CF0B00DCF8A6 /* scene4.gif in Resources */ = {isa = PBXBuildFile; fileRef = F3752F8C1B09CF0B00DCF8A6 /* scene4.gif */; };
 		F3752F911B09CF0B00DCF8A6 /* scene3.gif in Resources */ = {isa = PBXBuildFile; fileRef = F3752F8D1B09CF0B00DCF8A6 /* scene3.gif */; };
@@ -48,6 +50,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07609FA976902EA986C50CF6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		2E0DB807A74F2EC15F3D03EF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		3230A996FCA2450884503522 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3290A5C1B0EE216009D8BDB /* UpdateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateViewController.h; sourceTree = "<group>"; };
 		F3290A5D1B0EE216009D8BDB /* UpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateViewController.m; sourceTree = "<group>"; };
 		F3332C6D1B05D8ED00A7AACF /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCell.h; path = Visionear/CustomCell.h; sourceTree = "<group>"; };
@@ -65,6 +70,8 @@
 		F33C34E31B0DD4CD00237108 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
 		F35B30141B047E6700292950 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		F35B30151B047E6700292950 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		F371B39A1B157EAA00225D04 /* SocialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialViewController.h; sourceTree = "<group>"; };
+		F371B39B1B157EAA00225D04 /* SocialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialViewController.m; sourceTree = "<group>"; };
 		F3752F8B1B09CF0B00DCF8A6 /* scene5.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = scene5.gif; sourceTree = "<group>"; };
 		F3752F8C1B09CF0B00DCF8A6 /* scene4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = scene4.gif; sourceTree = "<group>"; };
 		F3752F8D1B09CF0B00DCF8A6 /* scene3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = scene3.gif; path = Visionear.xcodeproj/scene3.gif; sourceTree = SOURCE_ROOT; };
@@ -96,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA3E5B77AF55E27B951C7EDC /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +117,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BFF2606F7787E9E591635CAB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2E0DB807A74F2EC15F3D03EF /* Pods.debug.xcconfig */,
+				07609FA976902EA986C50CF6 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F3290A5B1B0EE1EF009D8BDB /* UpdateSection */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +169,23 @@
 			path = Visionear.xcodeproj;
 			sourceTree = "<group>";
 		};
+		F371B3991B157E6E00225D04 /* SocialSection */ = {
+			isa = PBXGroup;
+			children = (
+				F371B39A1B157EAA00225D04 /* SocialViewController.h */,
+				F371B39B1B157EAA00225D04 /* SocialViewController.m */,
+			);
+			name = SocialSection;
+			sourceTree = "<group>";
+		};
+		F378C76B1B1EA766006A6AAB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3230A996FCA2450884503522 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F38C18281AF2077500112274 = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +195,8 @@
 				F38C18501AF2077600112274 /* VisionearTests */,
 				F38C18321AF2077500112274 /* Products */,
 				F33557C51AF9FDAC0057CCD3 /* Font */,
+				F378C76B1B1EA766006A6AAB /* Frameworks */,
+				BFF2606F7787E9E591635CAB /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -185,6 +221,7 @@
 				F38C18461AF2077500112274 /* LaunchScreen.xib */,
 				F333E7CB1B0C6C0B00A1CD49 /* MainSection */,
 				F3290A5B1B0EE1EF009D8BDB /* UpdateSection */,
+				F371B3991B157E6E00225D04 /* SocialSection */,
 				F333E7CA1B0C6BEE00A1CD49 /* HelpSection */,
 				F38C18341AF2077500112274 /* Supporting Files */,
 			);
@@ -253,9 +290,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F38C18571AF2077600112274 /* Build configuration list for PBXNativeTarget "Visionear" */;
 			buildPhases = (
+				8C49C1C96D6153DAE1003B06 /* Check Pods Manifest.lock */,
 				F38C182D1AF2077500112274 /* Sources */,
 				F38C182E1AF2077500112274 /* Frameworks */,
 				F38C182F1AF2077500112274 /* Resources */,
+				50DABE2F1A739B69C795B46F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -356,6 +395,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		50DABE2F1A739B69C795B46F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C49C1C96D6153DAE1003B06 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F38C182D1AF2077500112274 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -369,6 +441,7 @@
 				F3A19A1D1B0AFA0300BF44D2 /* Main2ViewController.m in Sources */,
 				F33C34E41B0DD4CD00237108 /* Global.m in Sources */,
 				F3290A5E1B0EE216009D8BDB /* UpdateViewController.m in Sources */,
+				F371B39C1B157EAA00225D04 /* SocialViewController.m in Sources */,
 				F38C183D1AF2077500112274 /* MainViewController.m in Sources */,
 				F38C18371AF2077500112274 /* main.m in Sources */,
 			);
@@ -496,6 +569,7 @@
 		};
 		F38C18581AF2077600112274 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E0DB807A74F2EC15F3D03EF /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -511,6 +585,7 @@
 		};
 		F38C18591AF2077600112274 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07609FA976902EA986C50CF6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

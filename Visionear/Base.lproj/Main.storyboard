@@ -348,7 +348,7 @@
         <!--Facebook-->
         <scene sceneID="7zB-Ea-O16">
             <objects>
-                <viewController id="UOP-dS-bvw" sceneMemberID="viewController">
+                <viewController id="UOP-dS-bvw" customClass="SocialViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SLq-xg-0cL"/>
                         <viewControllerLayoutGuide type="bottom" id="mHu-5T-3gw"/>
@@ -374,10 +374,21 @@
                                     <constraint firstAttribute="width" secondItem="ALo-hS-fxS" secondAttribute="height" multiplier="1:1" id="DUU-Xx-qUs"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Heu-Eh-TDr">
+                                <rect key="frame" x="220" y="433" width="161" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="161" id="ZZh-wp-XJn"/>
+                                </constraints>
+                                <state key="normal" title="Press button to share">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Heu-Eh-TDr" firstAttribute="centerX" secondItem="ALo-hS-fxS" secondAttribute="centerX" id="H56-Lp-YV6"/>
                             <constraint firstItem="SOj-HW-vjb" firstAttribute="top" secondItem="SLq-xg-0cL" secondAttribute="bottom" constant="164" id="Jc4-G2-vht"/>
+                            <constraint firstItem="Heu-Eh-TDr" firstAttribute="top" secondItem="ALo-hS-fxS" secondAttribute="bottom" constant="50" id="TPh-eK-qRQ"/>
                             <constraint firstItem="ALo-hS-fxS" firstAttribute="centerX" secondItem="2bi-4k-zyL" secondAttribute="centerX" id="Wav-v4-Oes"/>
                             <constraint firstItem="ALo-hS-fxS" firstAttribute="top" secondItem="SOj-HW-vjb" secondAttribute="bottom" constant="39" id="b5g-gg-wcG"/>
                             <constraint firstItem="SOj-HW-vjb" firstAttribute="centerX" secondItem="ALo-hS-fxS" secondAttribute="centerX" id="fVn-ct-9Cm"/>
@@ -385,6 +396,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Facebook" image="fb-icon-alpha" id="aLO-Nz-HQ6"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="buttonSocial" destination="Heu-Eh-TDr" id="76M-Sj-YZ2"/>
+                        <outlet property="imgSocial" destination="ALo-hS-fxS" id="kBp-Ug-EFu"/>
+                        <outlet property="socialLabel" destination="SOj-HW-vjb" id="SUE-7B-0Hi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abq-aN-dtI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

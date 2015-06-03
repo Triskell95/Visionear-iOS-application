@@ -22,8 +22,12 @@ UIActivityIndicatorView *indicator;
     [super viewDidLoad];
     
     alert = [[UIAlertView alloc] initWithTitle:@"Update in progress\nPlease wait ..." message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
-    indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-
+    //indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    //indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
+    indicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0,0,100,100)];
+    indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    
     [alert addSubview:indicator];
     [alert bringSubviewToFront:indicator];
     indicator.hidden = NO;
