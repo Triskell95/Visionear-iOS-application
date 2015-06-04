@@ -98,20 +98,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are now using Visionear succesfully ! ;)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKI-KR-Vph">
-                                <rect key="frame" x="212" y="158" width="177" height="90"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are now using Visionear succesfully ! ;)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKI-KR-Vph">
+                                <rect key="frame" x="16" y="20" width="568" height="405"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="177" id="THg-dB-7m2"/>
-                                    <constraint firstAttribute="height" constant="90" id="heZ-Yc-dcM"/>
+                                    <constraint firstAttribute="height" constant="405" id="08t-Jx-r6F"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Stu-of-FlT">
-                                <rect key="frame" x="220" y="308" width="160" height="92"/>
+                                <rect key="frame" x="220" y="433" width="160" height="92"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="uQt-we-vCo"/>
+                                    <constraint firstAttribute="width" constant="160" id="5n1-WJ-4X6"/>
                                 </constraints>
                                 <state key="normal" title="Back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -124,11 +123,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dRt-1h-We3" firstAttribute="top" secondItem="Stu-of-FlT" secondAttribute="bottom" constant="200" id="LJh-wR-BcJ"/>
-                            <constraint firstItem="CKI-KR-Vph" firstAttribute="centerX" secondItem="Web-Cc-zFY" secondAttribute="centerX" id="LSS-wJ-kxf"/>
-                            <constraint firstItem="Stu-of-FlT" firstAttribute="top" secondItem="CKI-KR-Vph" secondAttribute="bottom" constant="60" id="VcF-49-Poj"/>
-                            <constraint firstItem="CKI-KR-Vph" firstAttribute="top" secondItem="f0y-xF-acd" secondAttribute="bottom" constant="138" id="ZGg-tU-BtH"/>
-                            <constraint firstItem="CKI-KR-Vph" firstAttribute="centerX" secondItem="Stu-of-FlT" secondAttribute="centerX" id="chm-VV-hHK"/>
+                            <constraint firstItem="dRt-1h-We3" firstAttribute="top" secondItem="Stu-of-FlT" secondAttribute="bottom" constant="75" id="Phf-yj-MbU"/>
+                            <constraint firstItem="Stu-of-FlT" firstAttribute="top" secondItem="CKI-KR-Vph" secondAttribute="bottom" constant="8" symbolic="YES" id="diR-xf-BV8"/>
+                            <constraint firstItem="CKI-KR-Vph" firstAttribute="trailing" secondItem="Web-Cc-zFY" secondAttribute="trailingMargin" id="f8C-Zw-Qla"/>
+                            <constraint firstItem="CKI-KR-Vph" firstAttribute="top" secondItem="f0y-xF-acd" secondAttribute="bottom" id="r3T-7z-3EY"/>
+                            <constraint firstItem="Stu-of-FlT" firstAttribute="centerX" secondItem="CKI-KR-Vph" secondAttribute="centerX" id="spF-hl-HUY"/>
+                            <constraint firstItem="CKI-KR-Vph" firstAttribute="leading" secondItem="Web-Cc-zFY" secondAttribute="leadingMargin" id="vWy-sF-tmJ"/>
                         </constraints>
                     </view>
                     <connections>

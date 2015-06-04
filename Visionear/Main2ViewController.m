@@ -8,14 +8,15 @@
 
 #import "Main2ViewController.h"
 #import "NMSSH/NMSSH.h"
+#import "NMSSH/NMSSHChannel.h"
 
-@interface Main2ViewController ()
+@interface Main2ViewController () <NMSSHChannelDelegate, NMSSHSessionDelegate>
 
 @end
 
 @implementation Main2ViewController
 
-@synthesize backButton;
+@synthesize backButton, labelMain2;
 
 UIAlertView *alert2;
 NMSSHSession *session;
@@ -44,6 +45,10 @@ BOOL flagDelay;
 
 -(void)connectToRasp {
     
+    NSString *resultBash = [NSString alloc];
+    //NSError ** error = NULL;
+    //NMSSHChannel *channel = [NMSSHChannel alloc];
+    
     //Setting the SSH connection
     session = [[NMSSHSession alloc] initWithHost:@"10.35.23.1:22" andUsername:@"pi"];
     flagDelay = [session connectWithTimeout:timeoutDelay];
@@ -54,9 +59,20 @@ BOOL flagDelay;
         
         //If the logging step is done
         if (session.isAuthorized) {
+ 
+            //session.channel.delegate = ;
+            //session.channel.requestPty = YES;
+            
+            NSError *error;
+            //[session.channel startShell:&error];
+            
+            
             
             NSLog(@"Connection authorized");
             [alert2 dismissWithClickedButtonIndex:0 animated:YES];
+            resultBash = [session.channel execute:@"ls" error:&error];
+
+            labelMain2.text = [NSString stringWithFormat:@"Result of 'ls':\r%@",resultBash];
             
         }
         //Else => alert to inform it failed
@@ -79,6 +95,7 @@ BOOL flagDelay;
 //When 'Back' button is pressed, end of the SSH connection before going back to main screen
 - (IBAction)backPressed:(id)sender {
     
+    //[session.channel closeShell];
     NSLog(@"Back pressed, you'll be disconnected !");
     [session disconnect];
 
