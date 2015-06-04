@@ -29,34 +29,37 @@ BOOL flagDelay;
     alert2 = [[UIAlertView alloc] initWithTitle:@"Establishing Connection\rPlease wait..."message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
     [alert2 show];
     
+    //Setting of the before the connection times out
     timeoutDelay = [[NSNumber alloc] initWithFloat:5.0];
-    
-    //[self connectToRasp];
     
 }
 
+//When the view is loaded
 -(void)viewDidAppear:(BOOL)animated {
 
+    //Connection to the Raspberry
     [self connectToRasp];
 
 }
 
 -(void)connectToRasp {
     
+    //Setting the SSH connection
     session = [[NMSSHSession alloc] initWithHost:@"10.35.23.1:22" andUsername:@"pi"];
     flagDelay = [session connectWithTimeout:timeoutDelay];
     
+    //When the connection is established
     if (session.isConnected) {
         [session authenticateByPassword:@"raspberry"];
         
+        //If the logging step is done
         if (session.isAuthorized) {
-           
-            
             
             NSLog(@"Connection authorized");
             [alert2 dismissWithClickedButtonIndex:0 animated:YES];
             
         }
+        //Else => alert to inform it failed
         else {
             [alert2 dismissWithClickedButtonIndex:0 animated:YES];
             UIAlertView *alertFail = [[UIAlertView alloc] initWithTitle:@"Connection Rejected ! Something went wrong..."message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
@@ -64,6 +67,7 @@ BOOL flagDelay;
             
         }
     }
+    //Else => alert to inform it failed
     else {
         [alert2 dismissWithClickedButtonIndex:0 animated:YES];
         
@@ -72,6 +76,7 @@ BOOL flagDelay;
     }
 }
 
+//When 'Back' button is pressed, end of the SSH connection before going back to main screen
 - (IBAction)backPressed:(id)sender {
     
     NSLog(@"Back pressed, you'll be disconnected !");
