@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *labelMain2;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UIImageView *imgMain2;
 
 - (IBAction)backPressed:(id)sender;
 

@@ -120,12 +120,21 @@
                                     <segue destination="49e-Tb-3d3" kind="show" identifier="Back" id="v1W-zL-zG0"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="first" translatesAutoresizingMaskIntoConstraints="NO" id="V5F-a7-3gC">
+                                <rect key="frame" x="233" y="297" width="135" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="K3O-BP-4wg"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="V5F-a7-3gC" firstAttribute="bottom" secondItem="CKI-KR-Vph" secondAttribute="bottom" id="CsY-Xx-B3A"/>
                             <constraint firstItem="dRt-1h-We3" firstAttribute="top" secondItem="Stu-of-FlT" secondAttribute="bottom" constant="75" id="Phf-yj-MbU"/>
                             <constraint firstItem="Stu-of-FlT" firstAttribute="top" secondItem="CKI-KR-Vph" secondAttribute="bottom" constant="8" symbolic="YES" id="diR-xf-BV8"/>
                             <constraint firstItem="CKI-KR-Vph" firstAttribute="trailing" secondItem="Web-Cc-zFY" secondAttribute="trailingMargin" id="f8C-Zw-Qla"/>
+                            <constraint firstItem="V5F-a7-3gC" firstAttribute="top" secondItem="f0y-xF-acd" secondAttribute="bottom" constant="277" id="hUn-aN-yk8"/>
+                            <constraint firstAttribute="centerX" secondItem="V5F-a7-3gC" secondAttribute="centerX" id="qy5-77-yHB"/>
                             <constraint firstItem="CKI-KR-Vph" firstAttribute="top" secondItem="f0y-xF-acd" secondAttribute="bottom" id="r3T-7z-3EY"/>
                             <constraint firstItem="Stu-of-FlT" firstAttribute="centerX" secondItem="CKI-KR-Vph" secondAttribute="centerX" id="spF-hl-HUY"/>
                             <constraint firstItem="CKI-KR-Vph" firstAttribute="leading" secondItem="Web-Cc-zFY" secondAttribute="leadingMargin" id="vWy-sF-tmJ"/>
@@ -133,6 +142,7 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="Stu-of-FlT" id="2RD-f3-rfH"/>
+                        <outlet property="imgMain2" destination="V5F-a7-3gC" id="VLQ-Qu-vHK"/>
                         <outlet property="labelMain2" destination="CKI-KR-Vph" id="wU5-VQ-s4J"/>
                     </connections>
                 </viewController>
@@ -416,6 +426,7 @@
         <image name="Icon-Small" width="29" height="29"/>
         <image name="fb" width="64" height="64"/>
         <image name="fb-icon-alpha" width="29" height="29"/>
+        <image name="first" width="30" height="30"/>
         <image name="help-icon" width="29" height="29"/>
         <image name="swip-icon" width="225" height="225"/>
         <image name="testImg" width="297" height="170"/>

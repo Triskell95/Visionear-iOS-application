@@ -16,12 +16,13 @@
 
 @implementation Main2ViewController
 
-@synthesize backButton, labelMain2;
+@synthesize backButton, labelMain2, imgMain2;
 
 UIAlertView *alert2;
 NMSSHSession *session;
 NSNumber *timeoutDelay;
-BOOL flagDelay;
+BOOL flagDelay, flag;
+NSString *imgPathToDl;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,7 +33,8 @@ BOOL flagDelay;
     
     //Setting of the before the connection times out
     timeoutDelay = [[NSNumber alloc] initWithFloat:5.0];
-    
+    //imgMain2.hidden = YES;
+    imgPathToDl = [NSString stringWithFormat:@"Desktop/testcatimg.jpg"];
 }
 
 //When the view is loaded
@@ -46,8 +48,6 @@ BOOL flagDelay;
 -(void)connectToRasp {
     
     NSString *resultBash = [NSString alloc];
-    //NSError ** error = NULL;
-    //NMSSHChannel *channel = [NMSSHChannel alloc];
     
     //Setting the SSH connection
     session = [[NMSSHSession alloc] initWithHost:@"10.35.23.1:22" andUsername:@"pi"];
@@ -60,25 +60,36 @@ BOOL flagDelay;
         //If the logging step is done
         if (session.isAuthorized) {
  
-            //session.channel.delegate = ;
-            //session.channel.requestPty = YES;
-            
             NSError *error;
-            //[session.channel startShell:&error];
+            NSString *cmd;
+            cmd = [NSString stringWithFormat: @"stat %@", imgPathToDl];
             
-            
+            //NSLog(@"Command to execute: %@", cmd);
             
             NSLog(@"Connection authorized");
             [alert2 dismissWithClickedButtonIndex:0 animated:YES];
-            resultBash = [session.channel execute:@"ls" error:&error];
+            resultBash = [session.channel execute:cmd error:&error];
 
-            labelMain2.text = [NSString stringWithFormat:@"Result of 'ls':\r%@",resultBash];
+            labelMain2.text = [NSString stringWithFormat:@"Result cmd:\r%@",resultBash];
+            
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Image.png"];
+            
+            flag = [session.channel downloadFile:imgPathToDl to:filePath];
+            
+            if(flag){
+                
+                UIImage *image;
+                [UIImagePNGRepresentation(image) writeToFile:filePath atomically:YES];
+                //imgMain2.hidden = NO;
+                imgMain2.image = [UIImage imageNamed:filePath];
+            }
             
         }
         //Else => alert to inform it failed
         else {
             [alert2 dismissWithClickedButtonIndex:0 animated:YES];
-            UIAlertView *alertFail = [[UIAlertView alloc] initWithTitle:@"Connection Rejected ! Something went wrong..."message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            UIAlertView *alertFail = [[UIAlertView alloc] initWithTitle:@"Connection Rejected !\rSomething went wrong..."message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [alertFail show];
             
         }
@@ -95,7 +106,6 @@ BOOL flagDelay;
 //When 'Back' button is pressed, end of the SSH connection before going back to main screen
 - (IBAction)backPressed:(id)sender {
     
-    //[session.channel closeShell];
     NSLog(@"Back pressed, you'll be disconnected !");
     [session disconnect];
 
