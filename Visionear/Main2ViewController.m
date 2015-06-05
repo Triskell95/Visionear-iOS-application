@@ -22,19 +22,38 @@ UIAlertView *alert2;
 NMSSHSession *session;
 NSNumber *timeoutDelay;
 BOOL flagDelay, flag;
-NSString *imgPathToDl;
+int r;
+NSString *hostIP, *username;
+NSString *imgPathToDl, *imgFile;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //TO DELETE !!! Random number generated to switch between to photos to test everything is OK
+    //WATCH OUT ! There are references to 'r' variable in imgPathToDl, imgFile and filePath (connectToRasp method)
+    //DON'T FORGET TO DELETE ALL THESE REFERENCES WHEN THE HARDWARE WILL BE OK !!!
+    r = arc4random() % 2;
+    r += 1;
+    NSLog(@"Random number generated: %i", r);
+    //Seriously, DON'T FORGET !!!
     
     //UIAlertView
     alert2 = [[UIAlertView alloc] initWithTitle:@"Establishing Connection\rPlease wait..."message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
     [alert2 show];
     
+    //Default path to reach to download an image and its description file from the RPi
+    imgPathToDl = [NSString stringWithFormat:@"Desktop/testcatimg%i.jpg", r];
+    imgFile = [NSString stringWithFormat:@"Desktop/testcatfile%i", r];
+    
+    //Setting of the SSH connection
+    hostIP = [NSString stringWithFormat:@"10.35.23.1"];
+    username = [NSString  stringWithFormat:@"pi"];
+    
     //Setting of the before the connection times out
     timeoutDelay = [[NSNumber alloc] initWithFloat:5.0];
-    //imgMain2.hidden = YES;
-    imgPathToDl = [NSString stringWithFormat:@"Desktop/testcatimg.jpg"];
+
+    labelMain2.hidden = YES;
+    imgMain2.hidden = YES;
 }
 
 //When the view is loaded
@@ -48,9 +67,10 @@ NSString *imgPathToDl;
 -(void)connectToRasp {
     
     NSString *resultBash = [NSString alloc];
+    labelMain2.hidden = NO;
     
     //Setting the SSH connection
-    session = [[NMSSHSession alloc] initWithHost:@"10.35.23.1:22" andUsername:@"pi"];
+    session = [[NMSSHSession alloc] initWithHost:hostIP andUsername:username];
     flagDelay = [session connectWithTimeout:timeoutDelay];
     
     //When the connection is established
@@ -62,28 +82,18 @@ NSString *imgPathToDl;
  
             NSError *error;
             NSString *cmd;
-            cmd = [NSString stringWithFormat: @"stat %@", imgPathToDl];
             
-            //NSLog(@"Command to execute: %@", cmd);
-            
+            //Dismiss the loading alert
             NSLog(@"Connection authorized");
             [alert2 dismissWithClickedButtonIndex:0 animated:YES];
-            resultBash = [session.channel execute:cmd error:&error];
 
-            labelMain2.text = [NSString stringWithFormat:@"Result cmd:\r%@",resultBash];
+            //Command to execute to get the image file corresponding to 'imgFile' and display it in the label
+            cmd = [NSString stringWithFormat: @"cat %@", imgFile];
+            NSLog(@"Command to execute:\r%@", cmd);
+            resultBash = [session.channel execute:cmd error:&error];
+            labelMain2.text = [NSString stringWithFormat:@"%@",resultBash];
             
-            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-            NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Image.png"];
-            
-            flag = [session.channel downloadFile:imgPathToDl to:filePath];
-            
-            if(flag){
-                
-                UIImage *image;
-                [UIImagePNGRepresentation(image) writeToFile:filePath atomically:YES];
-                //imgMain2.hidden = NO;
-                imgMain2.image = [UIImage imageNamed:filePath];
-            }
+            [self downloadImgFromRPi];
             
         }
         //Else => alert to inform it failed
@@ -103,7 +113,23 @@ NSString *imgPathToDl;
     }
 }
 
-//When 'Back' button is pressed, end of the SSH connection before going back to main screen
+-(void)downloadImgFromRPi{
+   
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat: @"Image%i.png", r]];
+    
+    flag = [session.channel downloadFile:imgPathToDl to:filePath];
+    
+    //If the download has been done successfully, display the image on the screen
+    if(flag){
+        
+        UIImage *image;
+        [UIImagePNGRepresentation(image) writeToFile:filePath atomically:YES];
+        imgMain2.hidden = NO;
+        imgMain2.image = [UIImage imageNamed:filePath];
+    }
+}
+
 - (IBAction)backPressed:(id)sender {
     
     NSLog(@"Back pressed, you'll be disconnected !");

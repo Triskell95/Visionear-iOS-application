@@ -14,6 +14,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UIImageView *imgMain2;
 
+
+//Download the image passed in 'imgPathToDl' from the RPi and set it in the ImageView
+-(void)downloadImgFromRPi;
+
+
+//When 'Back' button is pressed, end of the SSH connection before going back to main screen
 - (IBAction)backPressed:(id)sender;
 
 @end
