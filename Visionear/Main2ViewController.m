@@ -29,21 +29,9 @@ NSString *imgPathToDl, *imgFile;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //TO DELETE !!! Random number generated to switch between to photos to test everything is OK
-    //WATCH OUT ! There are references to 'r' variable in imgPathToDl, imgFile and filePath (connectToRasp method)
-    //DON'T FORGET TO DELETE ALL THESE REFERENCES WHEN THE HARDWARE WILL BE OK !!!
-    r = arc4random() % 2;
-    r += 1;
-    NSLog(@"Random number generated: %i", r);
-    //Seriously, DON'T FORGET !!!
-    
     //UIAlertView
     alert2 = [[UIAlertView alloc] initWithTitle:@"Establishing Connection\rPlease wait..."message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
     [alert2 show];
-    
-    //Default path to reach to download an image and its description file from the RPi
-    imgPathToDl = [NSString stringWithFormat:@"Desktop/testcatimg%i.jpg", r];
-    imgFile = [NSString stringWithFormat:@"Desktop/testcatfile%i", r];
     
     //Setting of the SSH connection
     hostIP = [NSString stringWithFormat:@"10.35.23.1"];
@@ -83,9 +71,27 @@ NSString *imgPathToDl, *imgFile;
             NSError *error;
             NSString *cmd;
             
+            //TO DELETE !!! Random number generated to switch between to photos to test everything is OK
+            //WATCH OUT ! There are references to 'r' variable in imgPathToDl, imgFile and filePath (connectToRasp method)
+            //DON'T FORGET TO DELETE ALL THESE REFERENCES WHEN THE HARDWARE WILL BE OK !!!
+           
+            cmd = [NSString stringWithFormat: @"ls -1 Desktop/ | grep \"visionearImg\"| wc -l"];
+            resultBash = [session.channel execute:cmd error:&error];
+            r = arc4random() % resultBash.integerValue;
+            r += 1;
+            NSLog(@"Random number generated: %i", r);
+            //Seriously, DON'T FORGET !!!
+            
+            //Default path to reach to download an image and its description file from the RPi
+            imgPathToDl = [NSString stringWithFormat:@"Desktop/visionearImg%i", r];
+            imgFile = [NSString stringWithFormat:@"Desktop/visionearFile%i", r];
+
+            
             //Dismiss the loading alert
             NSLog(@"Connection authorized");
             [alert2 dismissWithClickedButtonIndex:0 animated:YES];
+            resultBash = [session.channel execute:@"ls Desktop/" error:&error];
+            NSLog(@"\r\rls Desktop/: \r%@\r\r", resultBash);
 
             //Command to execute to get the image file corresponding to 'imgFile' and display it in the label
             cmd = [NSString stringWithFormat: @"cat %@", imgFile];
