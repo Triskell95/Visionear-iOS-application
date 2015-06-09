@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelMain2;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UIImageView *imgMain2;
+@property (weak, nonatomic) IBOutlet UILabel *labelTitle;
 
 
 //Download the image passed in 'imgPathToDl' from the RPi and set it in the ImageView

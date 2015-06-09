@@ -42,6 +42,8 @@ NSString *imgPathToDl, *imgFile;
 
     labelMain2.hidden = YES;
     imgMain2.hidden = YES;
+    [self.view bringSubviewToFront:backButton];
+    
 }
 
 //When the view is loaded
@@ -74,7 +76,6 @@ NSString *imgPathToDl, *imgFile;
             //TO DELETE !!! Random number generated to switch between to photos to test everything is OK
             //WATCH OUT ! There are references to 'r' variable in imgPathToDl, imgFile and filePath (connectToRasp method)
             //DON'T FORGET TO DELETE ALL THESE REFERENCES WHEN THE HARDWARE WILL BE OK !!!
-           
             cmd = [NSString stringWithFormat: @"ls -1 Desktop/ | grep \"visionearImg\"| wc -l"];
             resultBash = [session.channel execute:cmd error:&error];
             r = arc4random() % resultBash.integerValue;
@@ -90,6 +91,7 @@ NSString *imgPathToDl, *imgFile;
             //Dismiss the loading alert
             NSLog(@"Connection authorized");
             [alert2 dismissWithClickedButtonIndex:0 animated:YES];
+            
             resultBash = [session.channel execute:@"ls Desktop/" error:&error];
             NSLog(@"\r\rls Desktop/: \r%@\r\r", resultBash);
 

@@ -7,6 +7,9 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="THSarabunNew Bold.ttf">
+            <string>THSarabunNew-Bold</string>
+        </mutableArray>
         <mutableArray key="THSarabunNew Italic.ttf">
             <string>THSarabunNew-Italic</string>
         </mutableArray>
@@ -79,7 +82,7 @@
                     <connections>
                         <outlet property="visionearImg" destination="8ll-ad-h3A" id="fZr-VQ-dHQ"/>
                         <outlet property="visionearLabel" destination="n6O-0V-uJ6" id="wEa-zH-GSs"/>
-                        <segue destination="Hi7-lg-vCc" kind="presentation" identifier="NextView" modalPresentationStyle="currentContext" id="W4E-h2-yCd"/>
+                        <segue destination="Hi7-lg-vCc" kind="show" identifier="NextView" id="GEu-4Y-30G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNx-jz-LfP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -98,19 +101,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are now using Visionear succesfully ! ;)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKI-KR-Vph">
-                                <rect key="frame" x="16" y="20" width="568" height="255"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RbM-CG-6sh">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="85"/>
+                                <color key="backgroundColor" red="0.050980392159999999" green="0.2901960784" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You are now using Visionear succesfully ! ;)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKI-KR-Vph">
+                                <rect key="frame" x="16" y="93" width="568" height="167"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Stu-of-FlT">
-                                <rect key="frame" x="220" y="493" width="160" height="54"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visionear Images" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdV-7x-eQq">
+                                <rect key="frame" x="90" y="20" width="420" height="65"/>
+                                <fontDescription key="fontDescription" name="THSarabunNew-Bold" family="TH Sarabun New" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Stu-of-FlT">
+                                <rect key="frame" x="0.0" y="20" width="82" height="65"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="2TU-39-RQb"/>
-                                    <constraint firstAttribute="height" constant="54" id="P50-4Y-gAF"/>
+                                    <constraint firstAttribute="height" constant="65" id="0to-q9-TV3"/>
+                                    <constraint firstAttribute="width" constant="82" id="OlI-8j-hvx"/>
                                 </constraints>
-                                <state key="normal" title="Back">
+                                <state key="normal" title="&lt; Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -118,35 +135,46 @@
                                     <segue destination="49e-Tb-3d3" kind="show" identifier="Back" id="v1W-zL-zG0"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="first" translatesAutoresizingMaskIntoConstraints="NO" id="V5F-a7-3gC">
-                                <rect key="frame" x="199" y="283" width="202" height="202"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="first" translatesAutoresizingMaskIntoConstraints="NO" id="V5F-a7-3gC">
+                                <rect key="frame" x="199" y="268" width="202" height="202"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="202" id="065-nC-Kga"/>
-                                    <constraint firstAttribute="height" constant="202" id="77Y-p4-rkX"/>
+                                    <constraint firstAttribute="height" constant="202" id="Cdx-23-gSl"/>
+                                    <constraint firstAttribute="width" constant="202" id="rjO-1m-X7j"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CKI-KR-Vph" firstAttribute="top" secondItem="f0y-xF-acd" secondAttribute="bottom" id="21B-X6-Kkm"/>
-                            <constraint firstItem="V5F-a7-3gC" firstAttribute="centerX" secondItem="Stu-of-FlT" secondAttribute="centerX" id="23y-ex-qPN"/>
-                            <constraint firstItem="V5F-a7-3gC" firstAttribute="centerX" secondItem="CKI-KR-Vph" secondAttribute="centerX" id="3mb-4x-Odc"/>
-                            <constraint firstItem="Stu-of-FlT" firstAttribute="top" secondItem="V5F-a7-3gC" secondAttribute="bottom" constant="8" symbolic="YES" id="OTJ-qc-bNf"/>
-                            <constraint firstItem="dRt-1h-We3" firstAttribute="top" secondItem="Stu-of-FlT" secondAttribute="bottom" constant="53" id="P9h-w3-Ayh"/>
-                            <constraint firstItem="V5F-a7-3gC" firstAttribute="top" secondItem="CKI-KR-Vph" secondAttribute="bottom" constant="8" symbolic="YES" id="UWP-dZ-Z8C"/>
-                            <constraint firstItem="CKI-KR-Vph" firstAttribute="leading" secondItem="Web-Cc-zFY" secondAttribute="leadingMargin" id="WJ7-9d-jlb"/>
-                            <constraint firstItem="CKI-KR-Vph" firstAttribute="trailing" secondItem="Web-Cc-zFY" secondAttribute="trailingMargin" id="XBS-Zw-RSB"/>
+                            <constraint firstItem="RbM-CG-6sh" firstAttribute="leading" secondItem="Web-Cc-zFY" secondAttribute="leading" id="6ew-ah-Mgw"/>
+                            <constraint firstItem="CKI-KR-Vph" firstAttribute="top" secondItem="Stu-of-FlT" secondAttribute="bottom" constant="8" symbolic="YES" id="DNE-zZ-kf6"/>
+                            <constraint firstItem="CKI-KR-Vph" firstAttribute="top" secondItem="RbM-CG-6sh" secondAttribute="bottom" constant="8" symbolic="YES" id="EIl-9o-4DT"/>
+                            <constraint firstItem="CKI-KR-Vph" firstAttribute="leading" secondItem="Web-Cc-zFY" secondAttribute="leadingMargin" id="NgL-ud-gMW"/>
+                            <constraint firstItem="dRt-1h-We3" firstAttribute="top" secondItem="V5F-a7-3gC" secondAttribute="bottom" constant="81" id="R8R-2J-DOO"/>
+                            <constraint firstItem="Stu-of-FlT" firstAttribute="top" secondItem="EdV-7x-eQq" secondAttribute="top" id="S7x-4P-Jgs"/>
+                            <constraint firstAttribute="centerX" secondItem="EdV-7x-eQq" secondAttribute="centerX" id="U9G-Gg-NBL"/>
+                            <constraint firstItem="EdV-7x-eQq" firstAttribute="top" secondItem="f0y-xF-acd" secondAttribute="bottom" id="UJk-7L-1db"/>
+                            <constraint firstItem="V5F-a7-3gC" firstAttribute="top" secondItem="CKI-KR-Vph" secondAttribute="bottom" constant="8" symbolic="YES" id="WN6-9i-899"/>
+                            <constraint firstItem="RbM-CG-6sh" firstAttribute="top" secondItem="Web-Cc-zFY" secondAttribute="top" id="XPt-Ie-QrP"/>
+                            <constraint firstAttribute="centerX" secondItem="CKI-KR-Vph" secondAttribute="centerX" id="Xd7-OD-g2B"/>
+                            <constraint firstItem="EdV-7x-eQq" firstAttribute="leading" secondItem="Stu-of-FlT" secondAttribute="trailing" constant="8" id="aGm-Ms-QUN"/>
+                            <constraint firstAttribute="centerX" secondItem="V5F-a7-3gC" secondAttribute="centerX" id="iVI-rC-YPr"/>
+                            <constraint firstItem="CKI-KR-Vph" firstAttribute="top" secondItem="EdV-7x-eQq" secondAttribute="bottom" constant="8" symbolic="YES" id="pAy-Mc-c9b"/>
+                            <constraint firstItem="RbM-CG-6sh" firstAttribute="leading" secondItem="Stu-of-FlT" secondAttribute="leading" id="xZR-N9-QK7"/>
+                            <constraint firstAttribute="centerX" secondItem="RbM-CG-6sh" secondAttribute="centerX" id="zlc-ao-A6B"/>
                         </constraints>
                     </view>
+                    <keyCommands/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="backButton" destination="Stu-of-FlT" id="2RD-f3-rfH"/>
                         <outlet property="imgMain2" destination="V5F-a7-3gC" id="VLQ-Qu-vHK"/>
                         <outlet property="labelMain2" destination="CKI-KR-Vph" id="wU5-VQ-s4J"/>
+                        <outlet property="labelTitle" destination="EdV-7x-eQq" id="nHC-kd-YzE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgi-aB-DlM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1499" y="-792"/>
+            <point key="canvasLocation" x="1467" y="-792"/>
         </scene>
         <!--Update-->
         <scene sceneID="Vic-bc-uUm">
@@ -356,7 +384,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="16q-Rw-cBR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-733" y="547"/>
+            <point key="canvasLocation" x="-725" y="755"/>
         </scene>
         <!--Facebook-->
         <scene sceneID="7zB-Ea-O16">
