@@ -15,6 +15,9 @@ NSMutableArray *imgLoadArray;
 @implementation Global
 
 
+//imgPathToDl = [NSString stringWithFormat:@"Desktop/testcatimg.jpg"];
+//imgFile = [NSString stringWithFormat:@"Desktop/testcatfile"];
+
 -(NSMutableArray *)loadHelpImageArray{
 
     NSInteger nbFrames[5] = {18, 38, 20, 15, 16};

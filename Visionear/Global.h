@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 extern NSMutableArray *imgLoadArray;
+extern NSString *imgPathToDl;
+extern NSString *imgFile;
 
 @interface Global : NSObject
 {
