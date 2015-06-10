@@ -7,6 +7,7 @@
 //
 
 #import "Main3ViewController.h"
+#import "Global.h"
 
 @interface Main3ViewController ()
 
@@ -14,8 +15,13 @@
 
 @implementation Main3ViewController
 
+@synthesize indexFromSegue;
+@synthesize imgView, labelDesc;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    labelDesc.text = [fileMainArray objectAtIndex:indexFromSegue];
     // Do any additional setup after loading the view.
 }
 

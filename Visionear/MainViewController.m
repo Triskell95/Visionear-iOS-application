@@ -31,20 +31,15 @@ NSString *imgPathToDl, *imgFile;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    /*
-    //Start buttom customization
-    [[startButton layer] setBorderWidth:1.0f];
-    [[startButton layer] setBorderColor:[UIColor blackColor].CGColor];
-    startButton.layer.cornerRadius = 20; // this value vary as per your desire
-    startButton.clipsToBounds = YES;
-    */
     visionearImg.frame = CGRectMake(0, 0, 100, 100);
     visionearImg.center = visionearImg.superview.center;
     
+    //Setting of the SSH connection
+    hostIP = [NSString stringWithFormat:@"10.35.23.1"];
+    username = [NSString  stringWithFormat:@"pi"];
     
-    
-    //Visionear label customization THSarabunNew
-    //[[self visionearLabel] setFont:[UIFont fontWithName:@"THSarabunNew" size:70]];
+    //Setting of the before the connection times out
+    timeoutDelay = [[NSNumber alloc] initWithFloat:5.0];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,13 +74,9 @@ NSString *imgPathToDl, *imgFile;
     alert2 = [[UIAlertView alloc] initWithTitle:@"Establishing Connection\rPlease wait..."message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
     [alert2 show];
     
-    //Setting of the SSH connection
-    hostIP = [NSString stringWithFormat:@"10.35.23.1"];
-    username = [NSString  stringWithFormat:@"pi"];
+    //Connection to the Raspberry
+    [self connectToRasp];
     
-    //Setting of the before the connection times out
-    timeoutDelay = [[NSNumber alloc] initWithFloat:5.0];
-
     [self performSegueWithIdentifier:@"NextView" sender:self];
 }
 
@@ -116,11 +107,6 @@ NSString *imgPathToDl, *imgFile;
             resultBash = [session.channel execute:cmd error:&error];
             nbRows = resultBash.integerValue;
             
-            //Default path to reach to download an image and its description file from the RPi
-            //imgPathToDl = [NSString stringWithFormat:@"Desktop/visionearImg%i", r];
-            //imgFile = [NSString stringWithFormat:@"Desktop/visionearFile%i", r];
-            
-            
             //Dismiss the loading alert
             NSLog(@"Connection authorized");
             [alert2 dismissWithClickedButtonIndex:0 animated:YES];
@@ -128,14 +114,25 @@ NSString *imgPathToDl, *imgFile;
             resultBash = [session.channel execute:@"ls Desktop/" error:&error];
             NSLog(@"\r\rls Desktop/: \r%@\r\r", resultBash);
             
-            //Command to execute to get the image file corresponding to 'imgFile' and display it in the label
-            cmd = [NSString stringWithFormat: @"cat %@", imgFile];
-            NSLog(@"Command to execute:\r%@", cmd);
-            resultBash = [session.channel execute:cmd error:&error];
-            //labelMain2.text = [NSString stringWithFormat:@"%@",resultBash];
+            fileMainArray = [[NSMutableArray alloc] initWithCapacity:nbRows];
+            imgMainArray = [[NSMutableArray alloc] initWithCapacity:nbRows];
             
-            [self downloadImgFromRPi];
+            for(int i = 0; i < nbRows; i++){
+                
+                //Default path to reach to download an image and its description file from the RPi
+                imgPathToDl = [NSString stringWithFormat:@"Desktop/visionearImg%i", i+1];
+                imgFile = [NSString stringWithFormat:@"Desktop/visionearFile%i", i+1];
             
+                //Command to execute to get the image file corresponding to 'imgFile' and display it in the label
+                cmd = [NSString stringWithFormat: @"cat %@", imgFile];
+                NSLog(@"Command to execute:\r%@", cmd);
+                resultBash = [session.channel execute:cmd error:&error];
+                NSLog(@"Result of the Command: %@\r\r", resultBash);
+                [fileMainArray addObject:resultBash];
+                
+                [self downloadImgFromRPi:i];
+            }
+            NSLog(@"Tableau:\r%@\r\r", fileMainArray);
         }
         //Else => alert to inform it failed
         else {
@@ -152,12 +149,14 @@ NSString *imgPathToDl, *imgFile;
         UIAlertView *alertFail = [[UIAlertView alloc] initWithTitle:@"Connection timed out!\rPlease check\ryou are connected to\rRPi_CastLab"message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alertFail show];
     }
+    
+    [session disconnect];
 }
 
--(void)downloadImgFromRPi{
+-(void)downloadImgFromRPi:(int)index{
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat: @"Image%i.png", 1]];
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat: @"Image%i.png", index]];
     
     flag = [session.channel downloadFile:imgPathToDl to:filePath];
     
@@ -166,6 +165,7 @@ NSString *imgPathToDl, *imgFile;
         
         UIImage *image;
         [UIImagePNGRepresentation(image) writeToFile:filePath atomically:YES];
+        [imgMainArray addObject:filePath];
         //imgMain2.image = [UIImage imageNamed:filePath];
     }
 }

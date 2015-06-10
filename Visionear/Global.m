@@ -11,9 +11,16 @@
 
 
 NSMutableArray *imgLoadArray;
+NSMutableArray *fileMainArray;
+NSMutableArray *imgMainArray;
 int nbRows;
 
 @implementation Global
+
+-(void)initArray:(NSMutableArray *)array setSize:(int)nbElements {
+    
+    array = [[NSMutableArray alloc] initWithCapacity:nbElements];
+}
 
 
 -(NSMutableArray *)loadHelpImageArray{

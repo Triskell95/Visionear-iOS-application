@@ -11,6 +11,7 @@
 #import "NMSSH/NMSSHChannel.h"
 #import "MainCustomCell.h"
 #import "Global.h"
+#import "Main3ViewController.h"
 
 @interface Main2ViewController () <NMSSHChannelDelegate, NMSSHSessionDelegate>
 
@@ -23,6 +24,7 @@
 @synthesize labelTitle;
 
 int r;
+int indexToSegue;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,14 +33,6 @@ int r;
     
     [self.view bringSubviewToFront:backButton];
     
-}
-
-//When the view is loaded
--(void)viewDidAppear:(BOOL)animated {
-
-    //Connection to the Raspberry
-    [self connectToRasp];
-
 }
 
 - (IBAction)backPressed:(id)sender {
@@ -51,16 +45,15 @@ int r;
 //Setting the number of rows in the tableView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    NSLog(@"Number of rows\r%i\r\r", r);
     return r;
 }
 
 //Setting the content of each row in the tableView
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tabView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSString *SimpleIdentifier = @"Cell";
     
-    MainCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:SimpleIdentifier];
+    MainCustomCell *cell = [tabView dequeueReusableCellWithIdentifier:SimpleIdentifier];
     
     //Initializing the cell, when doesn't already exists
     if(cell == nil) {
@@ -68,47 +61,36 @@ int r;
     }
     
     //Setting of the label
-    cell.cellLabel.text = [NSString stringWithFormat:@"Toto"];
+    cell.cellLabel.text = [fileMainArray objectAtIndex: indexPath.row];
+    //cell.imgView.image = [imgMainArray objectAtIndex: indexPath.row];
     
-    /*
-     
-     if(cell.cellLabel.text.length > 60) { //Adaptive Font Size
-     fontSize = screenWidth/((cell.cellLabel.text.length/30)*8);
-     } else {
-     fontSize = screenWidth/12.5;
-     }
-     
-     [cell.cellLabel setFont:[UIFont fontWithName:@"THSarabunNew" size:fontSize]];
-     NSLog(@"The size of the font of cell %ld is %d\rLength of the label: %ld", (long)indexPath.row, fontSize, (long)cell.cellLabel.text.length);
-     */
-    
-    //Setting of the image
-    //cell.imgView.image = [UIImage imageNamed:self.cellImages[indexPath.row]];
-    
-    
-    //cell.cellLabel.frame = CGRectMake(0, -1, screenWidth, 20*fontSize);
-    
-    //Setting border of the cell
-    [[cell layer] setBorderWidth:1.0f];
-    [[cell layer] setBorderColor:[UIColor blackColor].CGColor];
     
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    indexToSegue = indexPath.row;
+    [self performSegueWithIdentifier:@"rowSelected" sender:self.view];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"rowSelected"]){
+        Main3ViewController *controller = [segue destinationViewController];
+        
+        controller.indexFromSegue = indexToSegue;
+    }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

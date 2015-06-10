@@ -14,11 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelTitle;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-
-//Download the image passed in 'imgPathToDl' from the RPi and set it in the ImageView
--(void)downloadImgFromRPi;
-
-
 //When 'Back' button is pressed, end of the SSH connection before going back to main screen
 - (IBAction)backPressed:(id)sender;
 

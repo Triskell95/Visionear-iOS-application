@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 extern NSMutableArray *imgLoadArray;
+extern NSMutableArray *fileMainArray;
+extern NSMutableArray *imgMainArray;
 extern int nbRows;
 
 @interface Global : NSObject
@@ -17,5 +19,6 @@ extern int nbRows;
 }
 
 -(NSMutableArray *)loadHelpImageArray;
+-(void)initArray:(NSMutableArray *)array setSize:(int)nbElements;
 
 @end
