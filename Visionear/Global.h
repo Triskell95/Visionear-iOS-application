@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 extern NSMutableArray *imgLoadArray;
+extern int nbRows;
 
 @interface Global : NSObject
 {

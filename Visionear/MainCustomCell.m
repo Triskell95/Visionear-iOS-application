@@ -6,9 +6,9 @@
 //  Copyright (c) 2558 CPE KMUTT. All rights reserved.
 //
 
-#import "HelpCustomCell.h"
+#import "MainCustomCell.h"
 
-@implementation HelpCustomCell
+@implementation MainCustomCell
 
 - (void)awakeFromNib {
     // Initialization code

@@ -20,6 +20,7 @@
 		F33557CC1AF9FDD70057CCD3 /* THSarabunNew Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F33557C81AF9FDD70057CCD3 /* THSarabunNew Italic.ttf */; };
 		F33557CD1AF9FDD70057CCD3 /* THSarabunNew.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F33557C91AF9FDD70057CCD3 /* THSarabunNew.ttf */; };
 		F33C34E41B0DD4CD00237108 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = F33C34E31B0DD4CD00237108 /* Global.m */; };
+		F34DC83B1B27E17000275AFB /* Main3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34DC83A1B27E17000275AFB /* Main3ViewController.m */; };
 		F35B30161B047E6700292950 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35B30151B047E6700292950 /* HelpViewController.m */; };
 		F371B39C1B157EAA00225D04 /* SocialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F371B39B1B157EAA00225D04 /* SocialViewController.m */; };
 		F3752F8F1B09CF0B00DCF8A6 /* scene5.gif in Resources */ = {isa = PBXBuildFile; fileRef = F3752F8B1B09CF0B00DCF8A6 /* scene5.gif */; };
@@ -36,7 +37,7 @@
 		F38C18541AF2077600112274 /* VisionearTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F38C18531AF2077600112274 /* VisionearTests.m */; };
 		F3A19A1D1B0AFA0300BF44D2 /* Main2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A19A1C1B0AFA0300BF44D2 /* Main2ViewController.m */; };
 		F3A19A201B0B45C500BF44D2 /* Help2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A19A1F1B0B45C500BF44D2 /* Help2ViewController.m */; };
-		F3CF55431AFB2811003FDA62 /* HelpCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CF55421AFB2811003FDA62 /* HelpCustomCell.m */; };
+		F3CF55431AFB2811003FDA62 /* MainCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CF55421AFB2811003FDA62 /* MainCustomCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		F33557C91AF9FDD70057CCD3 /* THSarabunNew.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = THSarabunNew.ttf; sourceTree = "<group>"; };
 		F33C34E21B0DD4CD00237108 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		F33C34E31B0DD4CD00237108 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
+		F34DC8391B27E17000275AFB /* Main3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Main3ViewController.h; sourceTree = "<group>"; };
+		F34DC83A1B27E17000275AFB /* Main3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Main3ViewController.m; sourceTree = "<group>"; };
 		F35B30141B047E6700292950 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		F35B30151B047E6700292950 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		F371B39A1B157EAA00225D04 /* SocialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialViewController.h; sourceTree = "<group>"; };
@@ -94,8 +97,8 @@
 		F3A19A1C1B0AFA0300BF44D2 /* Main2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Main2ViewController.m; sourceTree = "<group>"; };
 		F3A19A1E1B0B45C500BF44D2 /* Help2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Help2ViewController.h; sourceTree = "<group>"; };
 		F3A19A1F1B0B45C500BF44D2 /* Help2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Help2ViewController.m; sourceTree = "<group>"; };
-		F3CF55411AFB2811003FDA62 /* HelpCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelpCustomCell.h; path = Visionear/HelpCustomCell.h; sourceTree = "<group>"; };
-		F3CF55421AFB2811003FDA62 /* HelpCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelpCustomCell.m; path = Visionear/HelpCustomCell.m; sourceTree = "<group>"; };
+		F3CF55411AFB2811003FDA62 /* MainCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainCustomCell.h; path = Visionear/MainCustomCell.h; sourceTree = "<group>"; };
+		F3CF55421AFB2811003FDA62 /* MainCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainCustomCell.m; path = Visionear/MainCustomCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +156,8 @@
 				F38C183C1AF2077500112274 /* MainViewController.m */,
 				F3A19A1B1B0AFA0300BF44D2 /* Main2ViewController.h */,
 				F3A19A1C1B0AFA0300BF44D2 /* Main2ViewController.m */,
+				F34DC8391B27E17000275AFB /* Main3ViewController.h */,
+				F34DC83A1B27E17000275AFB /* Main3ViewController.m */,
 			);
 			name = MainSection;
 			sourceTree = "<group>";
@@ -275,8 +280,8 @@
 		F3CF55401AFB27E1003FDA62 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
-				F3CF55411AFB2811003FDA62 /* HelpCustomCell.h */,
-				F3CF55421AFB2811003FDA62 /* HelpCustomCell.m */,
+				F3CF55411AFB2811003FDA62 /* MainCustomCell.h */,
+				F3CF55421AFB2811003FDA62 /* MainCustomCell.m */,
 				F3332C6D1B05D8ED00A7AACF /* CustomCell.h */,
 				F3332C6E1B05D8ED00A7AACF /* CustomCell.m */,
 			);
@@ -434,7 +439,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F35B30161B047E6700292950 /* HelpViewController.m in Sources */,
-				F3CF55431AFB2811003FDA62 /* HelpCustomCell.m in Sources */,
+				F3CF55431AFB2811003FDA62 /* MainCustomCell.m in Sources */,
 				F3A19A201B0B45C500BF44D2 /* Help2ViewController.m in Sources */,
 				F3332C6F1B05D8ED00A7AACF /* CustomCell.m in Sources */,
 				F38C183A1AF2077500112274 /* AppDelegate.m in Sources */,
@@ -444,6 +449,7 @@
 				F371B39C1B157EAA00225D04 /* SocialViewController.m in Sources */,
 				F38C183D1AF2077500112274 /* MainViewController.m in Sources */,
 				F38C18371AF2077500112274 /* main.m in Sources */,
+				F34DC83B1B27E17000275AFB /* Main3ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

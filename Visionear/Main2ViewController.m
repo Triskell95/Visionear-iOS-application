@@ -9,6 +9,8 @@
 #import "Main2ViewController.h"
 #import "NMSSH/NMSSH.h"
 #import "NMSSH/NMSSHChannel.h"
+#import "MainCustomCell.h"
+#import "Global.h"
 
 @interface Main2ViewController () <NMSSHChannelDelegate, NMSSHSessionDelegate>
 
@@ -16,32 +18,17 @@
 
 @implementation Main2ViewController
 
-@synthesize backButton, labelMain2, imgMain2;
+@synthesize backButton;
+@synthesize tableView;
+@synthesize labelTitle;
 
-UIAlertView *alert2;
-NMSSHSession *session;
-NSNumber *timeoutDelay;
-BOOL flagDelay, flag;
 int r;
-NSString *hostIP, *username;
-NSString *imgPathToDl, *imgFile;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //UIAlertView
-    alert2 = [[UIAlertView alloc] initWithTitle:@"Establishing Connection\rPlease wait..."message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
-    [alert2 show];
+    r = nbRows;
     
-    //Setting of the SSH connection
-    hostIP = [NSString stringWithFormat:@"10.35.23.1"];
-    username = [NSString  stringWithFormat:@"pi"];
-    
-    //Setting of the before the connection times out
-    timeoutDelay = [[NSNumber alloc] initWithFloat:5.0];
-
-    labelMain2.hidden = YES;
-    imgMain2.hidden = YES;
     [self.view bringSubviewToFront:backButton];
     
 }
@@ -54,96 +41,60 @@ NSString *imgPathToDl, *imgFile;
 
 }
 
--(void)connectToRasp {
-    
-    NSString *resultBash = [NSString alloc];
-    labelMain2.hidden = NO;
-    
-    //Setting the SSH connection
-    session = [[NMSSHSession alloc] initWithHost:hostIP andUsername:username];
-    flagDelay = [session connectWithTimeout:timeoutDelay];
-    
-    //When the connection is established
-    if (session.isConnected) {
-        [session authenticateByPassword:@"raspberry"];
-        
-        //If the logging step is done
-        if (session.isAuthorized) {
- 
-            NSError *error;
-            NSString *cmd;
-            
-            //TO DELETE !!! Random number generated to switch between to photos to test everything is OK
-            //WATCH OUT ! There are references to 'r' variable in imgPathToDl, imgFile and filePath (connectToRasp method)
-            //DON'T FORGET TO DELETE ALL THESE REFERENCES WHEN THE HARDWARE WILL BE OK !!!
-            cmd = [NSString stringWithFormat: @"ls -1 Desktop/ | grep \"visionearImg\"| wc -l"];
-            resultBash = [session.channel execute:cmd error:&error];
-            r = arc4random() % resultBash.integerValue;
-            r += 1;
-            NSLog(@"Random number generated: %i", r);
-            //Seriously, DON'T FORGET !!!
-            
-            //Default path to reach to download an image and its description file from the RPi
-            imgPathToDl = [NSString stringWithFormat:@"Desktop/visionearImg%i", r];
-            imgFile = [NSString stringWithFormat:@"Desktop/visionearFile%i", r];
-
-            
-            //Dismiss the loading alert
-            NSLog(@"Connection authorized");
-            [alert2 dismissWithClickedButtonIndex:0 animated:YES];
-            
-            resultBash = [session.channel execute:@"ls Desktop/" error:&error];
-            NSLog(@"\r\rls Desktop/: \r%@\r\r", resultBash);
-
-            //Command to execute to get the image file corresponding to 'imgFile' and display it in the label
-            cmd = [NSString stringWithFormat: @"cat %@", imgFile];
-            NSLog(@"Command to execute:\r%@", cmd);
-            resultBash = [session.channel execute:cmd error:&error];
-            labelMain2.text = [NSString stringWithFormat:@"%@",resultBash];
-            
-            [self downloadImgFromRPi];
-            
-        }
-        //Else => alert to inform it failed
-        else {
-            [alert2 dismissWithClickedButtonIndex:0 animated:YES];
-            UIAlertView *alertFail = [[UIAlertView alloc] initWithTitle:@"Connection Rejected !\rSomething went wrong..."message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-            [alertFail show];
-            
-        }
-    }
-    //Else => alert to inform it failed
-    else {
-        [alert2 dismissWithClickedButtonIndex:0 animated:YES];
-        
-        UIAlertView *alertFail = [[UIAlertView alloc] initWithTitle:@"Connection timed out!\rPlease check\ryou are connected to\rRPi_CastLab"message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alertFail show];
-    }
-}
-
--(void)downloadImgFromRPi{
-   
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat: @"Image%i.png", r]];
-    
-    flag = [session.channel downloadFile:imgPathToDl to:filePath];
-    
-    //If the download has been done successfully, display the image on the screen
-    if(flag){
-        
-        UIImage *image;
-        [UIImagePNGRepresentation(image) writeToFile:filePath atomically:YES];
-        imgMain2.hidden = NO;
-        imgMain2.image = [UIImage imageNamed:filePath];
-    }
-}
-
 - (IBAction)backPressed:(id)sender {
     
     NSLog(@"Back pressed, you'll be disconnected !");
-    [session disconnect];
+    //[session disconnect];
 
 }
+
+//Setting the number of rows in the tableView
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    NSLog(@"Number of rows\r%i\r\r", r);
+    return r;
+}
+
+//Setting the content of each row in the tableView
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSString *SimpleIdentifier = @"Cell";
+    
+    MainCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:SimpleIdentifier];
+    
+    //Initializing the cell, when doesn't already exists
+    if(cell == nil) {
+        cell = [[MainCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:SimpleIdentifier];
+    }
+    
+    //Setting of the label
+    cell.cellLabel.text = [NSString stringWithFormat:@"Toto"];
+    
+    /*
+     
+     if(cell.cellLabel.text.length > 60) { //Adaptive Font Size
+     fontSize = screenWidth/((cell.cellLabel.text.length/30)*8);
+     } else {
+     fontSize = screenWidth/12.5;
+     }
+     
+     [cell.cellLabel setFont:[UIFont fontWithName:@"THSarabunNew" size:fontSize]];
+     NSLog(@"The size of the font of cell %ld is %d\rLength of the label: %ld", (long)indexPath.row, fontSize, (long)cell.cellLabel.text.length);
+     */
+    
+    //Setting of the image
+    //cell.imgView.image = [UIImage imageNamed:self.cellImages[indexPath.row]];
+    
+    
+    //cell.cellLabel.frame = CGRectMake(0, -1, screenWidth, 20*fontSize);
+    
+    //Setting border of the cell
+    [[cell layer] setBorderWidth:1.0f];
+    [[cell layer] setBorderColor:[UIColor blackColor].CGColor];
+    
+    return cell;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

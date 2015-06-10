@@ -5,7 +5,7 @@
 //  Created by CPE KMUTT on 5/14/2558 BE.
 //  Copyright (c) 2558 CPE KMUTT. All rights reserved.
 //
-
+/*
 #import "HelpViewController.h"
 
 @interface HelpViewController ()
@@ -48,7 +48,7 @@ int fontSize;
     animatedImageView.animationRepeatCount = 0;
     [animatedImageView startAnimating];
     [self.view addSubview: animatedImageView];*/
-}
+/*}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -69,17 +69,17 @@ int fontSize;
     return (img.size.height*(screenWidth/img.size.width) + 100);
     
 }
-
+/*
 //Setting the content of each row in the tableView
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-   
+ 
     NSString *SimpleIdentifier = @"SimpleIdentifier";
     
-    HelpCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:SimpleIdentifier];
+    MainCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:SimpleIdentifier];
     
     //Initializing the cell, when doesn't already exists
     if(cell == nil) {
-        cell = [[HelpCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:SimpleIdentifier];
+        cell = [[MainCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:SimpleIdentifier];
     }
     
     //Setting of the label
@@ -105,7 +105,7 @@ int fontSize;
     
     return cell;
 }
-
+*/
 /*
  #pragma mark - Navigation
  
@@ -116,4 +116,4 @@ int fontSize;
  }
  */
 
-@end
+//@end

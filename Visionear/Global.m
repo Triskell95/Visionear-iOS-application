@@ -11,6 +11,7 @@
 
 
 NSMutableArray *imgLoadArray;
+int nbRows;
 
 @implementation Global
 
@@ -33,8 +34,7 @@ NSMutableArray *imgLoadArray;
         [imgLoadArray addObject:[[NSMutableArray alloc] initWithArray:tempArray]];
         [tempArray removeAllObjects];
     }
-    
-    
+
     return imgLoadArray;
 }
 

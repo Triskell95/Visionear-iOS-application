@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HelpCustomCell : UITableViewCell
+@interface MainCustomCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet UILabel *cellLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
 
 @end

@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Main2ViewController : UIViewController
+@interface Main2ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *labelMain2;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
-@property (weak, nonatomic) IBOutlet UIImageView *imgMain2;
 @property (weak, nonatomic) IBOutlet UILabel *labelTitle;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 
 //Download the image passed in 'imgPathToDl' from the RPi and set it in the ImageView
