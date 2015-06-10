@@ -129,8 +129,10 @@ NSString *imgPathToDl, *imgFile;
                 resultBash = [session.channel execute:cmd error:&error];
                 NSLog(@"Result of the Command: %@\r\r", resultBash);
                 [fileMainArray addObject:resultBash];
+                //[imgMainArray addObject:imgPathToDl];
                 
-                [self downloadImgFromRPi:i];
+                [self downloadImgFromRPi:[NSString stringWithFormat:@"Image%i.png", i]];
+                
             }
             NSLog(@"Tableau:\r%@\r\r", fileMainArray);
         }
@@ -153,10 +155,10 @@ NSString *imgPathToDl, *imgFile;
     [session disconnect];
 }
 
--(void)downloadImgFromRPi:(int)index{
+-(void)downloadImgFromRPi:(NSString *) name{
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat: @"Image%i.png", index]];
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:name];
     
     flag = [session.channel downloadFile:imgPathToDl to:filePath];
     
@@ -165,7 +167,7 @@ NSString *imgPathToDl, *imgFile;
         
         UIImage *image;
         [UIImagePNGRepresentation(image) writeToFile:filePath atomically:YES];
-        [imgMainArray addObject:filePath];
+        [imgMainArray addObject:name];
         //imgMain2.image = [UIImage imageNamed:filePath];
     }
 }

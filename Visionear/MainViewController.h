@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIImageView *visionearImg;
 
--(void)downloadImgFromRPi:(int) index;
+-(void)downloadImgFromRPi:(NSString *) name;
 
 @end
 

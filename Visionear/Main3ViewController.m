@@ -22,12 +22,22 @@
     [super viewDidLoad];
     
     labelDesc.text = [fileMainArray objectAtIndex:indexFromSegue];
+    imgView.image = [self loadImage:[imgMainArray objectAtIndex:indexFromSegue]];
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (UIImage*)loadImage:(NSString *) string{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                         NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString* path = [documentsDirectory stringByAppendingPathComponent:string];
+    UIImage* image = [UIImage imageWithContentsOfFile:path];
+    return image;
 }
 
 /*

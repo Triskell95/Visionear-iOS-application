@@ -62,8 +62,8 @@ int indexToSegue;
     
     //Setting of the label
     cell.cellLabel.text = [fileMainArray objectAtIndex: indexPath.row];
-    //cell.imgView.image = [imgMainArray objectAtIndex: indexPath.row];
-    
+    cell.imgView.image = [self loadImage:[imgMainArray objectAtIndex:indexPath.row]];
+    NSLog(@"imgMainArray:\r%@\r\r",[imgMainArray objectAtIndex:indexPath.row]);
     
     return cell;
 }
@@ -72,6 +72,15 @@ int indexToSegue;
     
     indexToSegue = indexPath.row;
     [self performSegueWithIdentifier:@"rowSelected" sender:self.view];
+}
+
+- (UIImage*)loadImage:(NSString *) string{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                         NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString* path = [documentsDirectory stringByAppendingPathComponent:string];
+    UIImage* image = [UIImage imageWithContentsOfFile:path];
+    return image;
 }
 
 - (void)didReceiveMemoryWarning {
