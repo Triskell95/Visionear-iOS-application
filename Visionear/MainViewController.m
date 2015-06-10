@@ -117,11 +117,11 @@ NSString *imgPathToDl, *imgFile;
             fileMainArray = [[NSMutableArray alloc] initWithCapacity:nbRows];
             imgMainArray = [[NSMutableArray alloc] initWithCapacity:nbRows];
             
-            for(int i = 0; i < nbRows; i++){
+            for(int i = nbRows; i > 0; i--){
                 
                 //Default path to reach to download an image and its description file from the RPi
-                imgPathToDl = [NSString stringWithFormat:@"Desktop/visionearImg%i", i+1];
-                imgFile = [NSString stringWithFormat:@"Desktop/visionearFile%i", i+1];
+                imgPathToDl = [NSString stringWithFormat:@"Desktop/visionearImg%i", i];
+                imgFile = [NSString stringWithFormat:@"Desktop/visionearFile%i", i];
             
                 //Command to execute to get the image file corresponding to 'imgFile' and display it in the label
                 cmd = [NSString stringWithFormat: @"cat %@", imgFile];
