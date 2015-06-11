@@ -41,4 +41,11 @@
 }
 */
 
+- (IBAction)Delete:(id)sender {
+    
+    UIAlertView *delRequest = [[UIAlertView alloc] initWithTitle:@"Are you sure you want to remove this image from Visionear System ?"message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    
+    [delRequest show];
+    
+}
 @end

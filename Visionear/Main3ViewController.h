@@ -17,4 +17,6 @@
 @property int indexFromSegue;
 @property UIImage *img;
 
+- (IBAction)Delete:(id)sender;
+
 @end

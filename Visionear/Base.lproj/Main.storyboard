@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <deployment version="1792" identifier="iOS"/>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -147,7 +147,6 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testImg" translatesAutoresizingMaskIntoConstraints="NO" id="R5c-BU-GhZ">
                                                     <rect key="frame" x="8" y="8" width="101" height="101"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="101" id="0VS-tB-7fi"/>
                                                         <constraint firstAttribute="width" secondItem="R5c-BU-GhZ" secondAttribute="height" multiplier="1:1" id="5e8-c7-TFa"/>
                                                     </constraints>
                                                 </imageView>
@@ -225,15 +224,17 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are now using Visionear succesfully ! ;)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djr-kW-RIr">
                                 <rect key="frame" x="20" y="116" width="568" height="167"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="167" id="g2E-Os-gBD"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="first" translatesAutoresizingMaskIntoConstraints="NO" id="0db-A0-69q">
-                                <rect key="frame" x="203" y="291" width="202" height="202"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="visionear" translatesAutoresizingMaskIntoConstraints="NO" id="0db-A0-69q">
+                                <rect key="frame" x="199" y="291" width="202" height="194"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="202" id="9rZ-VW-Qqn"/>
-                                    <constraint firstAttribute="height" constant="202" id="jsw-6R-Ddg"/>
+                                    <constraint firstAttribute="width" constant="202" id="I0V-fe-95d"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxh-nP-5Ct">
@@ -252,8 +253,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ion-PG-n1W">
                                 <rect key="frame" x="0.0" y="20" width="69" height="65"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="69" id="EPA-zH-fmw"/>
-                                    <constraint firstAttribute="height" constant="65" id="xia-Ub-Z9q"/>
+                                    <constraint firstAttribute="height" constant="65" id="Eiy-DL-eOZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -269,30 +269,46 @@
                                     <segue destination="Hi7-lg-vCc" kind="show" identifier="Back" id="Rta-B0-dT6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUj-gp-508">
+                                <rect key="frame" x="270" y="520" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="0at-GR-XYF"/>
+                                    <constraint firstAttribute="width" constant="60" id="7zh-mJ-3ez"/>
+                                </constraints>
+                                <state key="normal" title="Delete this image" image="trash-icon">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="Delete:" destination="Aqy-PB-0wj" eventType="touchUpInside" id="vLt-ql-nMn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="rxh-nP-5Ct" firstAttribute="centerX" secondItem="vUG-fd-B9I" secondAttribute="centerX" id="7SK-OR-Sqy"/>
-                            <constraint firstItem="vUG-fd-B9I" firstAttribute="bottom" secondItem="Ion-PG-n1W" secondAttribute="bottom" id="A7V-Gm-Z4C"/>
-                            <constraint firstItem="Ion-PG-n1W" firstAttribute="top" secondItem="vUG-fd-B9I" secondAttribute="top" id="JAt-iB-tZu"/>
-                            <constraint firstItem="vUG-fd-B9I" firstAttribute="bottom" secondItem="rxh-nP-5Ct" secondAttribute="bottom" id="Meq-rR-Xhv"/>
-                            <constraint firstItem="djr-kW-RIr" firstAttribute="top" secondItem="Ion-PG-n1W" secondAttribute="bottom" constant="31" id="Qrd-MT-9lF"/>
-                            <constraint firstItem="rxh-nP-5Ct" firstAttribute="top" secondItem="5Lk-U1-uBE" secondAttribute="top" id="TyX-22-22r"/>
-                            <constraint firstAttribute="trailing" secondItem="rxh-nP-5Ct" secondAttribute="trailing" id="Wj3-GF-Guz"/>
-                            <constraint firstItem="rxh-nP-5Ct" firstAttribute="leading" secondItem="Ion-PG-n1W" secondAttribute="leading" id="aKX-Vv-yPH"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="djr-kW-RIr" secondAttribute="trailing" constant="-4" id="ahv-7W-jIx"/>
-                            <constraint firstItem="Ion-PG-n1W" firstAttribute="leading" secondItem="5Lk-U1-uBE" secondAttribute="leading" id="kDn-mw-ENM"/>
-                            <constraint firstItem="Ion-PG-n1W" firstAttribute="top" secondItem="3Lr-OS-0Lu" secondAttribute="bottom" id="kbn-ZC-PHc"/>
-                            <constraint firstItem="djr-kW-RIr" firstAttribute="centerX" secondItem="0db-A0-69q" secondAttribute="centerX" id="mkr-ET-ccb"/>
-                            <constraint firstItem="vUG-fd-B9I" firstAttribute="leading" secondItem="Ion-PG-n1W" secondAttribute="trailing" constant="8" id="q9L-dy-n9b"/>
-                            <constraint firstItem="0db-A0-69q" firstAttribute="top" secondItem="djr-kW-RIr" secondAttribute="bottom" constant="8" symbolic="YES" id="tLt-Z9-yYU"/>
-                            <constraint firstItem="cRS-vE-5IB" firstAttribute="top" secondItem="0db-A0-69q" secondAttribute="bottom" constant="107" id="wDc-gI-gaw"/>
-                            <constraint firstItem="djr-kW-RIr" firstAttribute="leading" secondItem="5Lk-U1-uBE" secondAttribute="leadingMargin" constant="4" id="yqQ-cn-TJA"/>
+                            <constraint firstItem="UUj-gp-508" firstAttribute="centerX" secondItem="0db-A0-69q" secondAttribute="centerX" id="0uW-2J-u00"/>
+                            <constraint firstItem="vUG-fd-B9I" firstAttribute="top" secondItem="Ion-PG-n1W" secondAttribute="top" id="1lh-YS-DaY"/>
+                            <constraint firstAttribute="bottom" secondItem="UUj-gp-508" secondAttribute="bottom" constant="20" symbolic="YES" id="7lC-bs-m43"/>
+                            <constraint firstItem="UUj-gp-508" firstAttribute="top" secondItem="0db-A0-69q" secondAttribute="bottom" constant="35" id="8RU-7J-B5w"/>
+                            <constraint firstItem="vUG-fd-B9I" firstAttribute="leading" secondItem="Ion-PG-n1W" secondAttribute="trailing" constant="8" symbolic="YES" id="AUr-Tw-doJ"/>
+                            <constraint firstAttribute="trailing" secondItem="rxh-nP-5Ct" secondAttribute="trailing" id="F7g-wH-K2h"/>
+                            <constraint firstItem="djr-kW-RIr" firstAttribute="leading" secondItem="5Lk-U1-uBE" secondAttribute="leadingMargin" constant="4" id="L4O-iA-uDW"/>
+                            <constraint firstItem="vUG-fd-B9I" firstAttribute="centerX" secondItem="0db-A0-69q" secondAttribute="centerX" id="N3b-ra-a9F"/>
+                            <constraint firstItem="rxh-nP-5Ct" firstAttribute="top" secondItem="5Lk-U1-uBE" secondAttribute="top" id="T2K-s7-egR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="djr-kW-RIr" secondAttribute="trailing" constant="-4" id="YC9-uF-knp"/>
+                            <constraint firstItem="rxh-nP-5Ct" firstAttribute="bottom" secondItem="vUG-fd-B9I" secondAttribute="bottom" id="YxA-PX-zRG"/>
+                            <constraint firstItem="djr-kW-RIr" firstAttribute="top" secondItem="Ion-PG-n1W" secondAttribute="bottom" constant="31" id="dSK-BZ-NZc"/>
+                            <constraint firstItem="rxh-nP-5Ct" firstAttribute="leading" secondItem="5Lk-U1-uBE" secondAttribute="leading" id="eF0-Y8-eSi"/>
+                            <constraint firstItem="0db-A0-69q" firstAttribute="top" secondItem="djr-kW-RIr" secondAttribute="bottom" constant="8" symbolic="YES" id="f9H-HX-MbO"/>
+                            <constraint firstItem="rxh-nP-5Ct" firstAttribute="leading" secondItem="Ion-PG-n1W" secondAttribute="leading" id="mzq-vK-98v"/>
+                            <constraint firstItem="Ion-PG-n1W" firstAttribute="top" secondItem="3Lr-OS-0Lu" secondAttribute="bottom" id="ugk-rj-eRe"/>
+                            <constraint firstItem="Ion-PG-n1W" firstAttribute="bottom" secondItem="vUG-fd-B9I" secondAttribute="bottom" id="wrB-lB-2oy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vUG-fd-B9I" secondAttribute="trailing" constant="61" id="yFA-re-cOM"/>
+                            <constraint firstItem="rxh-nP-5Ct" firstAttribute="centerX" secondItem="vUG-fd-B9I" secondAttribute="centerX" id="zsh-Hz-JaT"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="Ion-PG-n1W" id="fPF-U6-hsE"/>
-                        <outlet property="imgView" destination="0db-A0-69q" id="Nfi-jd-S2g"/>
+                        <outlet property="imgView" destination="0db-A0-69q" id="PbN-Hg-ZFd"/>
                         <outlet property="labelDesc" destination="djr-kW-RIr" id="cnb-Ek-6Yv"/>
                         <outlet property="titleLabel" destination="vUG-fd-B9I" id="dmv-yy-vxz"/>
                     </connections>
@@ -386,15 +402,6 @@
                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" red="0.050980392159999999" green="0.2901960784" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JK5-Sc-oaH">
-                                <rect key="frame" x="16" y="20" width="568" height="110"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="110" id="yXN-A4-j2f"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="THSarabunNew" family="TH Sarabun New" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swip-icon" translatesAutoresizingMaskIntoConstraints="NO" id="efJ-l2-G8J">
                                 <rect key="frame" x="16" y="20" width="77" height="77"/>
                                 <constraints>
@@ -408,6 +415,15 @@
                                     <constraint firstAttribute="width" secondItem="OvJ-R6-Joi" secondAttribute="height" multiplier="1:1" id="Eja-AC-vu3"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JK5-Sc-oaH">
+                                <rect key="frame" x="16" y="20" width="568" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="yXN-A4-j2f"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="THSarabunNew" family="TH Sarabun New" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -502,11 +518,12 @@
         <image name="Icon-Small" width="29" height="29"/>
         <image name="fb" width="64" height="64"/>
         <image name="fb-icon-alpha" width="29" height="29"/>
-        <image name="first" width="30" height="30"/>
         <image name="help-icon" width="29" height="29"/>
         <image name="swip-icon" width="225" height="225"/>
         <image name="testImg" width="297" height="170"/>
+        <image name="trash-icon" width="225" height="225"/>
         <image name="update-icon" width="29" height="29"/>
+        <image name="visionear" width="614" height="1024"/>
         <image name="visionear_body" width="721" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>

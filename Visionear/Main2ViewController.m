@@ -64,15 +64,15 @@ UIImage *imgToSegue;
     //Setting of the label
     cell.cellLabel.text = [fileMainArray objectAtIndex: indexPath.row];
     cell.imgView.image = [self loadImage:[imgMainArray objectAtIndex:indexPath.row]];
-    NSLog(@"imgMainArray:\r%@\r\r",[imgMainArray objectAtIndex:indexPath.row]);
+    NSLog(@"imgMainArray:\r%@",[imgMainArray objectAtIndex:indexPath.row]);
     
     return cell;
 }
 
 -(void)tableView:(UITableView *)tabView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    indexToSegue = indexPath.row;
-    MainCustomCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    indexToSegue = (int)indexPath.row;
+    MainCustomCell *cell = (MainCustomCell*)[tableView cellForRowAtIndexPath:indexPath];
     imgToSegue = cell.imgView.image;
     [self performSegueWithIdentifier:@"rowSelected" sender:self.view];
 }

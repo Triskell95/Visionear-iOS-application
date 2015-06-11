@@ -71,7 +71,7 @@ NSString *imgPathToDl, *imgFile;
     //Connection to the Raspberry
     [self connectToRasp];
     
-    //If everuthing is OK with the SSH session
+    //If everything is OK with the SSH session
     if(flag){
         [alert2 dismissWithClickedButtonIndex:0 animated:YES];
         [self performSegueWithIdentifier:@"NextView" sender:self];
@@ -96,6 +96,7 @@ NSString *imgPathToDl, *imgFile;
             NSError *error;
             NSString *cmd;
             
+            //Counting the number of images on the RPi
             cmd = [NSString stringWithFormat: @"ls -1 Desktop/ | grep \"visionearImg\"| wc -l"];
             resultBash = [session.channel execute:cmd error:&error];
             
@@ -137,7 +138,8 @@ NSString *imgPathToDl, *imgFile;
                     [self downloadImgFromRPi:[NSString stringWithFormat:@"Image%i.png", i]];
                 }
             }
-            NSLog(@"Tableau:\r%@\r\r", fileMainArray);
+            
+            //NSLog(@"Tableau:\r%@\r\r", fileMainArray);
         }
         //Else => alert to inform it failed
         else {
@@ -166,7 +168,7 @@ NSString *imgPathToDl, *imgFile;
     
     flag = [session.channel downloadFile:imgPathToDl to:filePath];
     
-    //If the download has been done successfully, display the image on the screen
+    //If the download has been done successfully, save the image locally
     if(flag){
         
         UIImage *image;
