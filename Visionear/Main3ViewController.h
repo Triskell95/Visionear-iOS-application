@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet UILabel *labelDesc;
 @property int indexFromSegue;
+@property UIImage *img;
 
 @end

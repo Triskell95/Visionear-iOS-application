@@ -40,6 +40,9 @@ NSString *imgPathToDl, *imgFile;
     
     //Setting of the before the connection times out
     timeoutDelay = [[NSNumber alloc] initWithFloat:5.0];
+    
+    //Setting the alert
+    alert2 = [[UIAlertView alloc] initWithTitle:@"Establishing Connection\rPlease wait..."message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,39 +53,29 @@ NSString *imgPathToDl, *imgFile;
 //To detect if the screen is tapped or not
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    
     //NSUInteger numTaps = [[touches anyObject] tapCount];
     float delay = 0.1;
     
-    //If the screen is single tapped
-    //if (numTaps < 2)
-    //{
+    //Display loading AlertView
+    [alert2 show];
+    
     [self performSelector:@selector(handleSingleTap) withObject:nil afterDelay:delay ];
     [self.nextResponder touchesEnded:touches withEvent:event];
-    //}
-    /*else if(numTaps == 2)
-    {
-        [NSObject cancelPreviousPerformRequestsWithTarget:self];
-        [self performSelector:@selector(handleDoubleTap) withObject:nil afterDelay:delay ];
-    }*/
 }
 
 -(IBAction)handleSingleTap
 {
     NSLog(@"Main Screen Tapped !");
     
-    //UIAlertView
-    alert2 = [[UIAlertView alloc] initWithTitle:@"Establishing Connection\rPlease wait..."message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
-    [alert2 show];
-    
     //Connection to the Raspberry
     [self connectToRasp];
     
-    [self performSegueWithIdentifier:@"NextView" sender:self];
-}
-
--(void)handleDoubleTap
-{
-    NSLog(@"tapCount 2");
+    //If everuthing is OK with the SSH session
+    if(flag){
+        [alert2 dismissWithClickedButtonIndex:0 animated:YES];
+        [self performSegueWithIdentifier:@"NextView" sender:self];
+    }
 }
 
 -(void)connectToRasp {
@@ -105,39 +98,50 @@ NSString *imgPathToDl, *imgFile;
             
             cmd = [NSString stringWithFormat: @"ls -1 Desktop/ | grep \"visionearImg\"| wc -l"];
             resultBash = [session.channel execute:cmd error:&error];
-            nbRows = resultBash.integerValue;
             
-            //Dismiss the loading alert
-            NSLog(@"Connection authorized");
-            [alert2 dismissWithClickedButtonIndex:0 animated:YES];
-            
-            resultBash = [session.channel execute:@"ls Desktop/" error:&error];
-            NSLog(@"\r\rls Desktop/: \r%@\r\r", resultBash);
-            
-            fileMainArray = [[NSMutableArray alloc] initWithCapacity:nbRows];
-            imgMainArray = [[NSMutableArray alloc] initWithCapacity:nbRows];
-            
-            for(int i = nbRows; i > 0; i--){
+            //If there's no new file (number of images on the RPi and in the imgMainArray), don't need to download again
+            if(resultBash.integerValue == imgMainArray.count) {
                 
-                //Default path to reach to download an image and its description file from the RPi
-                imgPathToDl = [NSString stringWithFormat:@"Desktop/visionearImg%i", i];
-                imgFile = [NSString stringWithFormat:@"Desktop/visionearFile%i", i];
+                NSLog(@"\r\rNo new file !\r\r");
+                
+            }
+            //Have to download new files
+            else {
+                nbRows = resultBash.integerValue;
             
-                //Command to execute to get the image file corresponding to 'imgFile' and display it in the label
-                cmd = [NSString stringWithFormat: @"cat %@", imgFile];
-                NSLog(@"Command to execute:\r%@", cmd);
-                resultBash = [session.channel execute:cmd error:&error];
-                NSLog(@"Result of the Command: %@\r\r", resultBash);
-                [fileMainArray addObject:resultBash];
-                //[imgMainArray addObject:imgPathToDl];
+                //Dismiss the loading alert
+                NSLog(@"Connection authorized");
+                [alert2 dismissWithClickedButtonIndex:0 animated:YES];
+            
+                //resultBash = [session.channel execute:@"ls Desktop/" error:&error];
+                //NSLog(@"\r\rls Desktop/: \r%@\r\r", resultBash);
+            
+                fileMainArray = [[NSMutableArray alloc] initWithCapacity:nbRows];
+                imgMainArray = [[NSMutableArray alloc] initWithCapacity:nbRows];
+            
+                //Loading the file and image arrays
+                for(int i = nbRows; i > 0; i--){
                 
-                [self downloadImgFromRPi:[NSString stringWithFormat:@"Image%i.png", i]];
+                    //Default path to reach to download an image and its description file from the RPi
+                    imgPathToDl = [NSString stringWithFormat:@"Desktop/visionearImg%i", i];
+                    imgFile = [NSString stringWithFormat:@"Desktop/visionearFile%i", i];
+            
+                    //Command to execute to get the image file corresponding to 'imgFile' and display it in the label
+                    cmd = [NSString stringWithFormat: @"cat %@", imgFile];
+                    NSLog(@"Command to execute:\r%@", cmd);
+                    resultBash = [session.channel execute:cmd error:&error];
+                    NSLog(@"Result of the Command: %@\r\r", resultBash);
+                    [fileMainArray addObject:resultBash];
+                    //[imgMainArray addObject:imgPathToDl];
                 
+                    [self downloadImgFromRPi:[NSString stringWithFormat:@"Image%i.png", i]];
+                }
             }
             NSLog(@"Tableau:\r%@\r\r", fileMainArray);
         }
         //Else => alert to inform it failed
         else {
+            flag = NO;
             [alert2 dismissWithClickedButtonIndex:0 animated:YES];
             UIAlertView *alertFail = [[UIAlertView alloc] initWithTitle:@"Connection Rejected !\rSomething went wrong..."message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [alertFail show];
@@ -146,8 +150,8 @@ NSString *imgPathToDl, *imgFile;
     }
     //Else => alert to inform it failed
     else {
+        flag = NO;
         [alert2 dismissWithClickedButtonIndex:0 animated:YES];
-        
         UIAlertView *alertFail = [[UIAlertView alloc] initWithTitle:@"Connection timed out!\rPlease check\ryou are connected to\rRPi_CastLab"message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alertFail show];
     }
@@ -168,7 +172,6 @@ NSString *imgPathToDl, *imgFile;
         UIImage *image;
         [UIImagePNGRepresentation(image) writeToFile:filePath atomically:YES];
         [imgMainArray addObject:name];
-        //imgMain2.image = [UIImage imageNamed:filePath];
     }
 }
 

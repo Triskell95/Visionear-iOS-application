@@ -25,6 +25,7 @@
 
 int r;
 int indexToSegue;
+UIImage *imgToSegue;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -68,9 +69,11 @@ int indexToSegue;
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+-(void)tableView:(UITableView *)tabView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     indexToSegue = indexPath.row;
+    MainCustomCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    imgToSegue = cell.imgView.image;
     [self performSegueWithIdentifier:@"rowSelected" sender:self.view];
 }
 
@@ -96,6 +99,7 @@ int indexToSegue;
         Main3ViewController *controller = [segue destinationViewController];
         
         controller.indexFromSegue = indexToSegue;
+        controller.img = imgToSegue;
     }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
