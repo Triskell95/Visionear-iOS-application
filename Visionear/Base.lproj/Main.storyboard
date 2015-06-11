@@ -10,7 +10,6 @@
         <mutableArray key="THSarabunNew Bold.ttf">
             <string>THSarabunNew-Bold</string>
             <string>THSarabunNew-Bold</string>
-            <string>THSarabunNew-Bold</string>
         </mutableArray>
         <mutableArray key="THSarabunNew Italic.ttf">
             <string>THSarabunNew-Italic</string>
@@ -152,14 +151,8 @@
                                                         <constraint firstAttribute="width" secondItem="R5c-BU-GhZ" secondAttribute="height" multiplier="1:1" id="5e8-c7-TFa"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rva-BL-7VS">
-                                                    <rect key="frame" x="117" y="8" width="475" height="25"/>
-                                                    <fontDescription key="fontDescription" name="THSarabunNew-Bold" family="TH Sarabun New" pointSize="24"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdT-DZ-j6N">
-                                                    <rect key="frame" x="117" y="41" width="475" height="68"/>
+                                                    <rect key="frame" x="117" y="8" width="475" height="101"/>
                                                     <fontDescription key="fontDescription" name="THSarabunNew-Italic" family="TH Sarabun New" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -167,22 +160,17 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="WdT-DZ-j6N" firstAttribute="leading" secondItem="R5c-BU-GhZ" secondAttribute="trailing" constant="8" symbolic="YES" id="588-0z-WDs"/>
-                                                <constraint firstItem="WdT-DZ-j6N" firstAttribute="top" secondItem="rva-BL-7VS" secondAttribute="bottom" constant="8" symbolic="YES" id="5Mk-2C-dz5"/>
                                                 <constraint firstItem="WdT-DZ-j6N" firstAttribute="bottom" secondItem="R5c-BU-GhZ" secondAttribute="bottom" id="HdF-02-y6q"/>
                                                 <constraint firstAttribute="trailing" secondItem="WdT-DZ-j6N" secondAttribute="trailing" constant="8" id="LQd-3C-XxZ"/>
-                                                <constraint firstItem="rva-BL-7VS" firstAttribute="leading" secondItem="WdT-DZ-j6N" secondAttribute="leading" id="bA3-6q-6IJ"/>
                                                 <constraint firstItem="R5c-BU-GhZ" firstAttribute="top" secondItem="jet-TD-rMv" secondAttribute="topMargin" id="c6Y-kw-i92"/>
-                                                <constraint firstItem="rva-BL-7VS" firstAttribute="top" secondItem="R5c-BU-GhZ" secondAttribute="top" id="fKg-gF-ALM"/>
                                                 <constraint firstItem="WdT-DZ-j6N" firstAttribute="bottom" secondItem="jet-TD-rMv" secondAttribute="bottomMargin" id="iHC-ZZ-L5W"/>
-                                                <constraint firstItem="WdT-DZ-j6N" firstAttribute="top" secondItem="R5c-BU-GhZ" secondAttribute="top" constant="33" id="kEO-36-LoG"/>
-                                                <constraint firstItem="rva-BL-7VS" firstAttribute="trailing" secondItem="WdT-DZ-j6N" secondAttribute="trailing" id="ob6-Qu-kQZ"/>
+                                                <constraint firstItem="WdT-DZ-j6N" firstAttribute="top" secondItem="R5c-BU-GhZ" secondAttribute="top" id="kEO-36-LoG"/>
                                                 <constraint firstItem="R5c-BU-GhZ" firstAttribute="leading" secondItem="jet-TD-rMv" secondAttribute="leading" constant="8" id="slL-Td-zhW"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cellLabel" destination="WdT-DZ-j6N" id="4oI-5K-CzC"/>
                                             <outlet property="imgView" destination="R5c-BU-GhZ" id="qwy-Dx-xsQ"/>
-                                            <outlet property="title" destination="rva-BL-7VS" id="0nV-7l-7pT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

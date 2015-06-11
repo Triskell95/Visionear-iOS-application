@@ -63,7 +63,6 @@ int indexToSegue;
     //Setting of the label
     cell.cellLabel.text = [fileMainArray objectAtIndex: indexPath.row];
     cell.imgView.image = [self loadImage:[imgMainArray objectAtIndex:indexPath.row]];
-    cell.title.text = [imgMainArray objectAtIndex:indexPath.row];
     NSLog(@"imgMainArray:\r%@\r\r",[imgMainArray objectAtIndex:indexPath.row]);
     
     return cell;
