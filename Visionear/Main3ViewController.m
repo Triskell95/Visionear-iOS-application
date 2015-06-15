@@ -56,33 +56,17 @@ BOOL flagHide = NO;
     return imgView;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 - (void)onPress:(UILongPressGestureRecognizer*)longpress {
     
     if (longpress.state == UIGestureRecognizerStateBegan) {
-      
+        
         NSLog(@"Long press");
+        [self showActionSheet:@"id"];
     }
     else if (longpress.state == UIGestureRecognizerStateEnded || longpress.state == UIGestureRecognizerStateCancelled || longpress.state == UIGestureRecognizerStateFailed) {
         
         NSLog(@"Long press done");
     }
-}
-- (IBAction)Delete:(id)sender {
-    
-    UIAlertView *delRequest = [[UIAlertView alloc] initWithTitle:@"Are you sure you want to remove this image from Visionear System ?"message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-    
-    [delRequest show];
-    
 }
 
 -(void)tapDetected{
@@ -97,5 +81,40 @@ BOOL flagHide = NO;
     titleLabel.hidden = flagHide;
     backgroundLabel.hidden = flagHide;
 }
+
+-(IBAction)showActionSheet:(id)sender {
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"What do you want to do with this picture ?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete" otherButtonTitles:@"Save", @"Copy", nil];
+    popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [popupQuery showInView:self.view];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+     switch (buttonIndex) {
+     case 0:
+     //self.label.text = @"Destructive Button Clicked";
+     break;
+     case 1:
+     //self.label.text = @"Other Button 1 Clicked";
+     break;
+     case 2:
+     //self.label.text = @"Other Button 2 Clicked";
+     break;
+     case 3:
+     //self.label.text = @"Cancel Button Clicked";
+     break;
+     }
+    
+}
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

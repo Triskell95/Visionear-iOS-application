@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface Main3ViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate>
+@interface Main3ViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate, UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -20,6 +20,6 @@
 @property int indexFromSegue;
 @property UIImage *img;
 
-- (IBAction)Delete:(id)sender;
+-(IBAction)showActionSheet:(id)sender;
 
 @end
