@@ -73,9 +73,11 @@ BOOL flagHide = NO;
     NSLog(@"single Tap on imageview");
     if(flagHide){
         flagHide = NO;
+        self.view.backgroundColor = [UIColor whiteColor];
     }
     else {
         flagHide = YES;
+        self.view.backgroundColor = [UIColor blackColor];
     }
     NSLog(@"Flag state is: %hhd", flagHide);
     backButton.hidden = flagHide;
