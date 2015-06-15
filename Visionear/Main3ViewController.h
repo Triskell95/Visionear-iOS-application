@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Main3ViewController : UIViewController
+@interface Main3ViewController : UIViewController <UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (weak, nonatomic) IBOutlet UILabel *labelDesc;
 @property int indexFromSegue;
 @property UIImage *img;

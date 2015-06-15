@@ -18,17 +18,26 @@
 @synthesize indexFromSegue;
 @synthesize imgView, labelDesc;
 @synthesize img;
+@synthesize scroll;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     labelDesc.text = [fileMainArray objectAtIndex:indexFromSegue];
     imgView.image = img;
+    
+    [scroll setMaximumZoomScale:5.0f];
+    [scroll setClipsToBounds:YES];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    
+    return imgView;
 }
 
 /*
