@@ -77,6 +77,7 @@ BOOL flagHide = NO;
     else {
         flagHide = YES;
     }
+    NSLog(@"Flag state is: %hhd", flagHide);
     backButton.hidden = flagHide;
     titleLabel.hidden = flagHide;
     backgroundLabel.hidden = flagHide;
@@ -90,20 +91,20 @@ BOOL flagHide = NO;
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
-     switch (buttonIndex) {
-     case 0:
-     //self.label.text = @"Destructive Button Clicked";
-     break;
-     case 1:
-     //self.label.text = @"Other Button 1 Clicked";
-     break;
-     case 2:
-     //self.label.text = @"Other Button 2 Clicked";
-     break;
-     case 3:
-     //self.label.text = @"Cancel Button Clicked";
-     break;
-     }
+    switch (buttonIndex) {
+        case 0:
+             NSLog(@"Delete Button Clicked");
+             break;
+        case 1:
+             NSLog(@"Save Button Clicked");
+             break;
+        case 2:
+            NSLog(@"Copy Button Clicked");
+            break;
+        case 3:
+            NSLog(@"Cancel Button Clicked");
+            break;
+    }
     
 }
 
