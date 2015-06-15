@@ -15,19 +15,35 @@
 
 @implementation Main3ViewController
 
+@synthesize backButton, titleLabel, backgroundLabel;
 @synthesize indexFromSegue;
 @synthesize imgView, labelDesc;
 @synthesize img;
 @synthesize scroll;
 
+BOOL flagHide = NO;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    labelDesc.text = [fileMainArray objectAtIndex:indexFromSegue];
+    //labelDesc.text = [fileMainArray objectAtIndex:indexFromSegue];
     imgView.image = img;
+    imgView.contentMode = UIViewContentModeScaleAspectFit;
     
     [scroll setMaximumZoomScale:5.0f];
     [scroll setClipsToBounds:YES];
+    
+    UILongPressGestureRecognizer *recoginzer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onPress:)];
+    [self.view addGestureRecognizer:recoginzer];
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
+    singleTap.numberOfTapsRequired = 1;
+    imgView.userInteractionEnabled = YES;
+    [imgView addGestureRecognizer:singleTap];
+    
+    [self.view sendSubviewToBack:scroll];
+    [self.view sendSubviewToBack:imgView];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,6 +66,17 @@
 }
 */
 
+- (void)onPress:(UILongPressGestureRecognizer*)longpress {
+    
+    if (longpress.state == UIGestureRecognizerStateBegan) {
+      
+        NSLog(@"Long press");
+    }
+    else if (longpress.state == UIGestureRecognizerStateEnded || longpress.state == UIGestureRecognizerStateCancelled || longpress.state == UIGestureRecognizerStateFailed) {
+        
+        NSLog(@"Long press done");
+    }
+}
 - (IBAction)Delete:(id)sender {
     
     UIAlertView *delRequest = [[UIAlertView alloc] initWithTitle:@"Are you sure you want to remove this image from Visionear System ?"message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
@@ -57,4 +84,18 @@
     [delRequest show];
     
 }
+
+-(void)tapDetected{
+    NSLog(@"single Tap on imageview");
+    if(flagHide){
+        flagHide = NO;
+    }
+    else {
+        flagHide = YES;
+    }
+    backButton.hidden = flagHide;
+    titleLabel.hidden = flagHide;
+    backgroundLabel.hidden = flagHide;
+}
+
 @end
