@@ -132,9 +132,13 @@ NSString *imgPathToDl, *imgFile;
                     NSLog(@"Command to execute:\r%@", cmd);
                     resultBash = [session.channel execute:cmd error:&error];
                     NSLog(@"Result of the Command: %@\r\r", resultBash);
-                    [fileMainArray addObject:resultBash];
-                    //[imgMainArray addObject:imgPathToDl];
-                
+                    
+                    //If you want to add the description of the image in the label of the next view, uncomment the next line
+                    //[fileMainArray addObject:resultBash];
+                    
+                    //To set the name of the image in the next view label
+                    [fileMainArray addObject:imgPathToDl];
+                    
                     [self downloadImgFromRPi:[NSString stringWithFormat:@"Image%i.png", i]];
                 }
             }
