@@ -95,11 +95,14 @@ BOOL flagHide = NO;
     
     switch (buttonIndex) {
         case 0:
-             NSLog(@"Delete Button Clicked");
-             break;
+            NSLog(@"Delete Button Clicked");
+            break;
         case 1:
-             NSLog(@"Save Button Clicked");
-             break;
+            NSLog(@"Save Button Clicked");
+            UIImageWriteToSavedPhotosAlbum(img, self,
+                                           @selector(image:finishedSavingWithError:contextInfo:),
+                                           nil);
+            break;
         case 2:
             NSLog(@"Copy Button Clicked");
             break;
@@ -108,6 +111,19 @@ BOOL flagHide = NO;
             break;
     }
     
+}
+
+-(void)image:(UIImage *)image finishedSavingWithError:(NSError *) error contextInfo:(void *)contextInfo
+{
+    if (error) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Save failed"
+                              message: @"Failed to save image/video"
+                              delegate: nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 /*
