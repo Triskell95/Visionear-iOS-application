@@ -19,8 +19,22 @@
     
     Global *g = [[Global alloc] init];
     imgLoadArray = [g loadHelpImageArray];
-    //sleep(1);
-    // Override point for customization after application launch.
+    
+    //Setting of the SSH connection
+    hostIP = [NSString stringWithFormat:@"10.35.23.1"];
+    username = [NSString  stringWithFormat:@"pi"];
+    pwd = [NSString stringWithFormat:@"raspberry"];
+
+    //Setting the SSH connection
+    session = [[NMSSHSession alloc] initWithHost:hostIP andUsername:username];
+    
+    //Default path to reach to download an image and its description file from the RPi
+    defaultImgPathToDl = [NSString stringWithFormat:@"Desktop/"];
+    defaultImgFile = [NSString stringWithFormat:@"Desktop/"];
+    defaultImgName = [NSString stringWithFormat:@"visionearImg"];
+    defaultFileName = [NSString stringWithFormat:@"visionearFile"];
+    
+    
     return YES;
 }
 
@@ -44,6 +58,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [session disconnect];
 }
 
 @end

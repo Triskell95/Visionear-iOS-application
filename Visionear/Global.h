@@ -7,11 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NMSSH/NMSSH.h"
+#import "NMSSH/NMSSHChannel.h"
 
 extern NSMutableArray *imgLoadArray;
 extern NSMutableArray *fileMainArray;
 extern NSMutableArray *imgMainArray;
 extern int nbRows;
+extern NSString *hostIP, *username, *pwd;
+extern NSString *defaultImgPathToDl, *defaultImgFile, *defaultImgName, *defaultFileName;
+extern NMSSHSession *session;
 
 @interface Global : NSObject
 {

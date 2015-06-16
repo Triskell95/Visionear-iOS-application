@@ -8,6 +8,7 @@
 
 #import "Main3ViewController.h"
 #import "Global.h"
+#import "Main2ViewController.h"
 
 @interface Main3ViewController ()
 
@@ -86,29 +87,50 @@ BOOL flagHide = NO;
 }
 
 -(IBAction)showActionSheet:(id)sender {
-    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"What do you want to do with this picture ?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete" otherButtonTitles:@"Save", @"Copy", nil];
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"What do you want to do with this picture ?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete" otherButtonTitles:@"Save", nil];
     popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [popupQuery showInView:self.view];
+}
+
+- (IBAction)backPressed:(id)sender {
+    NSLog(@"Back Pressed !");
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     switch (buttonIndex) {
-        case 0:
+        case 0:{
             NSLog(@"Delete Button Clicked");
+            NSString *cmd;
+            NSString *resultBash;
+            NSError *error;
+            
+            //Counting the number of images on the RPi
+            cmd = [NSString stringWithFormat: @"rm %@", [fileMainArray objectAtIndex:indexFromSegue]];
+            resultBash = [session.channel execute:cmd error:&error];
+            [fileMainArray removeObjectAtIndex:indexFromSegue];
+            [imgMainArray removeObjectAtIndex:indexFromSegue];
+            nbRows --;
+            [self performSegueWithIdentifier:@"Back" sender:self.view];
             break;
-        case 1:
+        }
+        case 1:{
             NSLog(@"Save Button Clicked");
             UIImageWriteToSavedPhotosAlbum(img, self,
                                            @selector(image:finishedSavingWithError:contextInfo:),
                                            nil);
             break;
-        case 2:
-            NSLog(@"Copy Button Clicked");
+        }
+        /*case 2:
+            NSLog(@"Copy description Button Clicked");
+            UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+            [pasteboard setImage:img];
             break;
-        case 3:
+        */
+        case 2:{
             NSLog(@"Cancel Button Clicked");
             break;
+        }
     }
     
 }
@@ -126,14 +148,16 @@ BOOL flagHide = NO;
     }
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"Back"]){
+        NSLog(@"Go back to 2nd MainView\r");
+        Main2ViewController *controller = [segue destinationViewController];
+    }
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
 
 @end

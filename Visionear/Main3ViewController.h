@@ -21,5 +21,6 @@
 @property UIImage *img;
 
 -(IBAction)showActionSheet:(id)sender;
+-(IBAction)backPressed:(id)sender;
 
 @end

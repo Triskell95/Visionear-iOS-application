@@ -7,8 +7,6 @@
 //
 
 #import "MainViewController.h"
-#import "NMSSH/NMSSH.h"
-#import "NMSSH/NMSSHChannel.h"
 #import "Global.h"
 
 @interface MainViewController ()
@@ -22,10 +20,8 @@
 @synthesize visionearImg;
 
 UIAlertView *alert2;
-NMSSHSession *session;
 NSNumber *timeoutDelay;
 BOOL flagDelay, flag;
-NSString *hostIP, *username;
 NSString *imgPathToDl, *imgFile;
 
 - (void)viewDidLoad {
@@ -33,10 +29,6 @@ NSString *imgPathToDl, *imgFile;
     
     visionearImg.frame = CGRectMake(0, 0, 100, 100);
     visionearImg.center = visionearImg.superview.center;
-    
-    //Setting of the SSH connection
-    hostIP = [NSString stringWithFormat:@"10.35.23.1"];
-    username = [NSString  stringWithFormat:@"pi"];
     
     //Setting of the before the connection times out
     timeoutDelay = [[NSNumber alloc] initWithFloat:5.0];
@@ -82,13 +74,11 @@ NSString *imgPathToDl, *imgFile;
     
     NSString *resultBash = [NSString alloc];
     
-    //Setting the SSH connection
-    session = [[NMSSHSession alloc] initWithHost:hostIP andUsername:username];
     flagDelay = [session connectWithTimeout:timeoutDelay];
     
     //When the connection is established
     if (session.isConnected) {
-        [session authenticateByPassword:@"raspberry"];
+        [session authenticateByPassword:pwd];
         
         //If the logging step is done
         if (session.isAuthorized) {
@@ -97,8 +87,9 @@ NSString *imgPathToDl, *imgFile;
             NSString *cmd;
             
             //Counting the number of images on the RPi
-            cmd = [NSString stringWithFormat: @"ls -1 Desktop/ | grep \"visionearImg\"| wc -l"];
+            cmd = [NSString stringWithFormat: @"ls -1 %@ | grep %@ | wc -l", defaultImgPathToDl, defaultImgName];
             resultBash = [session.channel execute:cmd error:&error];
+            NSLog(@"Number of images: %@\r\r", resultBash);
             
             //If there's no new file (number of images on the RPi and in the imgMainArray), don't need to download again
             if(resultBash.integerValue == imgMainArray.count) {
@@ -111,7 +102,7 @@ NSString *imgPathToDl, *imgFile;
                 nbRows = resultBash.integerValue;
             
                 //Dismiss the loading alert
-                NSLog(@"Connection authorized");
+                NSLog(@"Connection authorized\r\r");
                 [alert2 dismissWithClickedButtonIndex:0 animated:YES];
             
                 //resultBash = [session.channel execute:@"ls Desktop/" error:&error];
@@ -123,23 +114,29 @@ NSString *imgPathToDl, *imgFile;
                 //Loading the file and image arrays
                 for(int i = nbRows; i > 0; i--){
                 
+                    //Counting the number of images on the RPi
+                    cmd = [NSString stringWithFormat: @"ls -1 %@ | grep %@ | head -n +%i | tail -n -1 | head -c -1", defaultImgPathToDl, defaultImgName, i];
+                    resultBash = [session.channel execute:cmd error:&error];
+                    
                     //Default path to reach to download an image and its description file from the RPi
-                    imgPathToDl = [NSString stringWithFormat:@"Desktop/visionearImg%i", i];
-                    imgFile = [NSString stringWithFormat:@"Desktop/visionearFile%i", i];
-            
+                    imgPathToDl = [NSString stringWithFormat:@"%@%@",defaultImgPathToDl, resultBash];
+                    //imgFile = [NSString stringWithFormat:@"%@%@%i",defaultImgFile, defaultFileName, i];
+                    NSLog(@"imgPathToDl[%i] = %@", i, imgPathToDl);
+                    
+                    //If you want to add the description of the image in the label of the next view, uncomment the next lines
                     //Command to execute to get the image file corresponding to 'imgFile' and display it in the label
+                    /*
                     cmd = [NSString stringWithFormat: @"cat %@", imgFile];
                     NSLog(@"Command to execute:\r%@", cmd);
                     resultBash = [session.channel execute:cmd error:&error];
                     NSLog(@"Result of the Command: %@\r\r", resultBash);
-                    
-                    //If you want to add the description of the image in the label of the next view, uncomment the next line
-                    //[fileMainArray addObject:resultBash];
+                    [fileMainArray addObject:resultBash];
+                    */
                     
                     //To set the name of the image in the next view label
                     [fileMainArray addObject:imgPathToDl];
                     
-                    [self downloadImgFromRPi:[NSString stringWithFormat:@"Image%i.png", i]];
+                    [self downloadImgFromRPi:[NSString stringWithFormat:@"%@.png", resultBash] file:imgPathToDl];
                 }
             }
             
@@ -161,16 +158,18 @@ NSString *imgPathToDl, *imgFile;
         UIAlertView *alertFail = [[UIAlertView alloc] initWithTitle:@"Connection timed out!\rPlease check\ryou are connected to\rRPi_CastLab"message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alertFail show];
     }
-    
-    [session disconnect];
+
 }
 
--(void)downloadImgFromRPi:(NSString *) name{
+-(void)downloadImgFromRPi:(NSString *) name file:(NSString *)fileName {
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:name];
     
-    flag = [session.channel downloadFile:imgPathToDl to:filePath];
+    flag = [session.channel downloadFile:fileName to:filePath];
+    
+    NSLog(@"Name: %@ with flag: %hhd\r", name, flag);
+    
     
     //If the download has been done successfully, save the image locally
     if(flag){
