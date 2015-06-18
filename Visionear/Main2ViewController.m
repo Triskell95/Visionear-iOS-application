@@ -38,7 +38,7 @@ UIImage *imgToSegue;
 
 - (IBAction)backPressed:(id)sender {
     
-    NSLog(@"Back pressed, you'll be disconnected !");
+    NSLog(@"Back pressed !");
     //[session disconnect];
 
 }
