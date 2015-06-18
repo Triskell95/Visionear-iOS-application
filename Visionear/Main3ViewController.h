@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import <Social/Social.h>
+#import <Accounts/Accounts.h>
 
-@interface Main3ViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate, UIActionSheetDelegate>
+@interface Main3ViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate, UIActionSheetDelegate> {
+    
+    SLComposeViewController *mySLComposerSheet;
+}
 
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

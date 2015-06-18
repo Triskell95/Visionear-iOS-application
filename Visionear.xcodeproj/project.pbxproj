@@ -19,6 +19,8 @@
 		F33557CB1AF9FDD70057CCD3 /* THSarabunNew BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F33557C71AF9FDD70057CCD3 /* THSarabunNew BoldItalic.ttf */; };
 		F33557CC1AF9FDD70057CCD3 /* THSarabunNew Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F33557C81AF9FDD70057CCD3 /* THSarabunNew Italic.ttf */; };
 		F33557CD1AF9FDD70057CCD3 /* THSarabunNew.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F33557C91AF9FDD70057CCD3 /* THSarabunNew.ttf */; };
+		F33BF31D1B3286C9002EF6E6 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F33BF31C1B3286C9002EF6E6 /* Social.framework */; };
+		F33BF31F1B3288D0002EF6E6 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F33BF31E1B3288D0002EF6E6 /* Accounts.framework */; };
 		F33C34E41B0DD4CD00237108 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = F33C34E31B0DD4CD00237108 /* Global.m */; };
 		F34DC83B1B27E17000275AFB /* Main3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34DC83A1B27E17000275AFB /* Main3ViewController.m */; };
 		F371B39C1B157EAA00225D04 /* SocialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F371B39B1B157EAA00225D04 /* SocialViewController.m */; };
@@ -66,6 +68,8 @@
 		F33557C71AF9FDD70057CCD3 /* THSarabunNew BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "THSarabunNew BoldItalic.ttf"; sourceTree = "<group>"; };
 		F33557C81AF9FDD70057CCD3 /* THSarabunNew Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "THSarabunNew Italic.ttf"; sourceTree = "<group>"; };
 		F33557C91AF9FDD70057CCD3 /* THSarabunNew.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = THSarabunNew.ttf; sourceTree = "<group>"; };
+		F33BF31C1B3286C9002EF6E6 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		F33BF31E1B3288D0002EF6E6 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		F33C34E21B0DD4CD00237108 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		F33C34E31B0DD4CD00237108 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
 		F34DC8391B27E17000275AFB /* Main3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Main3ViewController.h; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F33BF31F1B3288D0002EF6E6 /* Accounts.framework in Frameworks */,
+				F33BF31D1B3286C9002EF6E6 /* Social.framework in Frameworks */,
 				DA3E5B77AF55E27B951C7EDC /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,6 +187,8 @@
 		F378C76B1B1EA766006A6AAB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F33BF31E1B3288D0002EF6E6 /* Accounts.framework */,
+				F33BF31C1B3286C9002EF6E6 /* Social.framework */,
 				3230A996FCA2450884503522 /* libPods.a */,
 			);
 			name = Frameworks;

@@ -80,14 +80,14 @@ BOOL flagHide = NO;
         flagHide = YES;
         self.view.backgroundColor = [UIColor blackColor];
     }
-    NSLog(@"Flag state is: %hhd", flagHide);
+    //NSLog(@"Flag state is: %hhd", flagHide);
     backButton.hidden = flagHide;
     titleLabel.hidden = flagHide;
     backgroundLabel.hidden = flagHide;
 }
 
 -(IBAction)showActionSheet:(id)sender {
-    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"What do you want to do with this picture ?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete" otherButtonTitles:@"Save", nil];
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"What do you want to do with this picture ?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete" otherButtonTitles:@"Save", @"Share on Facebook", nil];
     popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [popupQuery showInView:self.view];
 }
@@ -121,13 +121,19 @@ BOOL flagHide = NO;
                                            nil);
             break;
         }
-        /*case 2:
-            NSLog(@"Copy description Button Clicked");
-            UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-            [pasteboard setImage:img];
-            break;
-        */
         case 2:{
+            /*if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+                SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+                
+                [controller setInitialText:@"Add a comment"];
+                [self presentViewController:controller animated:YES completion:Nil];
+            }*/
+            mySLComposerSheet = [[SLComposeViewController alloc] init];
+            mySLComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+            [mySLComposerSheet setInitialText:@"Toto"];
+            [self presentViewController:mySLComposerSheet animated:YES completion:NULL];
+        }
+        case 3:{
             NSLog(@"Cancel Button Clicked");
             break;
         }
