@@ -16,9 +16,8 @@
     SLComposeViewController *mySLComposerSheet;
 }
 
-@property (weak, nonatomic) IBOutlet UIButton *backButton;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *backgroundLabel;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navBar3;
+@property (weak, nonatomic) IBOutlet UITabBarItem *tabBar3;
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (weak, nonatomic) IBOutlet UILabel *labelDesc;

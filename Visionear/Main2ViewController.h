@@ -10,8 +10,7 @@
 
 @interface Main2ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIButton *backButton;
-@property (weak, nonatomic) IBOutlet UILabel *labelTitle;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navBar2;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 //When 'Back' button is pressed, end of the SSH connection before going back to main screen

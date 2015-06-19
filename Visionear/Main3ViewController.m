@@ -16,19 +16,23 @@
 
 @implementation Main3ViewController
 
-@synthesize backButton, titleLabel, backgroundLabel;
 @synthesize indexFromSegue;
 @synthesize imgView, labelDesc;
 @synthesize img;
 @synthesize scroll;
+@synthesize navBar3;
+@synthesize tabBar3;
 
 BOOL flagHide = NO;
+float ratio;
+CGRect originalFrame;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     //labelDesc.text = [fileMainArray objectAtIndex:indexFromSegue];
     imgView.image = img;
+    ratio = img.size.height/img.size.width;
     imgView.contentMode = UIViewContentModeScaleAspectFit;
     
     [scroll setMaximumZoomScale:5.0f];
@@ -44,6 +48,15 @@ BOOL flagHide = NO;
     
     [self.view sendSubviewToBack:scroll];
     [self.view sendSubviewToBack:imgView];
+    
+    originalFrame = self.tabBarController.tabBar.frame;
+    
+    /*
+    CGRect screenBound = [[UIScreen mainScreen] bounds];
+    CGRect newFrame = CGRectMake(0, (screenBound.size.height - screenBound.size.width*ratio)/2 - self.navigationController.navigationBar.frame.size.height, screenBound.size.width, screenBound.size.width*ratio);
+    imgView.frame = newFrame;
+    scroll.frame = newFrame;
+     */
     
 }
 
@@ -81,9 +94,61 @@ BOOL flagHide = NO;
         self.view.backgroundColor = [UIColor blackColor];
     }
     //NSLog(@"Flag state is: %hhd", flagHide);
-    backButton.hidden = flagHide;
-    titleLabel.hidden = flagHide;
-    backgroundLabel.hidden = flagHide;
+    //backButton.hidden = flagHide;
+    //titleLabel.hidden = flagHide;
+    //backgroundLabel.hidden = flagHide;
+    
+    [self.navigationController setNavigationBarHidden:flagHide animated:NO];
+    if (flagHide == YES) {
+
+        [self hideTabBar:self.tabBarController];
+    }
+    else {
+        
+        [self showTabBar:self.tabBarController];
+    }
+}
+
+- (void)hideTabBar:(UITabBarController *) tabbarcontroller
+{
+    //[UIView beginAnimations:nil context:NULL];
+    //[UIView setAnimationDuration:0.5];
+    
+    for(UIView *view in tabbarcontroller.view.subviews)
+    {
+        if([view isKindOfClass:[UITabBar class]])
+        {
+            [view setFrame:CGRectMake(view.frame.origin.x, originalFrame.origin.y+50, view.frame.size.width, view.frame.size.height)];
+        }
+        /*else
+        {
+            [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, originalFrame.size.height)];
+        }*/
+    }
+    
+    //[UIView commitAnimations];
+}
+
+- (void)showTabBar:(UITabBarController *) tabbarcontroller
+{
+    //[UIView beginAnimations:nil context:NULL];
+    //[UIView setAnimationDuration:0.5];
+    for(UIView *view in tabbarcontroller.view.subviews)
+    {
+        NSLog(@"%@", view);
+        
+        if([view isKindOfClass:[UITabBar class]])
+        {
+            [view setFrame:CGRectMake(view.frame.origin.x, originalFrame.origin.y, view.frame.size.width, view.frame.size.height)];
+            
+        }
+        /*else
+        {
+            [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, originalFrame.size.height)];
+        }*/
+    }
+    
+    //[UIView commitAnimations];
 }
 
 -(IBAction)showActionSheet:(id)sender {
@@ -160,7 +225,8 @@ BOOL flagHide = NO;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"Back"]){
         NSLog(@"Go back to 2nd MainView\r");
-        Main2ViewController *controller = [segue destinationViewController];
+        [segue destinationViewController];
+        
     }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.

@@ -19,9 +19,8 @@
 
 @implementation Main2ViewController
 
-@synthesize backButton;
 @synthesize tableView;
-@synthesize labelTitle;
+@synthesize navBar2;
 
 int r;
 int indexToSegue;
@@ -31,9 +30,7 @@ UIImage *imgToSegue;
     [super viewDidLoad];
     
     r = nbRows;
-    
-    [self.view bringSubviewToFront:backButton];
-    
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
 - (IBAction)backPressed:(id)sender {

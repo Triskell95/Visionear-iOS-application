@@ -18,6 +18,7 @@
 @synthesize startButton;
 @synthesize visionearLabel;
 @synthesize visionearImg;
+@synthesize navBar;
 
 UIAlertView *alert2;
 NSNumber *timeoutDelay;
@@ -35,6 +36,8 @@ NSString *imgPathToDl, *imgFile;
     
     //Setting the alert
     alert2 = [[UIAlertView alloc] initWithTitle:@"Establishing Connection\rPlease wait..."message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
