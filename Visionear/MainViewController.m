@@ -56,6 +56,7 @@ NSString *imgPathToDl, *imgFile;
     [self.nextResponder touchesEnded:touches withEvent:event];
 }
 
+//When Single tap perform by user
 -(IBAction)handleSingleTap
 {
     NSLog(@"Main Screen Tapped !");
