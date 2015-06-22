@@ -6,20 +6,18 @@
 //  Copyright (c) 2558 CPE KMUTT. All rights reserved.
 //
 
-#import "Help2ViewController.h"
+#import "HelpViewController.h"
 #import "Global.h"//;
 
 NSInteger cmpt = 1;
-NSInteger cmpt2;
 
-@interface Help2ViewController ()
+@interface HelpViewController ()
 {
     UISwipeGestureRecognizer *SwipeRight, *SwipeLeft;
-    
 }
 @end
 
-@implementation Help2ViewController
+@implementation HelpViewController
 
 @synthesize pageControl;
 @synthesize label;
@@ -41,8 +39,6 @@ CGFloat TimeConst = 0.1;
     screenWidth2 = screenSize.width;
     screenHeight2 = screenSize.height;
     
-    NSLog(@"\rCmpt = %i\rCmpt2 = %ld", (int)cmpt, (long)cmpt2);
-    
     imgArray = imgLoadArray;
     
     //Initialization of the label array
@@ -62,18 +58,9 @@ CGFloat TimeConst = 0.1;
     SwipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:SwipeLeft];
     
-    //NSLog(@"%@", imgArray);
     //NSLog(@"Current Page :%i", (int) pageControl.currentPage);
     pageControl.numberOfPages = 5;
     pageControl.currentPage = 0;
-    
-    //Initialization of the elements of the current page
-    imgView.animationImages = [imgArray objectAtIndex:0];
-    [[imgView layer] setBorderWidth:1.0f];
-    [[imgView layer] setBorderColor:[UIColor blackColor].CGColor];
-    imgView.animationDuration = [[imgArray objectAtIndex:0] count]*0.1;
-    [imgView startAnimating];
-    label.text = [labelArray objectAtIndex:0];
     
     //Initialization of the elements of the current page
     imgView.animationImages = [imgArray objectAtIndex:0];
@@ -86,8 +73,8 @@ CGFloat TimeConst = 0.1;
     NSLog(@"Current Page :%ld", (long)pageControl.currentPage);
 }
 
--(void)Right: (UIGestureRecognizer *)sender
-{
+//When a through the right gesture is perform (previous page)
+-(void)Right: (UIGestureRecognizer *)sender {
     cmpt -= 1;
     
     pageControl.currentPage = cmpt-1;
@@ -112,8 +99,8 @@ CGFloat TimeConst = 0.1;
  
 }
 
--(void)Left: (UIGestureRecognizer *)sender
-{
+//When a through the left is performed (next page)
+-(void)Left: (UIGestureRecognizer *)sender {
     cmpt+= 1;
     
     pageControl.currentPage = cmpt-1;
@@ -142,15 +129,5 @@ CGFloat TimeConst = 0.1;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

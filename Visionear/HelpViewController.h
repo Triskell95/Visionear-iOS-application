@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Help2ViewController : UIViewController <UIScrollViewDelegate>
+@interface HelpViewController : UIViewController <UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (nonatomic, strong) NSMutableArray *imgArray;
