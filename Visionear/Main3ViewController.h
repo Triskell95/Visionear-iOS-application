@@ -24,7 +24,7 @@
 @property int indexFromSegue;
 @property UIImage *img;
 
+-(IBAction)ActionButton:(id)sender;
 -(IBAction)showActionSheet:(id)sender;
--(IBAction)backPressed:(id)sender;
 
 @end

@@ -24,40 +24,38 @@
 @synthesize tabBar3;
 
 BOOL flagHide = NO;
-float ratio;
+//float ratio;
 CGRect originalFrame;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //labelDesc.text = [fileMainArray objectAtIndex:indexFromSegue];
+    //Settings of the NavigationBar (2nd line permits not to push all the element of the view down)
+    self.navigationController.navigationBar.translucent = YES;
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    //Settings of the imageView
     imgView.image = img;
-    ratio = img.size.height/img.size.width;
     imgView.contentMode = UIViewContentModeScaleAspectFit;
-    
-    [scroll setMaximumZoomScale:5.0f];
-    [scroll setClipsToBounds:YES];
-    
-    UILongPressGestureRecognizer *recoginzer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onPress:)];
-    [self.view addGestureRecognizer:recoginzer];
-    
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
-    singleTap.numberOfTapsRequired = 1;
     imgView.userInteractionEnabled = YES;
-    [imgView addGestureRecognizer:singleTap];
-    
-    [self.view sendSubviewToBack:scroll];
     [self.view sendSubviewToBack:imgView];
     
+    //Settings of the scrollView
+    [scroll setMaximumZoomScale:5.0f];
+    [scroll setClipsToBounds:YES];
+    [self.view sendSubviewToBack:scroll];
+    
+    //Settings of the LongPressGestureRecognition
+    UILongPressGestureRecognizer *recognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onPress:)];
+    [self.view addGestureRecognizer:recognizer];
+    
+    //Settings of the SingleTapGestureRecognition
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
+    singleTap.numberOfTapsRequired = 1;
+    [imgView addGestureRecognizer:singleTap];
+    
+    //Save the size and position of the tabBar because the only way to "hide" it is to send it far away
     originalFrame = self.tabBarController.tabBar.frame;
-    
-    /*
-    CGRect screenBound = [[UIScreen mainScreen] bounds];
-    CGRect newFrame = CGRectMake(0, (screenBound.size.height - screenBound.size.width*ratio)/2 - self.navigationController.navigationBar.frame.size.height, screenBound.size.width, screenBound.size.width*ratio);
-    imgView.frame = newFrame;
-    scroll.frame = newFrame;
-     */
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,102 +63,90 @@ CGRect originalFrame;
     // Dispose of any resources that can be recreated.
 }
 
+//Permits to zoom on the imageview
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     
     return imgView;
 }
 
+//When there is a long press gesture done by the user
 - (void)onPress:(UILongPressGestureRecognizer*)longpress {
     
     if (longpress.state == UIGestureRecognizerStateBegan) {
-        
         NSLog(@"Long press");
         [self showActionSheet:@"id"];
     }
     else if (longpress.state == UIGestureRecognizerStateEnded || longpress.state == UIGestureRecognizerStateCancelled || longpress.state == UIGestureRecognizerStateFailed) {
-        
-        NSLog(@"Long press done");
+        NSLog(@"Long press finished/failed");
     }
 }
 
+//When a single tap is performed by the user
 -(void)tapDetected{
+    
     NSLog(@"single Tap on imageview");
+    
+    //Settings of the view depending on the actual state of it
     if(flagHide){
         flagHide = NO;
         self.view.backgroundColor = [UIColor whiteColor];
+        [self showTabBar:self.tabBarController];
     }
     else {
         flagHide = YES;
         self.view.backgroundColor = [UIColor blackColor];
-    }
-    //NSLog(@"Flag state is: %hhd", flagHide);
-    //backButton.hidden = flagHide;
-    //titleLabel.hidden = flagHide;
-    //backgroundLabel.hidden = flagHide;
-    
-    [self.navigationController setNavigationBarHidden:flagHide animated:NO];
-    if (flagHide == YES) {
-
         [self hideTabBar:self.tabBarController];
     }
-    else {
-        
-        [self showTabBar:self.tabBarController];
-    }
+    
+    //Display or dismiss the navigationBar following the actual state
+    [self.navigationController setNavigationBarHidden:flagHide animated:NO];
 }
 
-- (void)hideTabBar:(UITabBarController *) tabbarcontroller
-{
+//"Hide" the TabBar
+- (void)hideTabBar:(UITabBarController *) tabbarcontroller {
     //[UIView beginAnimations:nil context:NULL];
     //[UIView setAnimationDuration:0.5];
     
     for(UIView *view in tabbarcontroller.view.subviews)
     {
+        //Send the TabBar far away to "hide it"
         if([view isKindOfClass:[UITabBar class]])
         {
-            [view setFrame:CGRectMake(view.frame.origin.x, originalFrame.origin.y+50, view.frame.size.width, view.frame.size.height)];
+            [view setFrame:CGRectMake(view.frame.origin.x, originalFrame.origin.y+500, view.frame.size.width, view.frame.size.height)];
         }
-        /*else
-        {
-            [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, originalFrame.size.height)];
-        }*/
     }
-    
     //[UIView commitAnimations];
 }
 
-- (void)showTabBar:(UITabBarController *) tabbarcontroller
-{
+//"Show" the TabBar
+- (void)showTabBar:(UITabBarController *) tabbarcontroller {
     //[UIView beginAnimations:nil context:NULL];
     //[UIView setAnimationDuration:0.5];
+    
     for(UIView *view in tabbarcontroller.view.subviews)
     {
-        NSLog(@"%@", view);
-        
+        //Send back the TabBar to its original position
         if([view isKindOfClass:[UITabBar class]])
         {
             [view setFrame:CGRectMake(view.frame.origin.x, originalFrame.origin.y, view.frame.size.width, view.frame.size.height)];
-            
         }
-        /*else
-        {
-            [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, originalFrame.size.height)];
-        }*/
     }
-    
     //[UIView commitAnimations];
 }
 
+//If the user click on the Action Button on the right of the Navigation Bar
+- (IBAction)ActionButton:(id)sender {
+   [self showActionSheet:@"id"];
+}
+
+//Show a sheet menu from the bottom of the view to perform more actions
 -(IBAction)showActionSheet:(id)sender {
     UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"What do you want to do with this picture ?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete" otherButtonTitles:@"Save", @"Share on Facebook", nil];
     popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [popupQuery showInView:self.view];
 }
 
-- (IBAction)backPressed:(id)sender {
-    NSLog(@"Back Pressed !");
-}
-
+//Manage all the actions possible with the sheet menu
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     switch (buttonIndex) {
@@ -203,11 +189,10 @@ CGRect originalFrame;
             break;
         }
     }
-    
 }
 
--(void)image:(UIImage *)image finishedSavingWithError:(NSError *) error contextInfo:(void *)contextInfo
-{
+//Verify the image has been saved correctly in the Photo Gallery
+-(void)image:(UIImage *)image finishedSavingWithError:(NSError *) error contextInfo:(void *)contextInfo {
     if (error) {
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle: @"Save failed"
@@ -217,19 +202,6 @@ CGRect originalFrame;
                               otherButtonTitles:nil];
         [alert show];
     }
-}
-
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"Back"]){
-        NSLog(@"Go back to 2nd MainView\r");
-        [segue destinationViewController];
-        
-    }
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
 
 @end

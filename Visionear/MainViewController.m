@@ -28,6 +28,7 @@ NSString *imgPathToDl, *imgFile;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //Set size and position of the Visionear Image 
     visionearImg.frame = CGRectMake(0, 0, 100, 100);
     visionearImg.center = visionearImg.superview.center;
     
@@ -36,8 +37,6 @@ NSString *imgPathToDl, *imgFile;
     
     //Setting the alert
     alert2 = [[UIAlertView alloc] initWithTitle:@"Establishing Connection\rPlease wait..."message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
-    
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,9 +44,14 @@ NSString *imgPathToDl, *imgFile;
     // Dispose of any resources that can be recreated.
 }
 
+//Just before the view appears, to set the navigationBar hidden
+- (void)viewWillAppear:(BOOL)animated {
+    //Hide the NavigationBar
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
 //To detect if the screen is tapped or not
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     
     //NSUInteger numTaps = [[touches anyObject] tapCount];
     float delay = 0.1;
@@ -59,8 +63,8 @@ NSString *imgPathToDl, *imgFile;
     [self.nextResponder touchesEnded:touches withEvent:event];
 }
 
--(IBAction)handleSingleTap
-{
+//When the event is a single tap
+-(IBAction)handleSingleTap {
     NSLog(@"Main Screen Tapped !");
     
     //Connection to the Raspberry
@@ -73,6 +77,7 @@ NSString *imgPathToDl, *imgFile;
     }
 }
 
+//Check the connection with the RPi and download the new images
 -(void)connectToRasp {
     
     NSString *resultBash = [NSString alloc];
@@ -164,6 +169,7 @@ NSString *imgPathToDl, *imgFile;
 
 }
 
+//Download an image from the RPi
 -(void)downloadImgFromRPi:(NSString *) name file:(NSString *)fileName {
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -182,15 +188,5 @@ NSString *imgPathToDl, *imgFile;
         [imgMainArray addObject:name];
     }
 }
-
-/*-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"MySegueName"])
-    {
-        //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        //NSDate *object = _objects[indexPath.row];
-        //[[segue destinationViewController] setDetailItem:object];
-    }
-}*/
 
 @end

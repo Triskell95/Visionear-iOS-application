@@ -29,20 +29,20 @@ UIImage *imgToSegue;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    r = nbRows;
+    //Display NavigationBar, hidden in the previous view
     [self.navigationController setNavigationBarHidden:NO animated:NO];
+    
+    //Simple affectation of the number of rows in the tableview
+    r = nbRows;
 }
 
-- (IBAction)backPressed:(id)sender {
-    
-    NSLog(@"Back pressed, you'll be disconnected !");
-    //[session disconnect];
-
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 //Setting the number of rows in the tableView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     return r;
 }
 
@@ -66,14 +66,23 @@ UIImage *imgToSegue;
     return cell;
 }
 
+//When the user selects a row
 -(void)tableView:(UITableView *)tabView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    indexToSegue = (int)indexPath.row;
     MainCustomCell *cell = (MainCustomCell*)[tableView cellForRowAtIndexPath:indexPath];
+    
+    //Here we save some data to send it by segue to the next view
+    indexToSegue = (int)indexPath.row;
     imgToSegue = cell.imgView.image;
+    
+    //Perform the segue
     [self performSegueWithIdentifier:@"rowSelected" sender:self.view];
+    
+    //Dismiss the highlight of the cell
+    [cell setSelected:NO];
 }
 
+//Load an image, previously downloaded from the RPi
 - (UIImage*)loadImage:(NSString *) name{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                          NSUserDomainMask, YES);
@@ -83,10 +92,6 @@ UIImage *imgToSegue;
     return image;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Navigation
 

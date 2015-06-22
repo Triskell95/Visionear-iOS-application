@@ -18,7 +18,7 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Back-->
+        <!--Home-->
         <scene sceneID="BIu-WC-zaN">
             <objects>
                 <viewController id="UYA-B1-uoB" customClass="MainViewController" sceneMemberID="viewController">
@@ -74,7 +74,8 @@
                             <constraint firstItem="Fbv-WA-Fwf" firstAttribute="top" secondItem="4uQ-Or-gPR" secondAttribute="bottom" constant="23" id="mNf-i9-cBC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Back" id="hDa-Lq-LOz"/>
+                    <navigationItem key="navigationItem" title="Home" id="hDa-Lq-LOz"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="navBar" destination="hDa-Lq-LOz" id="zwN-dU-3JX"/>
@@ -151,10 +152,8 @@
                             <constraint firstAttribute="trailing" secondItem="tVE-YI-7A7" secondAttribute="trailing" id="clp-Xs-aW2"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" id="R7e-AJ-So5"/>
-                    <navigationItem key="navigationItem" title="Visionear Images" id="zkz-J8-XX6">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="K6f-w7-KRE"/>
-                    </navigationItem>
+                    <tabBarItem key="tabBarItem" title="" systemItem="more" id="R7e-AJ-So5"/>
+                    <navigationItem key="navigationItem" title="Visionear Images" id="zkz-J8-XX6"/>
                     <keyCommands/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -207,9 +206,13 @@
                             <constraint firstItem="sjh-re-7x5" firstAttribute="leading" secondItem="5Lk-U1-uBE" secondAttribute="leading" id="xoJ-Fn-dh2"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" id="fgQ-BU-pKQ"/>
+                    <tabBarItem key="tabBarItem" title="" systemItem="more" id="fgQ-BU-pKQ"/>
                     <navigationItem key="navigationItem" title="Choosen image" id="OKq-w6-GeX">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="wfd-Eu-ndT"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="action" id="n0a-yU-Qge">
+                            <connections>
+                                <action selector="ActionButton:" destination="Aqy-PB-0wj" id="Ump-eD-8PM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="imgView" destination="0db-A0-69q" id="PbN-Hg-ZFd"/>
@@ -225,8 +228,9 @@
         <!--Visionear-->
         <scene sceneID="ncB-Do-a04">
             <objects>
-                <navigationController id="xEt-zJ-ocs" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" id="xEt-zJ-ocs" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Visionear" image="Icon-Small" id="01I-tv-qYF"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NnN-AH-Kd6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

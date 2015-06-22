@@ -109,7 +109,7 @@ CGFloat TimeConst = 0.1;
     imgView.animationDuration = [[imgArray objectAtIndex:cmpt-1] count]*TimeConst;
     [imgView startAnimating];
     label.text = [labelArray objectAtIndex:cmpt-1];
-    
+ 
 }
 
 -(void)Left: (UIGestureRecognizer *)sender
