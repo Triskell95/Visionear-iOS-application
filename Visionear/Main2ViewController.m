@@ -26,6 +26,7 @@ int r;
 int indexToSegue;
 UIImage *imgToSegue;
 UIImagePickerController *picker;
+UIAlertView *alert3;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,6 +36,8 @@ UIImagePickerController *picker;
     
     //Simple affectation of the number of rows in the tableview
     r = nbRows;
+    
+    alert3 = [[UIAlertView alloc] initWithTitle:@"Uploading the photo\rPlease wait..."message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -123,15 +126,18 @@ UIImagePickerController *picker;
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
+    
+    [alert3 show];
+    
     imgToSegue = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     indexToSegue = 0;
     
     [self saveNewImage];
     
     //Perform the segue
-    [self performSegueWithIdentifier:@"rowSelected" sender:self.view];
-    
+    //[self performSegueWithIdentifier:@"rowSelected" sender:self.view];
     [self dismissViewControllerAnimated:YES completion:NULL];
+    
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -161,7 +167,7 @@ UIImagePickerController *picker;
     r++;
     nbRows++;
     
-    
+    [alert3 dismissWithClickedButtonIndex:0 animated:YES];
     
 }
 
