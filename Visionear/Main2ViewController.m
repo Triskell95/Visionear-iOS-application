@@ -25,6 +25,7 @@
 int r;
 int indexToSegue;
 UIImage *imgToSegue;
+UIImagePickerController *picker;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,6 +35,11 @@ UIImage *imgToSegue;
     
     //Simple affectation of the number of rows in the tableview
     r = nbRows;
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    
+    [tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -107,5 +113,56 @@ UIImage *imgToSegue;
     // Pass the selected object to the new view controller.
 }
 
+
+- (IBAction)TakePhoto:(id)sender {
+    picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    [picker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    imgToSegue = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    indexToSegue = 0;
+    
+    [self saveNewImage];
+    
+    //Perform the segue
+    [self performSegueWithIdentifier:@"rowSelected" sender:self.view];
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)saveNewImage {
+    
+    maxIndex ++;
+    
+    NSString *str = [NSString stringWithFormat:@"%@%@%i", defaultImgPathToDl, defaultImgName, maxIndex];
+    [fileMainArray insertObject:str atIndex:0];
+    NSLog(@"fileMainArray capacity: %i", fileMainArray.count);
+    
+    str = [NSString stringWithFormat:@"%@%i.png", defaultImgName, maxIndex];
+    NSLog(@"\r%@\r", str);
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:str];
+    
+    [session.channel uploadFile:filePath to:[NSString stringWithFormat:@"%@%@%i",defaultImgPathToDl, defaultImgName, maxIndex]];
+    
+    [UIImagePNGRepresentation(imgToSegue) writeToFile:filePath atomically:YES];
+    [imgMainArray insertObject:str atIndex:0];
+    
+    r++;
+    nbRows++;
+    
+    
+    
+}
 
 @end

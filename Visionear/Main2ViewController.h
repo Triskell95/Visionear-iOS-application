@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Main2ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface Main2ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar2;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+- (IBAction)TakePhoto:(id)sender;
 
 @end

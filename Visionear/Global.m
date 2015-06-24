@@ -14,6 +14,7 @@ NSMutableArray *imgLoadArray;
 NSMutableArray *fileMainArray;
 NSMutableArray *imgMainArray;
 int nbRows;
+int maxIndex;
 NSString *hostIP, *username, *pwd;
 NSString *defaultImgPathToDl, *defaultImgFile, *defaultImgName, *defaultFileName;
 NMSSHSession *session;

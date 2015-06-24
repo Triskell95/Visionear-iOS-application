@@ -162,7 +162,7 @@ CGRect originalFrame;
             [fileMainArray removeObjectAtIndex:indexFromSegue];
             [imgMainArray removeObjectAtIndex:indexFromSegue];
             nbRows --;
-            [self performSegueWithIdentifier:@"Back" sender:self.view];
+            [[self navigationController] popViewControllerAnimated:YES];
             break;
         }
         case 1:{

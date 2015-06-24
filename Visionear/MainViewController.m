@@ -96,6 +96,7 @@ NSString *imgPathToDl, *imgFile;
             
             //Counting the number of images on the RPi
             cmd = [NSString stringWithFormat: @"ls -1 %@ | grep %@ | wc -l", defaultImgPathToDl, defaultImgName];
+            
             resultBash = [session.channel execute:cmd error:&error];
             NSLog(@"Number of images: %@\r\r", resultBash);
             
@@ -126,20 +127,16 @@ NSString *imgPathToDl, *imgFile;
                     cmd = [NSString stringWithFormat: @"ls -1 %@ | grep %@ | head -n +%i | tail -n -1 | head -c -1", defaultImgPathToDl, defaultImgName, i];
                     resultBash = [session.channel execute:cmd error:&error];
                     
+                    if(i == nbRows) {
+                        NSString *cmd2;
+                        cmd2 = [NSString stringWithFormat: @"ls -1 %@ | grep %@ | head -n +%i | tail -n -1 | head -c -1 | tail -c +%i", defaultImgPathToDl, defaultImgName, i, defaultImgName.length+1];
+                        maxIndex = [session.channel execute:cmd2 error:&error].intValue;
+                        //NSLog(@"\r\rMax number: %i\r\r", maxIndex);
+                    }
+                    
                     //Default path to reach to download an image and its description file from the RPi
                     imgPathToDl = [NSString stringWithFormat:@"%@%@",defaultImgPathToDl, resultBash];
-                    //imgFile = [NSString stringWithFormat:@"%@%@%i",defaultImgFile, defaultFileName, i];
                     NSLog(@"imgPathToDl[%i] = %@", i, imgPathToDl);
-                    
-                    //If you want to add the description of the image in the label of the next view, uncomment the next lines
-                    //Command to execute to get the image file corresponding to 'imgFile' and display it in the label
-                    /*
-                    cmd = [NSString stringWithFormat: @"cat %@", imgFile];
-                    NSLog(@"Command to execute:\r%@", cmd);
-                    resultBash = [session.channel execute:cmd error:&error];
-                    NSLog(@"Result of the Command: %@\r\r", resultBash);
-                    [fileMainArray addObject:resultBash];
-                    */
                     
                     //To set the name of the image in the next view label
                     [fileMainArray addObject:imgPathToDl];
