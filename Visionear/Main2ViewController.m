@@ -151,7 +151,7 @@ UIAlertView *alert3;
     
     NSString *str = [NSString stringWithFormat:@"%@%@%i", defaultImgPathToDl, defaultImgName, maxIndex];
     [fileMainArray insertObject:str atIndex:0];
-    NSLog(@"fileMainArray capacity: %i", fileMainArray.count);
+    NSLog(@"fileMainArray capacity: %i", (int) fileMainArray.count);
     
     str = [NSString stringWithFormat:@"%@%i.png", defaultImgName, maxIndex];
     NSLog(@"\r%@\r", str);

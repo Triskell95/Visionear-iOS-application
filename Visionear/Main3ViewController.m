@@ -182,6 +182,7 @@ CGRect originalFrame;
             mySLComposerSheet = [[SLComposeViewController alloc] init];
             mySLComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
             [mySLComposerSheet setInitialText:@"Toto"];
+            [mySLComposerSheet addImage:img];
             [self presentViewController:mySLComposerSheet animated:YES completion:NULL];
         }
         case 3:{
