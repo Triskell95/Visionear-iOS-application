@@ -71,10 +71,10 @@ NSString *imgPathToDl, *imgFile;
     [self connectToRasp];
     
     //If everything is OK with the SSH session
-    if(flag){
+    //if(flag){
         [alert2 dismissWithClickedButtonIndex:0 animated:YES];
         [self performSegueWithIdentifier:@"NextView" sender:self];
-    }
+    //}
 }
 
 //Check the connection with the RPi and download the new images
@@ -171,19 +171,19 @@ NSString *imgPathToDl, *imgFile;
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:name];
-    
-    flag = [session.channel downloadFile:fileName to:filePath];
-    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]){
+        flag = [session.channel downloadFile:fileName to:filePath];
+        if(flag){
+            //If the download has been done successfully, save the image locally
+            UIImage *image;
+            [UIImagePNGRepresentation(image) writeToFile:filePath atomically:YES];
+        }
+        NSLog(@"%@ downloaded !", name);
+    }
     NSLog(@"Name: %@ with flag: %hhd\r", name, flag);
     
     
-    //If the download has been done successfully, save the image locally
-    if(flag){
-        
-        UIImage *image;
-        [UIImagePNGRepresentation(image) writeToFile:filePath atomically:YES];
-        [imgMainArray addObject:name];
-    }
+    [imgMainArray addObject:name];
 }
 
 @end

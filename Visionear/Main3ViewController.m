@@ -159,6 +159,11 @@ CGRect originalFrame;
             //Counting the number of images on the RPi
             cmd = [NSString stringWithFormat: @"rm %@", [fileMainArray objectAtIndex:indexFromSegue]];
             resultBash = [session.channel execute:cmd error:&error];
+            
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[imgMainArray objectAtIndex:indexFromSegue]];
+            [[NSFileManager defaultManager] removeItemAtPath:filePath error:NULL];
+            
             [fileMainArray removeObjectAtIndex:indexFromSegue];
             [imgMainArray removeObjectAtIndex:indexFromSegue];
             nbRows --;
