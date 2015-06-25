@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Main2ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface Main2ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar2;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

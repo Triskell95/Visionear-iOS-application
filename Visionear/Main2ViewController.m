@@ -27,6 +27,7 @@ int indexToSegue;
 UIImage *imgToSegue;
 UIImagePickerController *picker;
 UIAlertView *alert3;
+BOOL flagPhoto = NO;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,15 +35,24 @@ UIAlertView *alert3;
     //Display NavigationBar, hidden in the previous view
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     
-    //Simple affectation of the number of rows in the tableview
-    r = nbRows;
+    alert3 = [[UIAlertView alloc] initWithTitle:@"Uploading photo\rPlease wait..."message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
     
-    alert3 = [[UIAlertView alloc] initWithTitle:@"Uploading the photo\rPlease wait..."message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     
+    //Simple affectation of the number of rows in the tableview
+    r = nbRows;
+
     [tableView reloadData];
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    if(flagPhoto == YES) {
+        [self imageTaken];
+        [tableView reloadData];
+        flagPhoto = NO;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -118,31 +128,40 @@ UIAlertView *alert3;
 
 
 - (IBAction)TakePhoto:(id)sender {
+    flagPhoto = NO;
     picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     [picker setSourceType:UIImagePickerControllerSourceTypeCamera];
     [self presentViewController:picker animated:YES completion:NULL];
+
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
-    
-    [alert3 show];
-    
     imgToSegue = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     indexToSegue = 0;
-    
-    [self saveNewImage];
-    
+
+    flagPhoto = YES;
+   
+    [alert3 show];
     //Perform the segue
     //[self performSegueWithIdentifier:@"rowSelected" sender:self.view];
+
     [self dismissViewControllerAnimated:YES completion:NULL];
-    
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)imageTaken {
+    
+    //[alert3 show];
+    
+    [self saveNewImage];
+    
+    [alert3 dismissWithClickedButtonIndex:0 animated:NO];
 }
 
 - (void)saveNewImage {
@@ -167,7 +186,8 @@ UIAlertView *alert3;
     r++;
     nbRows++;
     
-    [alert3 dismissWithClickedButtonIndex:0 animated:YES];
+    //[tableView reloadData];
+    //[alert3 dismissWithClickedButtonIndex:0 animated:YES];
     
 }
 

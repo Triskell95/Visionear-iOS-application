@@ -162,6 +162,7 @@ CGRect originalFrame;
             [fileMainArray removeObjectAtIndex:indexFromSegue];
             [imgMainArray removeObjectAtIndex:indexFromSegue];
             nbRows --;
+            
             [[self navigationController] popViewControllerAnimated:YES];
             break;
         }
