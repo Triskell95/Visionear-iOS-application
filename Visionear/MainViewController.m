@@ -71,10 +71,13 @@ NSString *imgPathToDl, *imgFile;
     [self connectToRasp];
     
     //If everything is OK with the SSH session
-    //if(flag){
+    if(flag){
         [alert2 dismissWithClickedButtonIndex:0 animated:YES];
         [self performSegueWithIdentifier:@"NextView" sender:self];
-    //}
+    }
+    else {
+        flag = YES;
+    }
 }
 
 //Check the connection with the RPi and download the new images

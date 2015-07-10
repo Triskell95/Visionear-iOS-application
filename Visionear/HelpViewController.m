@@ -23,12 +23,13 @@ NSInteger cmpt = 1;
 @synthesize label;
 @synthesize imgArray;
 @synthesize labelArray;
-@synthesize imgView;
+@synthesize scr;
 
 CGFloat screenWidth2;
 CGFloat screenHeight2;
 NSInteger nbFrames[5] = {18, 38, 20, 15, 16};
 CGFloat TimeConst = 0.1;
+int nextPage = 0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -58,71 +59,114 @@ CGFloat TimeConst = 0.1;
     SwipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:SwipeLeft];
     
+    scr.pagingEnabled = YES;
+    [scr setBackgroundColor:[UIColor blackColor]];
+    [self setupScrollView:scr];
+    
     //NSLog(@"Current Page :%i", (int) pageControl.currentPage);
     pageControl.numberOfPages = 5;
     pageControl.currentPage = 0;
     
     //Initialization of the elements of the current page
-    imgView.animationImages = [imgArray objectAtIndex:0];
-    [[imgView layer] setBorderWidth:1.0f];
-    [[imgView layer] setBorderColor:[UIColor blackColor].CGColor];
-    imgView.animationDuration = [[imgArray objectAtIndex:0] count]*TimeConst;
-    [imgView startAnimating];
-    label.text = [labelArray objectAtIndex:0];
+    //[self loadArrayWithImages:0 :imgView];
     
+    label.text = [labelArray objectAtIndex:0];
     NSLog(@"Current Page :%ld", (long)pageControl.currentPage);
+}
+
+-(void) loadArrayWithImages: (int) index :(UIImageView *) imageView{
+    
+    imageView.animationImages = [imgArray objectAtIndex:index];
+    //imgView.image = [UIImage imageNamed:[imgArray objectAtIndex:cmpt-1]];
+    [[imageView layer] setBorderWidth:1.0f];
+    [[imageView layer] setBorderColor:[UIColor blackColor].CGColor];
+    imageView.animationDuration = [[imgArray objectAtIndex:index] count]*TimeConst;
+    [imageView startAnimating];
+    
+}
+
+- (void)setupScrollView:(UIScrollView*)scrMain {
+    // we have 10 images here.
+    // we will add all images into a scrollView &amp; set the appropriate size.
+    
+    for (int i=0; i<5; i++) {
+        UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake((i)*self.view.frame.size.width, 0, self.view.frame.size.width, scrMain.frame.size.height)];
+        
+        imgV.contentMode=UIViewContentModeScaleToFill;
+        
+        [self loadArrayWithImages:i :imgV];
+        
+        NSLog(@"Loading scene nb %d", i);
+        // set image
+        //[imgV setImage:image];
+        // apply tag to access in future
+        imgV.tag=i+1;
+        // add to scrollView
+        [scrMain addSubview:imgV];
+    }
+    // set the content size to 10 image width
+    [scrMain setContentSize:CGSizeMake(self.view.frame.size.width*5, scr.frame.size.height)];
+    // enable timer after each 2 seconds for scrolling.
+    //[NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(scrollingTimer) userInfo:nil repeats:YES];
+}
+
+- (void)scrolling: (int) nb {
+    
+    // get the current offset ( which page is being displayed )
+    CGFloat contentOffset = scr.contentOffset.x;
+    CGPoint cg = {nb, 0};
+    
+    //[scr scrollViewWillEndDragging:withVelocity:targetContentOffset:];
+    //[self scrollViewWillEndDragging:scr withVelocity:cg targetContentOffset:&cg];
+    [self scrollViewWillEndDragging:scr withVelocity:cg targetContentOffset:&cg];
+    // calculate next page to display
+    nextPage = (int)(contentOffset/scr.frame.size.width) + nb ;
+    // if page is not 10, display it
+    if( nextPage!=5 )  {
+        [scr scrollRectToVisible:CGRectMake(nextPage*scr.frame.size.width, 0, scr.frame.size.width, scr.frame.size.height) animated:YES];
+        pageControl.currentPage+=nb;
+        // else start sliding form 1 :)
+    } else {
+        [scr scrollRectToVisible:CGRectMake(0, 0, scr.frame.size.width, scr.frame.size.height) animated:YES];
+        pageControl.currentPage=0;
+    }
+    label.text = [labelArray objectAtIndex:pageControl.currentPage];
+    NSLog(@"Current Page is %ld", (long)pageControl.currentPage);
+}
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    targetContentOffset->x = scrollView.contentOffset.x;
+}
+
+- (IBAction)changePage:(id)sender{
+    CGFloat x = pageControl.currentPage * scr.frame.size.width;
+    [scr setContentOffset:CGPointMake(x, 0) animated:YES];
+    /*CGRect frame = scr.frame;
+    frame.origin.x = frame.size.width * pageControl.currentPage;
+    frame.origin.y = 0;
+    [scr scrollRectToVisible:frame animated:YES];
+     */
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView.isDragging || scrollView.isDecelerating){
+        pageControl.currentPage = lround(scr.contentOffset.x / (scr.contentSize.width / pageControl.numberOfPages));
+    }
 }
 
 //When a through the right gesture is perform (previous page)
 -(void)Right: (UIGestureRecognizer *)sender {
-    cmpt -= 1;
     
-    pageControl.currentPage = cmpt-1;
     NSLog(@"Current Page :%i", (int)pageControl.currentPage);
-    
-    [imgView stopAnimating];
-    
-    if(cmpt > pageControl.numberOfPages){
-        cmpt = pageControl.numberOfPages;
-    }
-    else if(cmpt < 1){
-        cmpt = 1;
-    }
-    
-    imgView.animationImages = [imgArray objectAtIndex:cmpt-1];
-    //imgView.image = [UIImage imageNamed:[imgArray objectAtIndex:cmpt-1]];
-    [[imgView layer] setBorderWidth:1.0f];
-    [[imgView layer] setBorderColor:[UIColor blackColor].CGColor];
-    imgView.animationDuration = [[imgArray objectAtIndex:cmpt-1] count]*TimeConst;
-    [imgView startAnimating];
-    label.text = [labelArray objectAtIndex:cmpt-1];
- 
+    [self scrolling:-1];
 }
 
 //When a through the left is performed (next page)
 -(void)Left: (UIGestureRecognizer *)sender {
-    cmpt+= 1;
     
-    pageControl.currentPage = cmpt-1;
     NSLog(@"Current Page :%ld", (long)pageControl.currentPage);
-    
-    [imgView stopAnimating];
-    
-    if(cmpt > pageControl.numberOfPages){
-        cmpt = pageControl.numberOfPages;
-    }
-    else if(cmpt < 1){
-        cmpt = 1;
-    }
-    
-    imgView.animationImages = [imgArray objectAtIndex:cmpt-1];
-    //imgView.image = [UIImage imageNamed:[imgArray objectAtIndex:cmpt-1]];
-    [[imgView layer] setBorderWidth:1.0f];
-    [[imgView layer] setBorderColor:[UIColor blackColor].CGColor];
-    imgView.animationDuration = [[imgArray objectAtIndex:cmpt-1] count]*TimeConst;
-    [imgView startAnimating];
-    label.text = [labelArray objectAtIndex:cmpt-1];
-    
+    [self scrolling:1];
 }
 
 - (void)didReceiveMemoryWarning {

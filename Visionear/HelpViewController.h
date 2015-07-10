@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (nonatomic, strong) NSMutableArray *imgArray;
 @property (nonatomic, strong) NSArray *labelArray;
-@property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UIScrollView *scr;
 
 @end

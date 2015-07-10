@@ -328,24 +328,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="AHr-iT-4Fy">
-                                <rect key="frame" x="265" y="506" width="71" height="37"/>
-                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="currentPageIndicatorTintColor" red="0.050980392159999999" green="0.2901960784" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
-                            </pageControl>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swip-icon" translatesAutoresizingMaskIntoConstraints="NO" id="efJ-l2-G8J">
-                                <rect key="frame" x="16" y="20" width="77" height="77"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="efJ-l2-G8J" secondAttribute="height" multiplier="1:1" id="1do-sG-Blv"/>
-                                    <constraint firstAttribute="width" constant="77" id="fI7-Ka-ugJ"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OvJ-R6-Joi">
-                                <rect key="frame" x="120" y="138" width="360" height="360"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="OvJ-R6-Joi" secondAttribute="height" multiplier="1:1" id="Eja-AC-vu3"/>
-                                </constraints>
-                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yfa-zU-9ss">
+                                <rect key="frame" x="0.0" y="138" width="600" height="413"/>
+                            </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JK5-Sc-oaH">
                                 <rect key="frame" x="16" y="20" width="568" height="110"/>
                                 <constraints>
@@ -355,27 +340,40 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swip-icon" translatesAutoresizingMaskIntoConstraints="NO" id="efJ-l2-G8J">
+                                <rect key="frame" x="16" y="20" width="77" height="77"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="efJ-l2-G8J" secondAttribute="height" multiplier="1:1" id="1do-sG-Blv"/>
+                                    <constraint firstAttribute="width" constant="77" id="fI7-Ka-ugJ"/>
+                                </constraints>
+                            </imageView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="AHr-iT-4Fy">
+                                <rect key="frame" x="265" y="506" width="71" height="37"/>
+                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="currentPageIndicatorTintColor" red="0.050980392159999999" green="0.2901960784" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="OvJ-R6-Joi" firstAttribute="centerX" secondItem="AHr-iT-4Fy" secondAttribute="centerX" id="6fE-dJ-twD"/>
-                            <constraint firstItem="AHr-iT-4Fy" firstAttribute="bottom" secondItem="rFP-fv-1S0" secondAttribute="top" constant="-8" id="O5i-86-VtT"/>
-                            <constraint firstItem="AHr-iT-4Fy" firstAttribute="top" secondItem="OvJ-R6-Joi" secondAttribute="bottom" constant="8" id="SNT-dB-mN8"/>
+                            <constraint firstItem="Yfa-zU-9ss" firstAttribute="centerX" secondItem="AHr-iT-4Fy" secondAttribute="centerX" id="0ZD-S3-Ug6"/>
+                            <constraint firstItem="rFP-fv-1S0" firstAttribute="top" secondItem="AHr-iT-4Fy" secondAttribute="bottom" constant="8" symbolic="YES" id="MJA-wv-Brk"/>
+                            <constraint firstItem="Yfa-zU-9ss" firstAttribute="leading" secondItem="LJ1-T1-qsw" secondAttribute="leading" id="VRk-1i-BBH"/>
+                            <constraint firstItem="Yfa-zU-9ss" firstAttribute="centerX" secondItem="JK5-Sc-oaH" secondAttribute="centerX" id="WVX-rH-SQ4"/>
                             <constraint firstItem="JK5-Sc-oaH" firstAttribute="top" secondItem="efJ-l2-G8J" secondAttribute="top" id="ak9-2b-VMt"/>
-                            <constraint firstItem="OvJ-R6-Joi" firstAttribute="top" secondItem="JK5-Sc-oaH" secondAttribute="bottom" constant="8" symbolic="YES" id="bM8-Ny-5OJ"/>
+                            <constraint firstItem="Yfa-zU-9ss" firstAttribute="bottom" secondItem="rFP-fv-1S0" secondAttribute="top" id="bVu-vr-bYY"/>
                             <constraint firstItem="JK5-Sc-oaH" firstAttribute="trailing" secondItem="LJ1-T1-qsw" secondAttribute="trailingMargin" id="c1t-sB-6r7"/>
                             <constraint firstItem="JK5-Sc-oaH" firstAttribute="leading" secondItem="efJ-l2-G8J" secondAttribute="leading" id="ezJ-ra-TZ0"/>
                             <constraint firstItem="JK5-Sc-oaH" firstAttribute="leading" secondItem="LJ1-T1-qsw" secondAttribute="leadingMargin" id="tDA-IB-miH"/>
-                            <constraint firstItem="JK5-Sc-oaH" firstAttribute="centerX" secondItem="OvJ-R6-Joi" secondAttribute="centerX" id="xPL-NW-vOF"/>
+                            <constraint firstItem="Yfa-zU-9ss" firstAttribute="top" secondItem="JK5-Sc-oaH" secondAttribute="bottom" constant="8" symbolic="YES" id="uV2-3E-8db"/>
                             <constraint firstItem="JK5-Sc-oaH" firstAttribute="top" secondItem="nu7-Ze-llV" secondAttribute="bottom" id="xwM-2x-qAs"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Help" image="help-icon" id="QSa-wB-A9i"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="imgView" destination="OvJ-R6-Joi" id="UDg-Zb-wgy"/>
                         <outlet property="label" destination="JK5-Sc-oaH" id="JsH-qM-akw"/>
                         <outlet property="pageControl" destination="AHr-iT-4Fy" id="QAg-gd-xyJ"/>
+                        <outlet property="scr" destination="Yfa-zU-9ss" id="Pv7-SW-riJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8th-Ue-l2N" userLabel="First Responder" sceneMemberID="firstResponder"/>
