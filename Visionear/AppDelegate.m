@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Global.h"//;
+#import "HelpViewController.h"
 @interface AppDelegate ()
 
 @end

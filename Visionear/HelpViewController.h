@@ -16,4 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UIScrollView *scr;
 
+- (void)setupScrollView:(UIScrollView*)scrMain;
+
 @end

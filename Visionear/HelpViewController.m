@@ -33,7 +33,7 @@ int nextPage = 0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     //Getting the size of the screen and saving the height and the width values
     CGRect screenBound = [[UIScreen mainScreen] bounds];
     CGSize screenSize = screenBound.size;
@@ -50,6 +50,7 @@ int nextPage = 0;
                   @"Step #4:\rScan objects and ask\rsome information about it",
                   @"Step #5:\rRotate the object for \r a more efficient detection", nil];
     
+    [self setupScrollView:scr];
     
     //Initialization of the gesture recognition
     SwipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(Right:)];
@@ -58,10 +59,6 @@ int nextPage = 0;
     SwipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(Left:)];
     SwipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:SwipeLeft];
-    
-    scr.pagingEnabled = YES;
-    [scr setBackgroundColor:[UIColor blackColor]];
-    [self setupScrollView:scr];
     
     //NSLog(@"Current Page :%i", (int) pageControl.currentPage);
     pageControl.numberOfPages = 5;
@@ -76,20 +73,22 @@ int nextPage = 0;
 
 -(void) loadArrayWithImages: (int) index :(UIImageView *) imageView{
     
-    imageView.animationImages = [imgArray objectAtIndex:index];
+    imageView.animationImages = [imgLoadArray objectAtIndex:index];
     //imgView.image = [UIImage imageNamed:[imgArray objectAtIndex:cmpt-1]];
     [[imageView layer] setBorderWidth:1.0f];
     [[imageView layer] setBorderColor:[UIColor blackColor].CGColor];
-    imageView.animationDuration = [[imgArray objectAtIndex:index] count]*TimeConst;
+    imageView.animationDuration = [[imgLoadArray objectAtIndex:index] count]*TimeConst;
     [imageView startAnimating];
     
 }
 
 - (void)setupScrollView:(UIScrollView*)scrMain {
-    // we have 10 images here.
-    // we will add all images into a scrollView &amp; set the appropriate size.
+    
+    scrMain.pagingEnabled = YES;
+    [scrMain setBackgroundColor:[UIColor blackColor]];
     
     for (int i=0; i<5; i++) {
+
         UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake((i)*self.view.frame.size.width, 0, self.view.frame.size.width, scrMain.frame.size.height)];
         
         imgV.contentMode=UIViewContentModeScaleToFill;
@@ -97,9 +96,7 @@ int nextPage = 0;
         [self loadArrayWithImages:i :imgV];
         
         NSLog(@"Loading scene nb %d", i);
-        // set image
-        //[imgV setImage:image];
-        // apply tag to access in future
+        
         imgV.tag=i+1;
         // add to scrollView
         [scrMain addSubview:imgV];
@@ -108,6 +105,7 @@ int nextPage = 0;
     [scrMain setContentSize:CGSizeMake(self.view.frame.size.width*5, scr.frame.size.height)];
     // enable timer after each 2 seconds for scrolling.
     //[NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(scrollingTimer) userInfo:nil repeats:YES];
+    
 }
 
 - (void)scrolling: (int) nb {
